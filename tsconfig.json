@@ -1,0 +1,11 @@
+{
+  "compilerOptions": {
+    "baseUrl": "./src",
+    "paths": {
+      "@/*": ["*"]
+    }
+  },
+  "extends": "./node_modules/@gearment/typescript-config/base",
+  "include": ["src", "global.d.ts"],
+  "references": [{ "path": "./tsconfig.node.json" }]
+}

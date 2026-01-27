@@ -1,0 +1,32 @@
+@source "../../node_modules/@gearment/ui3";
+
+@import "tailwindcss";
+@custom-variant dark (&:where(.dark, .dark *));
+
+@import "@gearment/theme3/src/index.css";
+
+.heading-3 {
+  @apply text-xl font-bold;
+}
+.heading-4 {
+  @apply text-lg font-bold;
+}
+.heading-5 {
+  @apply text-md font-semibold;
+}
+.heading-6 {
+  @apply text-base font-semibold;
+}
+
+.body-large {
+  @apply text-xl font-semibold;
+}
+.body-medium {
+  @apply text-md font-normal;
+}
+.body-small {
+  @apply text-sm font-normal;
+}
+.body-extra-small {
+  @apply text-sm font-normal;
+}
