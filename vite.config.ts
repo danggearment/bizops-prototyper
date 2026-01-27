@@ -2,14 +2,15 @@ import tailwindcss from "@tailwindcss/vite"
 import { TanStackRouterVite } from "@tanstack/router-plugin/vite"
 import viteReact from "@vitejs/plugin-react"
 import dayjs from "dayjs"
-import { defineConfig } from "vite"
+import { defineConfig, loadEnv } from "vite"
 // vite.config.ts
 
 import path from "path"
 // https://vitejs.dev/config/
-export default defineConfig(() => {
+export default defineConfig(({ mode }) => {
+  const env = loadEnv(mode, process.cwd())
   return {
-    base: "/bizops-prototyper",
+    base: env.VITE_BASE_PATH || "/",
     server: {
       port: 3000,
     },
