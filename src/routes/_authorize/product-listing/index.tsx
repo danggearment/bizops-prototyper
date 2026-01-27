@@ -6,7 +6,7 @@ import ProductListingProvider from "./-product-listing-context"
 import ProductFilter from "./-components/filter/filter"
 import Table from "./-components/table/table"
 
-export const Route = createFileRoute("/_authorize/product-listing/"){
+export const Route = createFileRoute("/_authorize/product-listing/")({
   validateSearch: zodValidator(ProductListingSearchSchema),
   search: {
     middlewares: [stripSearchParams(ProductListingSearchSchema.parse({}))],

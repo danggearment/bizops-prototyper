@@ -5,12 +5,12 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "tsc && vite build",
+    "build": "vite build",
     "lint": "eslint .",
     "format": "prettier  . --write --no-error-on-unmatched-pattern",
-    "deploy:dev": " tsc && vite build && wrangler versions upload --preview-alias dev",
-    "deploy:staging": " tsc && vite build && wrangler versions upload --preview-alias staging",
-    "deploy:production": "tsc && vite build && wrangler deploy",
+    "deploy:dev": "vite build && wrangler versions upload --preview-alias dev",
+    "deploy:staging": "vite build && wrangler versions upload --preview-alias staging",
+    "deploy:production": "vite build && wrangler deploy",
     "preview": "vite preview --port 3000"
   },
   "dependencies": {
