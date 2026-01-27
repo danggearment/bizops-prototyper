@@ -2,52 +2,55 @@ import tailwindcss from "@tailwindcss/vite"
 import { TanStackRouterVite } from "@tanstack/router-plugin/vite"
 import viteReact from "@vitejs/plugin-react"
 import dayjs from "dayjs"
-import { defineConfig } from "vite"
+import { defineConfig, loadEnv } from "vite"
 // vite.config.ts
 
 import path from "path"
 // https://vitejs.dev/config/
-export default defineConfig({
-  base: process.env.VITE_BASE_PATH || "/",
-  server: {
-    port: 3000,
-  },
-  plugins: [
-    TanStackRouterVite({
-      target: "react",
-      autoCodeSplitting: true,
-    }),
-    viteReact(),
-    tailwindcss(),
-  ],
-  resolve: {
-    alias: [
-      {
-        find: "@gearment/theme3",
-        replacement: path.resolve(__dirname, "node_modules/@gearment/theme3"),
-      },
-      { find: "@", replacement: path.resolve(__dirname, "src") },
+export default defineConfig(({ mode }) => {
+  const env = loadEnv(mode, process.cwd())
+  return {
+    base: env.VITE_BASE_PATH || "/",
+    server: {
+      port: 3000,
+    },
+    plugins: [
+      TanStackRouterVite({
+        target: "react",
+        autoCodeSplitting: true,
+      }),
+      viteReact(),
+      tailwindcss(),
     ],
-  },
-  build: {
-    minify: true,
-    rollupOptions: {
-      output: {
-        entryFileNames: `assets/[name]-[hash]-${dayjs().format("YYYYMMDDHHmm")}.js`,
-        chunkFileNames: `assets/[name]-[hash]-${dayjs().format("YYYYMMDDHHmm")}.js`,
-        assetFileNames: `assets/[name]-[hash]-${dayjs().format("YYYYMMDDHHmm")}.[ext]`,
-        manualChunks: (id: string) => {
-          // creating a chunk to react routes deps. Reducing the vendor chunk size
-          if (
-            id.includes("react-router-dom") ||
-            id.includes("react") ||
-            id.includes("@tanstack") ||
-            id.includes("ui")
-          ) {
-            return "vendor"
-          }
+    resolve: {
+      alias: [
+        {
+          find: "@gearment/theme3",
+          replacement: path.resolve(__dirname, "node_modules/@gearment/theme3"),
+        },
+        { find: "@", replacement: path.resolve(__dirname, "src") },
+      ],
+    },
+    build: {
+      minify: true,
+      rollupOptions: {
+        output: {
+          entryFileNames: `assets/[name]-[hash]-${dayjs().format("YYYYMMDDHHmm")}.js`,
+          chunkFileNames: `assets/[name]-[hash]-${dayjs().format("YYYYMMDDHHmm")}.js`,
+          assetFileNames: `assets/[name]-[hash]-${dayjs().format("YYYYMMDDHHmm")}.[ext]`,
+          manualChunks: (id: string) => {
+            // creating a chunk to react routes deps. Reducing the vendor chunk size
+            if (
+              id.includes("react-router-dom") ||
+              id.includes("react") ||
+              id.includes("@tanstack") ||
+              id.includes("ui")
+            ) {
+              return "vendor"
+            }
+          },
         },
       },
     },
-  },
+  }
 })
