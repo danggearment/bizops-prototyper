@@ -1,15 +1,29 @@
-import { PageHeader, Button, Badge, Tabs, TabsContent, TabsList, TabsTrigger, Separator } from "@gearment/ui3"
+import {
+  Badge,
+  Button,
+  PageHeader,
+  Tabs,
+  TabsContent,
+  TabsList,
+  TabsTrigger,
+} from "@gearment/ui3"
 import { createFileRoute, Link, useParams } from "@tanstack/react-router"
-import { ArrowLeft, Clock, User, Code, Eye, FileText } from "lucide-react"
 import { format } from "date-fns"
-import { usePrototypeDetail } from "./-prototype-detail-context"
-import PrototypeInfo from "./-components/prototype-info"
+import { ArrowLeft, Clock, Code, Eye, FileText, User } from "lucide-react"
+import CaseStudies from "./-components/case-studies"
 import GeneratedCode from "./-components/generated-code"
 import PreviewIframe from "./-components/preview-iframe"
-import CaseStudies from "./-components/case-studies"
+import PrototypeInfo from "./-components/prototype-info"
+import PrototypeDetailProvider, {
+  usePrototypeDetail,
+} from "./-prototype-detail-context"
 
-export const Route = createFileRoute("/_authorize/prototyper/$prototypeId/")({  
-  component: () => <Index />,
+export const Route = createFileRoute("/_authorize/prototyper/$prototypeId/")({
+  component: () => (
+    <PrototypeDetailProvider>
+      <Index />
+    </PrototypeDetailProvider>
+  ),
   beforeLoad: () => ({
     breadcrumb: [
       { link: "/prototyper", name: "Prototypes" },
@@ -44,14 +58,23 @@ function Index() {
       <PageHeader>
         <PageHeader.Title>
           <div className="flex flex-wrap items-center gap-3">
-            <span className="heading-3 text-foreground">{prototype.moduleName}</span>
-            <Badge variant={prototype.status === "completed" ? "default" : "secondary"}>
+            <span className="heading-3 text-foreground">
+              {prototype.moduleName}
+            </span>
+            <Badge
+              variant={
+                prototype.status === "completed" ? "default" : "secondary"
+              }
+            >
               {prototype.status}
             </Badge>
           </div>
         </PageHeader.Title>
         <PageHeader.Action>
-          <Link to={`/prototyper/$prototypeId/preview`} params={{ prototypeId: params.prototypeId }}>
+          <Link
+            to={`/prototyper/$prototypeId/preview`}
+            params={{ prototypeId: params.prototypeId }}
+          >
             <Button size="sm" variant="outline">
               <Eye className="w-4 h-4" />
               Preview
@@ -65,7 +88,10 @@ function Index() {
           <div className="flex items-center gap-6 text-sm text-muted-foreground">
             <div className="flex items-center gap-2">
               <Clock className="w-4 h-4" />
-              <span>Created: {format(new Date(prototype.createdAt), "dd/MM/yyyy HH:mm")}</span>
+              <span>
+                Created:{" "}
+                {format(new Date(prototype.createdAt), "dd/MM/yyyy HH:mm")}
+              </span>
             </div>
             <div className="flex items-center gap-2">
               <User className="w-4 h-4" />
