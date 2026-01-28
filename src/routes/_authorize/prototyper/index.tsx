@@ -1,13 +1,19 @@
-import { PageHeader, Tabs, TabsContent, TabsList, TabsTrigger } from "@gearment/ui3"
+import { PrototyperSearchSchema } from "@/schemas/schemas/prototyper"
+import {
+  PageHeader,
+  Tabs,
+  TabsContent,
+  TabsList,
+  TabsTrigger,
+} from "@gearment/ui3"
 import { createFileRoute, stripSearchParams } from "@tanstack/react-router"
 import { zodValidator } from "@tanstack/zod-adapter"
-import { PrototyperSearchSchema } from "@/schemas/schemas/prototyper"
-import PrototyperProvider from "./-prototyper-context"
+import CaseStudyList from "./-components/case-study/case-study-list"
 import Filter from "./-components/filter/filter"
 import Table from "./-components/table/table"
-import CaseStudyList from "./-components/case-study/case-study-list"
+import PrototyperProvider from "./-prototyper-context"
 
-export const Route = createFileRoute("/_authorize/prototyper/")({{
+export const Route = createFileRoute("/_authorize/prototyper/")({
   validateSearch: zodValidator(PrototyperSearchSchema),
   search: {
     middlewares: [stripSearchParams(PrototyperSearchSchema.parse({}))],
@@ -20,7 +26,7 @@ export const Route = createFileRoute("/_authorize/prototyper/")({{
   beforeLoad: () => ({
     breadcrumb: [{ link: "/prototyper", name: "Prototyper" }],
   }),
-}})
+})
 
 function Index() {
   return (

@@ -18,6 +18,7 @@ import { Route as AuthorizeIndexImport } from './routes/_authorize/index'
 import { Route as AuthorizeDevImport } from './routes/_authorize/dev'
 import { Route as UnauthorizeLoginIndexImport } from './routes/_unauthorize/login/index'
 import { Route as AuthorizeUsersIndexImport } from './routes/_authorize/users/index'
+import { Route as AuthorizePrototyperIndexImport } from './routes/_authorize/prototyper/index'
 import { Route as AuthorizeProductManagementIndexImport } from './routes/_authorize/product-management/index'
 import { Route as AuthorizeProductListingIndexImport } from './routes/_authorize/product-listing/index'
 import { Route as AuthorizeDashboardIndexImport } from './routes/_authorize/dashboard/index'
@@ -128,6 +129,12 @@ const UnauthorizeLoginIndexRoute = UnauthorizeLoginIndexImport.update({
 const AuthorizeUsersIndexRoute = AuthorizeUsersIndexImport.update({
   id: '/users/',
   path: '/users/',
+  getParentRoute: () => AuthorizeRoute,
+} as any)
+
+const AuthorizePrototyperIndexRoute = AuthorizePrototyperIndexImport.update({
+  id: '/prototyper/',
+  path: '/prototyper/',
   getParentRoute: () => AuthorizeRoute,
 } as any)
 
@@ -714,6 +721,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AuthorizeProductManagementIndexImport
       parentRoute: typeof AuthorizeImport
     }
+    '/_authorize/prototyper/': {
+      id: '/_authorize/prototyper/'
+      path: '/prototyper'
+      fullPath: '/prototyper'
+      preLoaderRoute: typeof AuthorizePrototyperIndexImport
+      parentRoute: typeof AuthorizeImport
+    }
     '/_authorize/users/': {
       id: '/_authorize/users/'
       path: '/users'
@@ -1263,6 +1277,7 @@ interface AuthorizeRouteChildren {
   AuthorizeDashboardIndexRoute: typeof AuthorizeDashboardIndexRoute
   AuthorizeProductListingIndexRoute: typeof AuthorizeProductListingIndexRoute
   AuthorizeProductManagementIndexRoute: typeof AuthorizeProductManagementIndexRoute
+  AuthorizePrototyperIndexRoute: typeof AuthorizePrototyperIndexRoute
   AuthorizeUsersIndexRoute: typeof AuthorizeUsersIndexRoute
   AuthorizeGlobalConfigurationPricingManagementCreatePricingRuleRoute: typeof AuthorizeGlobalConfigurationPricingManagementCreatePricingRuleRoute
   AuthorizeGlobalConfigurationTierManagementTierUpdateLogsRoute: typeof AuthorizeGlobalConfigurationTierManagementTierUpdateLogsRoute
@@ -1328,6 +1343,7 @@ const AuthorizeRouteChildren: AuthorizeRouteChildren = {
   AuthorizeDashboardIndexRoute: AuthorizeDashboardIndexRoute,
   AuthorizeProductListingIndexRoute: AuthorizeProductListingIndexRoute,
   AuthorizeProductManagementIndexRoute: AuthorizeProductManagementIndexRoute,
+  AuthorizePrototyperIndexRoute: AuthorizePrototyperIndexRoute,
   AuthorizeUsersIndexRoute: AuthorizeUsersIndexRoute,
   AuthorizeGlobalConfigurationPricingManagementCreatePricingRuleRoute:
     AuthorizeGlobalConfigurationPricingManagementCreatePricingRuleRoute,
@@ -1442,6 +1458,7 @@ export interface FileRoutesByFullPath {
   '/dashboard': typeof AuthorizeDashboardIndexRoute
   '/product-listing': typeof AuthorizeProductListingIndexRoute
   '/product-management': typeof AuthorizeProductManagementIndexRoute
+  '/prototyper': typeof AuthorizePrototyperIndexRoute
   '/users': typeof AuthorizeUsersIndexRoute
   '/login': typeof UnauthorizeLoginIndexRoute
   '/global-configuration/pricing-management/create-pricing-rule': typeof AuthorizeGlobalConfigurationPricingManagementCreatePricingRuleRoute
@@ -1518,6 +1535,7 @@ export interface FileRoutesByTo {
   '/dashboard': typeof AuthorizeDashboardIndexRoute
   '/product-listing': typeof AuthorizeProductListingIndexRoute
   '/product-management': typeof AuthorizeProductManagementIndexRoute
+  '/prototyper': typeof AuthorizePrototyperIndexRoute
   '/users': typeof AuthorizeUsersIndexRoute
   '/login': typeof UnauthorizeLoginIndexRoute
   '/global-configuration/pricing-management/create-pricing-rule': typeof AuthorizeGlobalConfigurationPricingManagementCreatePricingRuleRoute
@@ -1599,6 +1617,7 @@ export interface FileRoutesById {
   '/_authorize/dashboard/': typeof AuthorizeDashboardIndexRoute
   '/_authorize/product-listing/': typeof AuthorizeProductListingIndexRoute
   '/_authorize/product-management/': typeof AuthorizeProductManagementIndexRoute
+  '/_authorize/prototyper/': typeof AuthorizePrototyperIndexRoute
   '/_authorize/users/': typeof AuthorizeUsersIndexRoute
   '/_unauthorize/login/': typeof UnauthorizeLoginIndexRoute
   '/_authorize/global-configuration/pricing-management/create-pricing-rule': typeof AuthorizeGlobalConfigurationPricingManagementCreatePricingRuleRoute
@@ -1680,6 +1699,7 @@ export interface FileRouteTypes {
     | '/dashboard'
     | '/product-listing'
     | '/product-management'
+    | '/prototyper'
     | '/users'
     | '/login'
     | '/global-configuration/pricing-management/create-pricing-rule'
@@ -1755,6 +1775,7 @@ export interface FileRouteTypes {
     | '/dashboard'
     | '/product-listing'
     | '/product-management'
+    | '/prototyper'
     | '/users'
     | '/login'
     | '/global-configuration/pricing-management/create-pricing-rule'
@@ -1834,6 +1855,7 @@ export interface FileRouteTypes {
     | '/_authorize/dashboard/'
     | '/_authorize/product-listing/'
     | '/_authorize/product-management/'
+    | '/_authorize/prototyper/'
     | '/_authorize/users/'
     | '/_unauthorize/login/'
     | '/_authorize/global-configuration/pricing-management/create-pricing-rule'
@@ -1941,6 +1963,7 @@ export const routeTree = rootRoute
         "/_authorize/dashboard/",
         "/_authorize/product-listing/",
         "/_authorize/product-management/",
+        "/_authorize/prototyper/",
         "/_authorize/users/",
         "/_authorize/global-configuration/pricing-management/create-pricing-rule",
         "/_authorize/global-configuration/tier-management/tier-update-logs",
@@ -2061,6 +2084,10 @@ export const routeTree = rootRoute
     },
     "/_authorize/product-management/": {
       "filePath": "_authorize/product-management/index.tsx",
+      "parent": "/_authorize"
+    },
+    "/_authorize/prototyper/": {
+      "filePath": "_authorize/prototyper/index.tsx",
       "parent": "/_authorize"
     },
     "/_authorize/users/": {
