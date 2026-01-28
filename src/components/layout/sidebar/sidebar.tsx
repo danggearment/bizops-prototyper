@@ -103,6 +103,10 @@ const navMain: NavItem[] = [
         title: "Teams",
         url: "/system/teams",
       },
+      {
+        title: "Prototypes",
+        url: "/prototyper",
+      },
     ],
   },
   {
