@@ -14,7 +14,7 @@ export const Route = createFileRoute("/_authorize/dashboard/")({
     return {
       breadcrumbs: [
         {
-          text: "Dashboard",
+          text: "Homepage",
           link: "/dashboard",
         },
       ],
@@ -27,7 +27,7 @@ function Index() {
   return (
     <>
       <PageHeader>
-        <PageHeader.Title>Dashboard</PageHeader.Title>
+        <PageHeader.Title>Homepage</PageHeader.Title>
       </PageHeader>
       <OrderSummary />
       <OrderChart />
