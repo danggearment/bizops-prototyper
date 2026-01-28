@@ -1,27 +1,25 @@
-import { Badge, Button, DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from "@gearment/ui3"
+import { Badge, Button } from "@gearment/ui3"
 import { type ColumnDef, createColumnHelper } from "@tanstack/react-table"
 import { format } from "date-fns"
-import { MoreHorizontal, Eye, Pencil, Trash2 } from "lucide-react"
+import { Eye, Code } from "lucide-react"
+import { Link } from "@tanstack/react-router"
+
+export interface GeneratedFileType {
+  path: string
+  content: string
+  type: "create" | "update"
+}
 
 export interface PrototypeType {
   id: string
-  name: string
+  moduleName: string
   description: string
-  thumbnail?: string
-  content?: string
-  caseStudies: CaseStudyType[]
+  status: "pending" | "processing" | "completed" | "failed"
   createdAt: string
-}
-
-export interface CaseStudyType {
-  id: string
-  prototypeId: string
-  title: string
-  description: string
-  thumbnail: string
-  content: string
-  order: number
-  createdAt: string
+  createdBy: string
+  files?: GeneratedFileType[]
+  previewHtml?: string
+  explanation?: string
 }
 
 const columnHelper = createColumnHelper<PrototypeType>()
@@ -29,64 +27,78 @@ const columnHelper = createColumnHelper<PrototypeType>()
 export const columns: ColumnDef<PrototypeType, unknown>[] = [
   columnHelper.accessor("id", {
     header: "ID",
-    size: 120,
-    cell: (info) => <span className="font-mono text-sm text-muted-foreground">{info.getValue()}</span>,
+    cell: (info) => <span className="font-mono text-sm">{info.getValue()}</span>,
   }),
-  columnHelper.accessor("name", {
-    header: "Name",
-    size: 250,
-    cell: (info) => <span className="font-medium">{info.getValue()}</span>,
+  columnHelper.accessor("moduleName", {
+    header: "Module Name",
+    cell: (info) => (
+      <Link
+        to="/prototyper/$prototypeId"
+        params={{ prototypeId: info.row.original.id }}
+        className="font-medium text-primary hover:underline"
+      >
+        {info.getValue()}
+      </Link>
+    ),
   }),
   columnHelper.accessor("description", {
     header: "Description",
-    cell: (info) => <span className="text-sm text-muted-foreground">{info.getValue()}</span>,
+    cell: (info) => (
+      <span className="text-sm text-muted-foreground line-clamp-2">
+        {info.getValue()}
+      </span>
+    ),
   }),
-  columnHelper.accessor("caseStudies", {
-    header: "Case Studies",
-    size: 120,
+  columnHelper.accessor("status", {
+    header: "Status",
     cell: (info) => {
-      const count = info.getValue().length
-      return (
-        <Badge variant={count > 0 ? "default" : "secondary"}>
-          {count} {count === 1 ? "study" : "studies"}
-        </Badge>
-      )
+      const status = info.getValue()
+      const variant =
+        status === "completed"
+          ? "default"
+          : status === "processing"
+          ? "secondary"
+          : status === "failed"
+          ? "destructive"
+          : "outline"
+      return <Badge variant={variant}>{status}</Badge>
     },
+  }),
+  columnHelper.accessor("createdBy", {
+    header: "Created By",
+    cell: (info) => <span className="text-sm">{info.getValue()}</span>,
   }),
   columnHelper.accessor("createdAt", {
     header: "Created",
-    size: 150,
     cell: (info) => (
-      <span className="text-sm text-muted-foreground">
+      <span className="text-sm">
         {format(new Date(info.getValue()), "dd/MM/yyyy HH:mm")}
       </span>
     ),
   }),
   columnHelper.display({
     id: "actions",
-    size: 60,
-    cell: () => (
-      <DropdownMenu>
-        <DropdownMenuTrigger asChild>
-          <Button variant="ghost" size="icon">
-            <MoreHorizontal className="h-4 w-4" />
+    header: "Actions",
+    cell: (info) => (
+      <div className="flex items-center gap-2">
+        <Link
+          to="/prototyper/$prototypeId"
+          params={{ prototypeId: info.row.original.id }}
+        >
+          <Button size="sm" variant="ghost">
+            <Eye className="w-4 h-4" />
           </Button>
-        </DropdownMenuTrigger>
-        <DropdownMenuContent align="end">
-          <DropdownMenuItem>
-            <Eye className="h-4 w-4 mr-2" />
-            View
-          </DropdownMenuItem>
-          <DropdownMenuItem>
-            <Pencil className="h-4 w-4 mr-2" />
-            Edit
-          </DropdownMenuItem>
-          <DropdownMenuItem className="text-destructive">
-            <Trash2 className="h-4 w-4 mr-2" />
-            Delete
-          </DropdownMenuItem>
-        </DropdownMenuContent>
-      </DropdownMenu>
+        </Link>
+        <Link
+          to="/prototyper/$prototypeId"
+          params={{ prototypeId: info.row.original.id }}
+          search={{ tab: "code" }}
+        >
+          <Button size="sm" variant="ghost">
+            <Code className="w-4 h-4" />
+          </Button>
+        </Link>
+      </div>
     ),
   }),
 ]
