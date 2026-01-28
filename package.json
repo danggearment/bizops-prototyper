@@ -56,7 +56,7 @@
     "@gearment/eslint-config-custom": "latest",
     "@gearment/typescript-config": "latest",
     "@gearment/theme3": "latest",
-    "@gearment/ui3": "0.0.3",
+    "@gearment/ui3": "latest",
     "@gearment/utils": "latest",
     "@tailwindcss/vite": "4.0.15",
     "@tanstack/router-devtools": "1.116.0",

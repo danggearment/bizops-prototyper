@@ -21,6 +21,7 @@ import { Route as AuthorizeUsersIndexImport } from './routes/_authorize/users/in
 import { Route as AuthorizeProductManagementIndexImport } from './routes/_authorize/product-management/index'
 import { Route as AuthorizeProductListingIndexImport } from './routes/_authorize/product-listing/index'
 import { Route as AuthorizeDashboardIndexImport } from './routes/_authorize/dashboard/index'
+import { Route as AuthorizeClientIndexImport } from './routes/_authorize/client/index'
 import { Route as AuthorizeUsersCreateImport } from './routes/_authorize/users/create'
 import { Route as AuthorizeLogsExportTransactionsImport } from './routes/_authorize/logs/export-transactions'
 import { Route as AuthorizeProductManagementPrintsRouteImport } from './routes/_authorize/product-management/prints/route'
@@ -54,6 +55,7 @@ import { Route as AuthorizeFinanceDepositIndexImport } from './routes/_authorize
 import { Route as AuthorizeDevSyncIndexImport } from './routes/_authorize/dev/sync/index'
 import { Route as AuthorizeDevOpenFeaturesIndexImport } from './routes/_authorize/dev/open-features/index'
 import { Route as AuthorizeDevMigrationIndexImport } from './routes/_authorize/dev/migration/index'
+import { Route as AuthorizeClientListingClientIdIndexImport } from './routes/_authorize/client-listing/$clientId/index'
 import { Route as AuthorizeSystemMembersPermissionImport } from './routes/_authorize/system/members/permission'
 import { Route as AuthorizeSystemMembersNewUserImport } from './routes/_authorize/system/members/new-user'
 import { Route as AuthorizeGlobalConfigurationTierManagementUpdateTeamTierImport } from './routes/_authorize/global-configuration/tier-management/update-team-tier'
@@ -146,6 +148,12 @@ const AuthorizeProductListingIndexRoute =
 const AuthorizeDashboardIndexRoute = AuthorizeDashboardIndexImport.update({
   id: '/dashboard/',
   path: '/dashboard/',
+  getParentRoute: () => AuthorizeRoute,
+} as any)
+
+const AuthorizeClientIndexRoute = AuthorizeClientIndexImport.update({
+  id: '/client/',
+  path: '/client/',
   getParentRoute: () => AuthorizeRoute,
 } as any)
 
@@ -379,6 +387,13 @@ const AuthorizeDevMigrationIndexRoute = AuthorizeDevMigrationIndexImport.update(
     getParentRoute: () => AuthorizeDevRoute,
   } as any,
 )
+
+const AuthorizeClientListingClientIdIndexRoute =
+  AuthorizeClientListingClientIdIndexImport.update({
+    id: '/client-listing/$clientId/',
+    path: '/client-listing/$clientId/',
+    getParentRoute: () => AuthorizeRoute,
+  } as any)
 
 const AuthorizeSystemMembersPermissionRoute =
   AuthorizeSystemMembersPermissionImport.update({
@@ -671,6 +686,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AuthorizeUsersCreateImport
       parentRoute: typeof AuthorizeImport
     }
+    '/_authorize/client/': {
+      id: '/_authorize/client/'
+      path: '/client'
+      fullPath: '/client'
+      preLoaderRoute: typeof AuthorizeClientIndexImport
+      parentRoute: typeof AuthorizeImport
+    }
     '/_authorize/dashboard/': {
       id: '/_authorize/dashboard/'
       path: '/dashboard'
@@ -739,6 +761,13 @@ declare module '@tanstack/react-router' {
       path: '/system/members/permission'
       fullPath: '/system/members/permission'
       preLoaderRoute: typeof AuthorizeSystemMembersPermissionImport
+      parentRoute: typeof AuthorizeImport
+    }
+    '/_authorize/client-listing/$clientId/': {
+      id: '/_authorize/client-listing/$clientId/'
+      path: '/client-listing/$clientId'
+      fullPath: '/client-listing/$clientId'
+      preLoaderRoute: typeof AuthorizeClientListingClientIdIndexImport
       parentRoute: typeof AuthorizeImport
     }
     '/_authorize/dev/migration/': {
@@ -1230,6 +1259,7 @@ interface AuthorizeRouteChildren {
   AuthorizeProductManagementPrintsRouteRoute: typeof AuthorizeProductManagementPrintsRouteRouteWithChildren
   AuthorizeLogsExportTransactionsRoute: typeof AuthorizeLogsExportTransactionsRouteWithChildren
   AuthorizeUsersCreateRoute: typeof AuthorizeUsersCreateRoute
+  AuthorizeClientIndexRoute: typeof AuthorizeClientIndexRoute
   AuthorizeDashboardIndexRoute: typeof AuthorizeDashboardIndexRoute
   AuthorizeProductListingIndexRoute: typeof AuthorizeProductListingIndexRoute
   AuthorizeProductManagementIndexRoute: typeof AuthorizeProductManagementIndexRoute
@@ -1239,6 +1269,7 @@ interface AuthorizeRouteChildren {
   AuthorizeGlobalConfigurationTierManagementUpdateTeamTierRoute: typeof AuthorizeGlobalConfigurationTierManagementUpdateTeamTierRoute
   AuthorizeSystemMembersNewUserRoute: typeof AuthorizeSystemMembersNewUserRoute
   AuthorizeSystemMembersPermissionRoute: typeof AuthorizeSystemMembersPermissionRoute
+  AuthorizeClientListingClientIdIndexRoute: typeof AuthorizeClientListingClientIdIndexRoute
   AuthorizeFinanceDepositIndexRoute: typeof AuthorizeFinanceDepositIndexRoute
   AuthorizeFinancePaymentRequestIndexRoute: typeof AuthorizeFinancePaymentRequestIndexRoute
   AuthorizeFinanceTransactionsIndexRoute: typeof AuthorizeFinanceTransactionsIndexRoute
@@ -1293,6 +1324,7 @@ const AuthorizeRouteChildren: AuthorizeRouteChildren = {
   AuthorizeLogsExportTransactionsRoute:
     AuthorizeLogsExportTransactionsRouteWithChildren,
   AuthorizeUsersCreateRoute: AuthorizeUsersCreateRoute,
+  AuthorizeClientIndexRoute: AuthorizeClientIndexRoute,
   AuthorizeDashboardIndexRoute: AuthorizeDashboardIndexRoute,
   AuthorizeProductListingIndexRoute: AuthorizeProductListingIndexRoute,
   AuthorizeProductManagementIndexRoute: AuthorizeProductManagementIndexRoute,
@@ -1305,6 +1337,8 @@ const AuthorizeRouteChildren: AuthorizeRouteChildren = {
     AuthorizeGlobalConfigurationTierManagementUpdateTeamTierRoute,
   AuthorizeSystemMembersNewUserRoute: AuthorizeSystemMembersNewUserRoute,
   AuthorizeSystemMembersPermissionRoute: AuthorizeSystemMembersPermissionRoute,
+  AuthorizeClientListingClientIdIndexRoute:
+    AuthorizeClientListingClientIdIndexRoute,
   AuthorizeFinanceDepositIndexRoute: AuthorizeFinanceDepositIndexRoute,
   AuthorizeFinancePaymentRequestIndexRoute:
     AuthorizeFinancePaymentRequestIndexRoute,
@@ -1404,6 +1438,7 @@ export interface FileRoutesByFullPath {
   '/product-management/prints': typeof AuthorizeProductManagementPrintsRouteRouteWithChildren
   '/logs/export-transactions': typeof AuthorizeLogsExportTransactionsRouteWithChildren
   '/users/create': typeof AuthorizeUsersCreateRoute
+  '/client': typeof AuthorizeClientIndexRoute
   '/dashboard': typeof AuthorizeDashboardIndexRoute
   '/product-listing': typeof AuthorizeProductListingIndexRoute
   '/product-management': typeof AuthorizeProductManagementIndexRoute
@@ -1414,6 +1449,7 @@ export interface FileRoutesByFullPath {
   '/global-configuration/tier-management/update-team-tier': typeof AuthorizeGlobalConfigurationTierManagementUpdateTeamTierRoute
   '/system/members/new-user': typeof AuthorizeSystemMembersNewUserRoute
   '/system/members/permission': typeof AuthorizeSystemMembersPermissionRoute
+  '/client-listing/$clientId': typeof AuthorizeClientListingClientIdIndexRoute
   '/dev/migration': typeof AuthorizeDevMigrationIndexRoute
   '/dev/open-features': typeof AuthorizeDevOpenFeaturesIndexRoute
   '/dev/sync': typeof AuthorizeDevSyncIndexRoute
@@ -1478,6 +1514,7 @@ export interface FileRoutesByTo {
   '/dev': typeof AuthorizeDevRouteWithChildren
   '/': typeof AuthorizeIndexRoute
   '/users/create': typeof AuthorizeUsersCreateRoute
+  '/client': typeof AuthorizeClientIndexRoute
   '/dashboard': typeof AuthorizeDashboardIndexRoute
   '/product-listing': typeof AuthorizeProductListingIndexRoute
   '/product-management': typeof AuthorizeProductManagementIndexRoute
@@ -1488,6 +1525,7 @@ export interface FileRoutesByTo {
   '/global-configuration/tier-management/update-team-tier': typeof AuthorizeGlobalConfigurationTierManagementUpdateTeamTierRoute
   '/system/members/new-user': typeof AuthorizeSystemMembersNewUserRoute
   '/system/members/permission': typeof AuthorizeSystemMembersPermissionRoute
+  '/client-listing/$clientId': typeof AuthorizeClientListingClientIdIndexRoute
   '/dev/migration': typeof AuthorizeDevMigrationIndexRoute
   '/dev/open-features': typeof AuthorizeDevOpenFeaturesIndexRoute
   '/dev/sync': typeof AuthorizeDevSyncIndexRoute
@@ -1557,6 +1595,7 @@ export interface FileRoutesById {
   '/_authorize/product-management/prints': typeof AuthorizeProductManagementPrintsRouteRouteWithChildren
   '/_authorize/logs/export-transactions': typeof AuthorizeLogsExportTransactionsRouteWithChildren
   '/_authorize/users/create': typeof AuthorizeUsersCreateRoute
+  '/_authorize/client/': typeof AuthorizeClientIndexRoute
   '/_authorize/dashboard/': typeof AuthorizeDashboardIndexRoute
   '/_authorize/product-listing/': typeof AuthorizeProductListingIndexRoute
   '/_authorize/product-management/': typeof AuthorizeProductManagementIndexRoute
@@ -1567,6 +1606,7 @@ export interface FileRoutesById {
   '/_authorize/global-configuration/tier-management/update-team-tier': typeof AuthorizeGlobalConfigurationTierManagementUpdateTeamTierRoute
   '/_authorize/system/members/new-user': typeof AuthorizeSystemMembersNewUserRoute
   '/_authorize/system/members/permission': typeof AuthorizeSystemMembersPermissionRoute
+  '/_authorize/client-listing/$clientId/': typeof AuthorizeClientListingClientIdIndexRoute
   '/_authorize/dev/migration/': typeof AuthorizeDevMigrationIndexRoute
   '/_authorize/dev/open-features/': typeof AuthorizeDevOpenFeaturesIndexRoute
   '/_authorize/dev/sync/': typeof AuthorizeDevSyncIndexRoute
@@ -1636,6 +1676,7 @@ export interface FileRouteTypes {
     | '/product-management/prints'
     | '/logs/export-transactions'
     | '/users/create'
+    | '/client'
     | '/dashboard'
     | '/product-listing'
     | '/product-management'
@@ -1646,6 +1687,7 @@ export interface FileRouteTypes {
     | '/global-configuration/tier-management/update-team-tier'
     | '/system/members/new-user'
     | '/system/members/permission'
+    | '/client-listing/$clientId'
     | '/dev/migration'
     | '/dev/open-features'
     | '/dev/sync'
@@ -1709,6 +1751,7 @@ export interface FileRouteTypes {
     | '/dev'
     | '/'
     | '/users/create'
+    | '/client'
     | '/dashboard'
     | '/product-listing'
     | '/product-management'
@@ -1719,6 +1762,7 @@ export interface FileRouteTypes {
     | '/global-configuration/tier-management/update-team-tier'
     | '/system/members/new-user'
     | '/system/members/permission'
+    | '/client-listing/$clientId'
     | '/dev/migration'
     | '/dev/open-features'
     | '/dev/sync'
@@ -1786,6 +1830,7 @@ export interface FileRouteTypes {
     | '/_authorize/product-management/prints'
     | '/_authorize/logs/export-transactions'
     | '/_authorize/users/create'
+    | '/_authorize/client/'
     | '/_authorize/dashboard/'
     | '/_authorize/product-listing/'
     | '/_authorize/product-management/'
@@ -1796,6 +1841,7 @@ export interface FileRouteTypes {
     | '/_authorize/global-configuration/tier-management/update-team-tier'
     | '/_authorize/system/members/new-user'
     | '/_authorize/system/members/permission'
+    | '/_authorize/client-listing/$clientId/'
     | '/_authorize/dev/migration/'
     | '/_authorize/dev/open-features/'
     | '/_authorize/dev/sync/'
@@ -1891,6 +1937,7 @@ export const routeTree = rootRoute
         "/_authorize/product-management/prints",
         "/_authorize/logs/export-transactions",
         "/_authorize/users/create",
+        "/_authorize/client/",
         "/_authorize/dashboard/",
         "/_authorize/product-listing/",
         "/_authorize/product-management/",
@@ -1900,6 +1947,7 @@ export const routeTree = rootRoute
         "/_authorize/global-configuration/tier-management/update-team-tier",
         "/_authorize/system/members/new-user",
         "/_authorize/system/members/permission",
+        "/_authorize/client-listing/$clientId/",
         "/_authorize/finance/deposit/",
         "/_authorize/finance/payment-request/",
         "/_authorize/finance/transactions/",
@@ -1999,6 +2047,10 @@ export const routeTree = rootRoute
       "filePath": "_authorize/users/create.tsx",
       "parent": "/_authorize"
     },
+    "/_authorize/client/": {
+      "filePath": "_authorize/client/index.tsx",
+      "parent": "/_authorize"
+    },
     "/_authorize/dashboard/": {
       "filePath": "_authorize/dashboard/index.tsx",
       "parent": "/_authorize"
@@ -2037,6 +2089,10 @@ export const routeTree = rootRoute
     },
     "/_authorize/system/members/permission": {
       "filePath": "_authorize/system/members/permission.tsx",
+      "parent": "/_authorize"
+    },
+    "/_authorize/client-listing/$clientId/": {
+      "filePath": "_authorize/client-listing/$clientId/index.tsx",
       "parent": "/_authorize"
     },
     "/_authorize/dev/migration/": {
