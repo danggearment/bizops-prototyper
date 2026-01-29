@@ -13,7 +13,7 @@ export const Route = createFileRoute(
   staticData: {
     breadcrumb: [
       {
-        name: "Seller Pricing Engine",
+        name: "Product pricing",
         link: "/global-configuration/seller-pricing-engine",
       },
     ],
@@ -34,7 +34,7 @@ function Index() {
     <>
       <PageHeader>
         <div>
-          <PageHeader.Title>Seller Pricing Engine</PageHeader.Title>
+          <PageHeader.Title>Product pricing</PageHeader.Title>
           <PageHeader.Description>
             Manage RSP-based pricing and tier discounts for products and
             variants.

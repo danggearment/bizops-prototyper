@@ -146,7 +146,7 @@ const navMain: NavItem[] = [
         url: "/global-configuration/pricing-management",
       },
       {
-        title: "Seller Pricing Engine",
+        title: "Product Pricing",
         url: "/global-configuration/seller-pricing-engine",
       },
     ],
