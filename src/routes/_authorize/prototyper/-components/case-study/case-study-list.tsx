@@ -9,7 +9,8 @@ import type { CaseStudyType } from "../table/columns"
 export default function CaseStudyList() {
   const { caseStudies, deleteCaseStudy } = usePrototyperContext()
   const [dialogOpen, setDialogOpen] = useState(false)
-  const [selectedCaseStudy, setSelectedCaseStudy] = useState<CaseStudyType | null>(null)
+  const [selectedCaseStudy, setSelectedCaseStudy] =
+    useState<CaseStudyType | null>(null)
 
   const handleEdit = (caseStudy: CaseStudyType) => {
     setSelectedCaseStudy(caseStudy)

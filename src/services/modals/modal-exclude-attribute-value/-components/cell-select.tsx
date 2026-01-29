@@ -3,7 +3,8 @@ import { Checkbox } from "@gearment/ui3"
 import { CellContext } from "@tanstack/react-table"
 
 interface Props
-  extends CellContext<GMAttribute_Admin_Value, any>,
+  extends
+    CellContext<GMAttribute_Admin_Value, any>,
     React.ComponentProps<typeof Checkbox> {}
 
 export default function CellSelect({ ...props }: Props) {

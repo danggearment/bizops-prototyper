@@ -1,4 +1,11 @@
-import { Badge, Button, Card, CardContent, CardHeader, CardTitle } from "@gearment/ui3"
+import {
+  Badge,
+  Button,
+  Card,
+  CardContent,
+  CardHeader,
+  CardTitle,
+} from "@gearment/ui3"
 import { Building2, Mail, MapPin, Pencil, Phone } from "lucide-react"
 import { useClientDetailContext } from "../../-client-detail-context"
 
@@ -61,7 +68,10 @@ export default function ClientInfoCard() {
           )}
           <div className="flex items-center gap-3 text-sm">
             <Mail className="h-4 w-4 text-muted-foreground" />
-            <a href={`mailto:${client.email}`} className="text-primary hover:underline">
+            <a
+              href={`mailto:${client.email}`}
+              className="text-primary hover:underline"
+            >
               {client.email}
             </a>
           </div>
@@ -73,7 +83,9 @@ export default function ClientInfoCard() {
             <MapPin className="h-4 w-4 text-muted-foreground mt-0.5" />
             <div>
               <p>{client.address}</p>
-              <p>{client.city}, {client.postalCode}</p>
+              <p>
+                {client.city}, {client.postalCode}
+              </p>
               <p>{client.country}</p>
             </div>
           </div>

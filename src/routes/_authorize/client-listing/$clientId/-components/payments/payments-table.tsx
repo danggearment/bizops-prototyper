@@ -1,7 +1,10 @@
 import { Badge, DataTable, useTable } from "@gearment/ui3"
 import { type ColumnDef, createColumnHelper } from "@tanstack/react-table"
 import { format } from "date-fns"
-import { useClientDetailContext, type ClientPayment } from "../../-client-detail-context"
+import {
+  useClientDetailContext,
+  type ClientPayment,
+} from "../../-client-detail-context"
 
 const columnHelper = createColumnHelper<ClientPayment>()
 
@@ -41,7 +44,10 @@ const columns: ColumnDef<ClientPayment, unknown>[] = [
     header: "Status",
     cell: (info) => {
       const status = info.getValue()
-      const variants: Record<string, "default" | "secondary" | "destructive" | "outline"> = {
+      const variants: Record<
+        string,
+        "default" | "secondary" | "destructive" | "outline"
+      > = {
         completed: "default",
         pending: "secondary",
         failed: "destructive",

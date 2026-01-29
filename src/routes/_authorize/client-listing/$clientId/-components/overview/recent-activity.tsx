@@ -51,7 +51,9 @@ export default function RecentActivity() {
               />
               <div className="flex-1">
                 <p className="text-sm font-medium">{activity.title}</p>
-                <p className="text-xs text-muted-foreground">{activity.description}</p>
+                <p className="text-xs text-muted-foreground">
+                  {activity.description}
+                </p>
               </div>
               <span className="text-xs text-muted-foreground">
                 {format(new Date(activity.date), "MMM dd, HH:mm")}

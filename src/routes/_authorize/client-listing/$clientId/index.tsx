@@ -1,9 +1,22 @@
-import { Button, PageHeader, Tabs, TabsContent, TabsList, TabsTrigger } from "@gearment/ui3"
-import { createFileRoute, stripSearchParams, useNavigate } from "@tanstack/react-router"
+import {
+  Button,
+  PageHeader,
+  Tabs,
+  TabsContent,
+  TabsList,
+  TabsTrigger,
+} from "@gearment/ui3"
+import {
+  createFileRoute,
+  stripSearchParams,
+  useNavigate,
+} from "@tanstack/react-router"
 import { zodValidator } from "@tanstack/zod-adapter"
 import { ArrowLeft, Mail, MoreHorizontal } from "lucide-react"
 import { ClientDetailSearchSchema } from "@/schemas/schemas/client-detail"
-import ClientDetailProvider, { useClientDetailContext } from "./-client-detail-context"
+import ClientDetailProvider, {
+  useClientDetailContext,
+} from "./-client-detail-context"
 import ClientInfoCard from "./-components/overview/client-info-card"
 import StatsCards from "./-components/overview/stats-cards"
 import RecentActivity from "./-components/overview/recent-activity"
@@ -11,25 +24,23 @@ import OrdersTable from "./-components/orders/orders-table"
 import PaymentsTable from "./-components/payments/payments-table"
 import NotesList from "./-components/notes/notes-list"
 
-export const Route = createFileRoute("/_authorize/client-listing/$clientId/")(
-  {
-    validateSearch: zodValidator(ClientDetailSearchSchema),
-    search: {
-      middlewares: [stripSearchParams(ClientDetailSearchSchema.parse({}))],
-    },
-    component: () => (
-      <ClientDetailProvider>
-        <ClientDetailPage />
-      </ClientDetailProvider>
-    ),
-    beforeLoad: ({ params }) => ({
-      breadcrumb: [
-        { link: "/client-listing", name: "Client Listing" },
-        { link: `/client-listing/${params.clientId}`, name: "Client Detail" },
-      ],
-    }),
-  }
-)
+export const Route = createFileRoute("/_authorize/client-listing/$clientId/")({
+  validateSearch: zodValidator(ClientDetailSearchSchema),
+  search: {
+    middlewares: [stripSearchParams(ClientDetailSearchSchema.parse({}))],
+  },
+  component: () => (
+    <ClientDetailProvider>
+      <ClientDetailPage />
+    </ClientDetailProvider>
+  ),
+  beforeLoad: ({ params }) => ({
+    breadcrumb: [
+      { link: "/client-listing", name: "Client Listing" },
+      { link: `/client-listing/${params.clientId}`, name: "Client Detail" },
+    ],
+  }),
+})
 
 function ClientDetailPage() {
   const { client, loading } = useClientDetailContext()
@@ -73,15 +84,21 @@ function ClientDetailPage() {
           navigate({
             to: "/client-listing/$clientId",
             params: { clientId: params.clientId },
-            search: { tab: tab as "overview" | "orders" | "payments" | "notes" },
+            search: {
+              tab: tab as "overview" | "orders" | "payments" | "notes",
+            },
           })
         }
         className="space-y-4"
       >
         <TabsList>
           <TabsTrigger value="overview">Overview</TabsTrigger>
-          <TabsTrigger value="orders">Orders ({client.orders.length})</TabsTrigger>
-          <TabsTrigger value="payments">Payments ({client.payments.length})</TabsTrigger>
+          <TabsTrigger value="orders">
+            Orders ({client.orders.length})
+          </TabsTrigger>
+          <TabsTrigger value="payments">
+            Payments ({client.payments.length})
+          </TabsTrigger>
           <TabsTrigger value="notes">Notes ({client.notes.length})</TabsTrigger>
         </TabsList>
 

@@ -10,1169 +10,1214 @@
 
 // Import Routes
 
-import { Route as rootRoute } from './routes/__root'
-import { Route as PermissionImport } from './routes/permission'
-import { Route as UnauthorizeImport } from './routes/_unauthorize'
-import { Route as AuthorizeImport } from './routes/_authorize'
-import { Route as AuthorizeIndexImport } from './routes/_authorize/index'
-import { Route as AuthorizeDevImport } from './routes/_authorize/dev'
-import { Route as UnauthorizeLoginIndexImport } from './routes/_unauthorize/login/index'
-import { Route as AuthorizeUsersIndexImport } from './routes/_authorize/users/index'
-import { Route as AuthorizePrototyperIndexImport } from './routes/_authorize/prototyper/index'
-import { Route as AuthorizeProductManagementIndexImport } from './routes/_authorize/product-management/index'
-import { Route as AuthorizeProductListingIndexImport } from './routes/_authorize/product-listing/index'
-import { Route as AuthorizeDashboardIndexImport } from './routes/_authorize/dashboard/index'
-import { Route as AuthorizeClientIndexImport } from './routes/_authorize/client/index'
-import { Route as AuthorizeUsersCreateImport } from './routes/_authorize/users/create'
-import { Route as AuthorizeLogsExportTransactionsImport } from './routes/_authorize/logs/export-transactions'
-import { Route as AuthorizeProductManagementPrintsRouteImport } from './routes/_authorize/product-management/prints/route'
-import { Route as AuthorizeProductManagementAttributesRouteImport } from './routes/_authorize/product-management/attributes/route'
-import { Route as AuthorizeSystemTeamsIndexImport } from './routes/_authorize/system/teams/index'
-import { Route as AuthorizeSystemPermissionsIndexImport } from './routes/_authorize/system/permissions/index'
-import { Route as AuthorizeSystemMembersIndexImport } from './routes/_authorize/system/members/index'
-import { Route as AuthorizeProductManagementVariantsIndexImport } from './routes/_authorize/product-management/variants/index'
-import { Route as AuthorizeProductManagementProductsIndexImport } from './routes/_authorize/product-management/products/index'
-import { Route as AuthorizeProductManagementPrintsIndexImport } from './routes/_authorize/product-management/prints/index'
-import { Route as AuthorizeProductManagementOptionsIndexImport } from './routes/_authorize/product-management/options/index'
-import { Route as AuthorizeProductManagementCategoriesIndexImport } from './routes/_authorize/product-management/categories/index'
-import { Route as AuthorizeProductManagementAttributesIndexImport } from './routes/_authorize/product-management/attributes/index'
-import { Route as AuthorizeOrderSaleOrdersIndexImport } from './routes/_authorize/order/sale-orders/index'
-import { Route as AuthorizeOrderErrorOrdersIndexImport } from './routes/_authorize/order/error-orders/index'
-import { Route as AuthorizeOrderDraftOrdersIndexImport } from './routes/_authorize/order/draft-orders/index'
-import { Route as AuthorizeOrderAllOrdersIndexImport } from './routes/_authorize/order/all-orders/index'
-import { Route as AuthorizeOrderOrderIdIndexImport } from './routes/_authorize/order/$orderId/index'
-import { Route as AuthorizeLogsPaymentLogsIndexImport } from './routes/_authorize/logs/payment-logs/index'
-import { Route as AuthorizeLogsExportTransactionsIndexImport } from './routes/_authorize/logs/export-transactions/index'
-import { Route as AuthorizeLogsCallLogsIndexImport } from './routes/_authorize/logs/call-logs/index'
-import { Route as AuthorizeGlobalConfigurationTierManagementIndexImport } from './routes/_authorize/global-configuration/tier-management/index'
-import { Route as AuthorizeGlobalConfigurationRushOrderIndexImport } from './routes/_authorize/global-configuration/rush-order/index'
-import { Route as AuthorizeGlobalConfigurationPricingManagementIndexImport } from './routes/_authorize/global-configuration/pricing-management/index'
-import { Route as AuthorizeGlobalConfigurationFinanceIndexImport } from './routes/_authorize/global-configuration/finance/index'
-import { Route as AuthorizeFulfillmentTransactionsIndexImport } from './routes/_authorize/fulfillment/transactions/index'
-import { Route as AuthorizeFulfillmentShippingPlansIndexImport } from './routes/_authorize/fulfillment/shipping-plans/index'
-import { Route as AuthorizeFinanceTransactionsIndexImport } from './routes/_authorize/finance/transactions/index'
-import { Route as AuthorizeFinancePaymentRequestIndexImport } from './routes/_authorize/finance/payment-request/index'
-import { Route as AuthorizeFinanceDepositIndexImport } from './routes/_authorize/finance/deposit/index'
-import { Route as AuthorizeDevSyncIndexImport } from './routes/_authorize/dev/sync/index'
-import { Route as AuthorizeDevOpenFeaturesIndexImport } from './routes/_authorize/dev/open-features/index'
-import { Route as AuthorizeDevMigrationIndexImport } from './routes/_authorize/dev/migration/index'
-import { Route as AuthorizeClientListingClientIdIndexImport } from './routes/_authorize/client-listing/$clientId/index'
-import { Route as AuthorizeSystemMembersPermissionImport } from './routes/_authorize/system/members/permission'
-import { Route as AuthorizeSystemMembersNewUserImport } from './routes/_authorize/system/members/new-user'
-import { Route as AuthorizeGlobalConfigurationTierManagementUpdateTeamTierImport } from './routes/_authorize/global-configuration/tier-management/update-team-tier'
-import { Route as AuthorizeGlobalConfigurationTierManagementTierUpdateLogsImport } from './routes/_authorize/global-configuration/tier-management/tier-update-logs'
-import { Route as AuthorizeGlobalConfigurationPricingManagementCreatePricingRuleImport } from './routes/_authorize/global-configuration/pricing-management/create-pricing-rule'
-import { Route as AuthorizeSystemTeamsTeamIdIndexImport } from './routes/_authorize/system/teams/$teamId/index'
-import { Route as AuthorizeProductManagementProductsProductIdIndexImport } from './routes/_authorize/product-management/products/$productId/index'
-import { Route as AuthorizeProductManagementPrintsTypeIndexImport } from './routes/_authorize/product-management/prints/type/index'
-import { Route as AuthorizeProductManagementPrintsLocationIndexImport } from './routes/_authorize/product-management/prints/location/index'
-import { Route as AuthorizeProductManagementCategoriesCategoryIdIndexImport } from './routes/_authorize/product-management/categories/$categoryId/index'
-import { Route as AuthorizeProductManagementAttributesLibraryIndexImport } from './routes/_authorize/product-management/attributes/library/index'
-import { Route as AuthorizeProductManagementAttributesGroupIndexImport } from './routes/_authorize/product-management/attributes/group/index'
-import { Route as AuthorizeOrderDraftOrdersOrderIdIndexImport } from './routes/_authorize/order/draft-orders/$orderId/index'
-import { Route as AuthorizeGlobalConfigurationPricingManagementCustomIdIndexImport } from './routes/_authorize/global-configuration/pricing-management/$customId/index'
-import { Route as AuthorizeFinanceTransactionsTransactionIdIndexImport } from './routes/_authorize/finance/transactions/$transactionId/index'
-import { Route as AuthorizeSystemTeamsTeamIdTransactionsIndexImport } from './routes/_authorize/system/teams/$teamId/transactions/index'
-import { Route as AuthorizeSystemTeamsTeamIdStoreIndexImport } from './routes/_authorize/system/teams/$teamId/store/index'
-import { Route as AuthorizeSystemTeamsTeamIdPaymentMethodsIndexImport } from './routes/_authorize/system/teams/$teamId/payment-methods/index'
-import { Route as AuthorizeSystemTeamsTeamIdGCreditsIndexImport } from './routes/_authorize/system/teams/$teamId/g-credits/index'
-import { Route as AuthorizeSystemTeamsTeamIdDetailsIndexImport } from './routes/_authorize/system/teams/$teamId/details/index'
-import { Route as AuthorizeProductManagementPrintsTypeTypeIdIndexImport } from './routes/_authorize/product-management/prints/type/$typeId/index'
-import { Route as AuthorizeProductManagementPrintsLocationLocationIdIndexImport } from './routes/_authorize/product-management/prints/location/$locationId/index'
-import { Route as AuthorizeProductManagementAttributesLibraryLibraryIdIndexImport } from './routes/_authorize/product-management/attributes/library/$libraryId/index'
-import { Route as AuthorizeProductManagementAttributesGroupGroupIdIndexImport } from './routes/_authorize/product-management/attributes/group/$groupId/index'
-import { Route as AuthorizeFulfillmentShippingPlansshippingDetailShippingIdIndexImport } from './routes/_authorize/fulfillment/shipping-plans/(shipping-detail)/$shippingId/index'
-import { Route as AuthorizeFinanceTransactionsTransactionIdInvoiceIndexImport } from './routes/_authorize/finance/transactions/$transactionId/invoice/index'
-import { Route as AuthorizeSystemTeamsTeamIdGCreditsEnableImport } from './routes/_authorize/system/teams/$teamId/g-credits/enable'
-import { Route as AuthorizeSystemTeamsTeamIdTransactionsTxnIdIndexImport } from './routes/_authorize/system/teams/$teamId/transactions/$txnId/index'
-import { Route as AuthorizeSystemTeamsTeamIdStoreStoreIdIndexImport } from './routes/_authorize/system/teams/$teamId/store/$storeId/index'
-import { Route as AuthorizeSystemTeamsTeamIdLogsImportOrdersIndexImport } from './routes/_authorize/system/teams/$teamId/logs/import-orders/index'
-import { Route as AuthorizeSystemTeamsTeamIdconfigPrintTypeIndexImport } from './routes/_authorize/system/teams/$teamId/(config)/print-type/index'
-import { Route as AuthorizeSystemTeamsTeamIdconfigGeneralIndexImport } from './routes/_authorize/system/teams/$teamId/(config)/general/index'
+import { Route as rootRoute } from "./routes/__root"
+import { Route as PermissionImport } from "./routes/permission"
+import { Route as UnauthorizeImport } from "./routes/_unauthorize"
+import { Route as AuthorizeImport } from "./routes/_authorize"
+import { Route as AuthorizeIndexImport } from "./routes/_authorize/index"
+import { Route as AuthorizeDevImport } from "./routes/_authorize/dev"
+import { Route as UnauthorizeLoginIndexImport } from "./routes/_unauthorize/login/index"
+import { Route as AuthorizeUsersIndexImport } from "./routes/_authorize/users/index"
+import { Route as AuthorizePrototyperIndexImport } from "./routes/_authorize/prototyper/index"
+import { Route as AuthorizeProductManagementIndexImport } from "./routes/_authorize/product-management/index"
+import { Route as AuthorizeProductListingIndexImport } from "./routes/_authorize/product-listing/index"
+import { Route as AuthorizeDashboardIndexImport } from "./routes/_authorize/dashboard/index"
+import { Route as AuthorizeClientIndexImport } from "./routes/_authorize/client/index"
+import { Route as AuthorizeUsersCreateImport } from "./routes/_authorize/users/create"
+import { Route as AuthorizeLogsExportTransactionsImport } from "./routes/_authorize/logs/export-transactions"
+import { Route as AuthorizeProductManagementPrintsRouteImport } from "./routes/_authorize/product-management/prints/route"
+import { Route as AuthorizeProductManagementAttributesRouteImport } from "./routes/_authorize/product-management/attributes/route"
+import { Route as AuthorizeSystemTeamsIndexImport } from "./routes/_authorize/system/teams/index"
+import { Route as AuthorizeSystemPermissionsIndexImport } from "./routes/_authorize/system/permissions/index"
+import { Route as AuthorizeSystemMembersIndexImport } from "./routes/_authorize/system/members/index"
+import { Route as AuthorizePrototyperPrototypeIdIndexImport } from "./routes/_authorize/prototyper/$prototypeId/index"
+import { Route as AuthorizeProductManagementVariantsIndexImport } from "./routes/_authorize/product-management/variants/index"
+import { Route as AuthorizeProductManagementProductsIndexImport } from "./routes/_authorize/product-management/products/index"
+import { Route as AuthorizeProductManagementPrintsIndexImport } from "./routes/_authorize/product-management/prints/index"
+import { Route as AuthorizeProductManagementOptionsIndexImport } from "./routes/_authorize/product-management/options/index"
+import { Route as AuthorizeProductManagementCategoriesIndexImport } from "./routes/_authorize/product-management/categories/index"
+import { Route as AuthorizeProductManagementAttributesIndexImport } from "./routes/_authorize/product-management/attributes/index"
+import { Route as AuthorizeOrderSaleOrdersIndexImport } from "./routes/_authorize/order/sale-orders/index"
+import { Route as AuthorizeOrderErrorOrdersIndexImport } from "./routes/_authorize/order/error-orders/index"
+import { Route as AuthorizeOrderDraftOrdersIndexImport } from "./routes/_authorize/order/draft-orders/index"
+import { Route as AuthorizeOrderAllOrdersIndexImport } from "./routes/_authorize/order/all-orders/index"
+import { Route as AuthorizeOrderOrderIdIndexImport } from "./routes/_authorize/order/$orderId/index"
+import { Route as AuthorizeLogsPaymentLogsIndexImport } from "./routes/_authorize/logs/payment-logs/index"
+import { Route as AuthorizeLogsExportTransactionsIndexImport } from "./routes/_authorize/logs/export-transactions/index"
+import { Route as AuthorizeLogsCallLogsIndexImport } from "./routes/_authorize/logs/call-logs/index"
+import { Route as AuthorizeGlobalConfigurationTierManagementIndexImport } from "./routes/_authorize/global-configuration/tier-management/index"
+import { Route as AuthorizeGlobalConfigurationSellerPricingEngineIndexImport } from "./routes/_authorize/global-configuration/seller-pricing-engine/index"
+import { Route as AuthorizeGlobalConfigurationRushOrderIndexImport } from "./routes/_authorize/global-configuration/rush-order/index"
+import { Route as AuthorizeGlobalConfigurationPricingManagementIndexImport } from "./routes/_authorize/global-configuration/pricing-management/index"
+import { Route as AuthorizeGlobalConfigurationFinanceIndexImport } from "./routes/_authorize/global-configuration/finance/index"
+import { Route as AuthorizeFulfillmentTransactionsIndexImport } from "./routes/_authorize/fulfillment/transactions/index"
+import { Route as AuthorizeFulfillmentShippingPlansIndexImport } from "./routes/_authorize/fulfillment/shipping-plans/index"
+import { Route as AuthorizeFinanceTransactionsIndexImport } from "./routes/_authorize/finance/transactions/index"
+import { Route as AuthorizeFinancePaymentRequestIndexImport } from "./routes/_authorize/finance/payment-request/index"
+import { Route as AuthorizeFinanceDepositIndexImport } from "./routes/_authorize/finance/deposit/index"
+import { Route as AuthorizeDevSyncIndexImport } from "./routes/_authorize/dev/sync/index"
+import { Route as AuthorizeDevOpenFeaturesIndexImport } from "./routes/_authorize/dev/open-features/index"
+import { Route as AuthorizeDevMigrationIndexImport } from "./routes/_authorize/dev/migration/index"
+import { Route as AuthorizeClientListingClientIdIndexImport } from "./routes/_authorize/client-listing/$clientId/index"
+import { Route as AuthorizeSystemMembersPermissionImport } from "./routes/_authorize/system/members/permission"
+import { Route as AuthorizeSystemMembersNewUserImport } from "./routes/_authorize/system/members/new-user"
+import { Route as AuthorizeGlobalConfigurationTierManagementUpdateTeamTierImport } from "./routes/_authorize/global-configuration/tier-management/update-team-tier"
+import { Route as AuthorizeGlobalConfigurationTierManagementTierUpdateLogsImport } from "./routes/_authorize/global-configuration/tier-management/tier-update-logs"
+import { Route as AuthorizeGlobalConfigurationPricingManagementCreatePricingRuleImport } from "./routes/_authorize/global-configuration/pricing-management/create-pricing-rule"
+import { Route as AuthorizeSystemTeamsTeamIdIndexImport } from "./routes/_authorize/system/teams/$teamId/index"
+import { Route as AuthorizePrototyperPrototypeIdPreviewIndexImport } from "./routes/_authorize/prototyper/$prototypeId/preview/index"
+import { Route as AuthorizeProductManagementProductsProductIdIndexImport } from "./routes/_authorize/product-management/products/$productId/index"
+import { Route as AuthorizeProductManagementPrintsTypeIndexImport } from "./routes/_authorize/product-management/prints/type/index"
+import { Route as AuthorizeProductManagementPrintsLocationIndexImport } from "./routes/_authorize/product-management/prints/location/index"
+import { Route as AuthorizeProductManagementCategoriesCategoryIdIndexImport } from "./routes/_authorize/product-management/categories/$categoryId/index"
+import { Route as AuthorizeProductManagementAttributesLibraryIndexImport } from "./routes/_authorize/product-management/attributes/library/index"
+import { Route as AuthorizeProductManagementAttributesGroupIndexImport } from "./routes/_authorize/product-management/attributes/group/index"
+import { Route as AuthorizeOrderDraftOrdersOrderIdIndexImport } from "./routes/_authorize/order/draft-orders/$orderId/index"
+import { Route as AuthorizeGlobalConfigurationPricingManagementCustomIdIndexImport } from "./routes/_authorize/global-configuration/pricing-management/$customId/index"
+import { Route as AuthorizeFinanceTransactionsTransactionIdIndexImport } from "./routes/_authorize/finance/transactions/$transactionId/index"
+import { Route as AuthorizeSystemTeamsTeamIdTransactionsIndexImport } from "./routes/_authorize/system/teams/$teamId/transactions/index"
+import { Route as AuthorizeSystemTeamsTeamIdStoreIndexImport } from "./routes/_authorize/system/teams/$teamId/store/index"
+import { Route as AuthorizeSystemTeamsTeamIdPaymentMethodsIndexImport } from "./routes/_authorize/system/teams/$teamId/payment-methods/index"
+import { Route as AuthorizeSystemTeamsTeamIdGCreditsIndexImport } from "./routes/_authorize/system/teams/$teamId/g-credits/index"
+import { Route as AuthorizeSystemTeamsTeamIdDetailsIndexImport } from "./routes/_authorize/system/teams/$teamId/details/index"
+import { Route as AuthorizeProductManagementPrintsTypeTypeIdIndexImport } from "./routes/_authorize/product-management/prints/type/$typeId/index"
+import { Route as AuthorizeProductManagementPrintsLocationLocationIdIndexImport } from "./routes/_authorize/product-management/prints/location/$locationId/index"
+import { Route as AuthorizeProductManagementAttributesLibraryLibraryIdIndexImport } from "./routes/_authorize/product-management/attributes/library/$libraryId/index"
+import { Route as AuthorizeProductManagementAttributesGroupGroupIdIndexImport } from "./routes/_authorize/product-management/attributes/group/$groupId/index"
+import { Route as AuthorizeFulfillmentShippingPlansshippingDetailShippingIdIndexImport } from "./routes/_authorize/fulfillment/shipping-plans/(shipping-detail)/$shippingId/index"
+import { Route as AuthorizeFinanceTransactionsTransactionIdInvoiceIndexImport } from "./routes/_authorize/finance/transactions/$transactionId/invoice/index"
+import { Route as AuthorizeSystemTeamsTeamIdGCreditsEnableImport } from "./routes/_authorize/system/teams/$teamId/g-credits/enable"
+import { Route as AuthorizeSystemTeamsTeamIdTransactionsTxnIdIndexImport } from "./routes/_authorize/system/teams/$teamId/transactions/$txnId/index"
+import { Route as AuthorizeSystemTeamsTeamIdStoreStoreIdIndexImport } from "./routes/_authorize/system/teams/$teamId/store/$storeId/index"
+import { Route as AuthorizeSystemTeamsTeamIdLogsImportOrdersIndexImport } from "./routes/_authorize/system/teams/$teamId/logs/import-orders/index"
+import { Route as AuthorizeSystemTeamsTeamIdconfigPrintTypeIndexImport } from "./routes/_authorize/system/teams/$teamId/(config)/print-type/index"
+import { Route as AuthorizeSystemTeamsTeamIdconfigGeneralIndexImport } from "./routes/_authorize/system/teams/$teamId/(config)/general/index"
 
 // Create/Update Routes
 
 const PermissionRoute = PermissionImport.update({
-  id: '/permission',
-  path: '/permission',
+  id: "/permission",
+  path: "/permission",
   getParentRoute: () => rootRoute,
 } as any)
 
 const UnauthorizeRoute = UnauthorizeImport.update({
-  id: '/_unauthorize',
+  id: "/_unauthorize",
   getParentRoute: () => rootRoute,
 } as any)
 
 const AuthorizeRoute = AuthorizeImport.update({
-  id: '/_authorize',
+  id: "/_authorize",
   getParentRoute: () => rootRoute,
 } as any)
 
 const AuthorizeIndexRoute = AuthorizeIndexImport.update({
-  id: '/',
-  path: '/',
+  id: "/",
+  path: "/",
   getParentRoute: () => AuthorizeRoute,
 } as any)
 
 const AuthorizeDevRoute = AuthorizeDevImport.update({
-  id: '/dev',
-  path: '/dev',
+  id: "/dev",
+  path: "/dev",
   getParentRoute: () => AuthorizeRoute,
 } as any)
 
 const UnauthorizeLoginIndexRoute = UnauthorizeLoginIndexImport.update({
-  id: '/login/',
-  path: '/login/',
+  id: "/login/",
+  path: "/login/",
   getParentRoute: () => UnauthorizeRoute,
 } as any)
 
 const AuthorizeUsersIndexRoute = AuthorizeUsersIndexImport.update({
-  id: '/users/',
-  path: '/users/',
+  id: "/users/",
+  path: "/users/",
   getParentRoute: () => AuthorizeRoute,
 } as any)
 
 const AuthorizePrototyperIndexRoute = AuthorizePrototyperIndexImport.update({
-  id: '/prototyper/',
-  path: '/prototyper/',
+  id: "/prototyper/",
+  path: "/prototyper/",
   getParentRoute: () => AuthorizeRoute,
 } as any)
 
 const AuthorizeProductManagementIndexRoute =
   AuthorizeProductManagementIndexImport.update({
-    id: '/product-management/',
-    path: '/product-management/',
+    id: "/product-management/",
+    path: "/product-management/",
     getParentRoute: () => AuthorizeRoute,
   } as any)
 
 const AuthorizeProductListingIndexRoute =
   AuthorizeProductListingIndexImport.update({
-    id: '/product-listing/',
-    path: '/product-listing/',
+    id: "/product-listing/",
+    path: "/product-listing/",
     getParentRoute: () => AuthorizeRoute,
   } as any)
 
 const AuthorizeDashboardIndexRoute = AuthorizeDashboardIndexImport.update({
-  id: '/dashboard/',
-  path: '/dashboard/',
+  id: "/dashboard/",
+  path: "/dashboard/",
   getParentRoute: () => AuthorizeRoute,
 } as any)
 
 const AuthorizeClientIndexRoute = AuthorizeClientIndexImport.update({
-  id: '/client/',
-  path: '/client/',
+  id: "/client/",
+  path: "/client/",
   getParentRoute: () => AuthorizeRoute,
 } as any)
 
 const AuthorizeUsersCreateRoute = AuthorizeUsersCreateImport.update({
-  id: '/users/create',
-  path: '/users/create',
+  id: "/users/create",
+  path: "/users/create",
   getParentRoute: () => AuthorizeRoute,
 } as any)
 
 const AuthorizeLogsExportTransactionsRoute =
   AuthorizeLogsExportTransactionsImport.update({
-    id: '/logs/export-transactions',
-    path: '/logs/export-transactions',
+    id: "/logs/export-transactions",
+    path: "/logs/export-transactions",
     getParentRoute: () => AuthorizeRoute,
   } as any)
 
 const AuthorizeProductManagementPrintsRouteRoute =
   AuthorizeProductManagementPrintsRouteImport.update({
-    id: '/product-management/prints',
-    path: '/product-management/prints',
+    id: "/product-management/prints",
+    path: "/product-management/prints",
     getParentRoute: () => AuthorizeRoute,
   } as any)
 
 const AuthorizeProductManagementAttributesRouteRoute =
   AuthorizeProductManagementAttributesRouteImport.update({
-    id: '/product-management/attributes',
-    path: '/product-management/attributes',
+    id: "/product-management/attributes",
+    path: "/product-management/attributes",
     getParentRoute: () => AuthorizeRoute,
   } as any)
 
 const AuthorizeSystemTeamsIndexRoute = AuthorizeSystemTeamsIndexImport.update({
-  id: '/system/teams/',
-  path: '/system/teams/',
+  id: "/system/teams/",
+  path: "/system/teams/",
   getParentRoute: () => AuthorizeRoute,
 } as any)
 
 const AuthorizeSystemPermissionsIndexRoute =
   AuthorizeSystemPermissionsIndexImport.update({
-    id: '/system/permissions/',
-    path: '/system/permissions/',
+    id: "/system/permissions/",
+    path: "/system/permissions/",
     getParentRoute: () => AuthorizeRoute,
   } as any)
 
 const AuthorizeSystemMembersIndexRoute =
   AuthorizeSystemMembersIndexImport.update({
-    id: '/system/members/',
-    path: '/system/members/',
+    id: "/system/members/",
+    path: "/system/members/",
+    getParentRoute: () => AuthorizeRoute,
+  } as any)
+
+const AuthorizePrototyperPrototypeIdIndexRoute =
+  AuthorizePrototyperPrototypeIdIndexImport.update({
+    id: "/prototyper/$prototypeId/",
+    path: "/prototyper/$prototypeId/",
     getParentRoute: () => AuthorizeRoute,
   } as any)
 
 const AuthorizeProductManagementVariantsIndexRoute =
   AuthorizeProductManagementVariantsIndexImport.update({
-    id: '/product-management/variants/',
-    path: '/product-management/variants/',
+    id: "/product-management/variants/",
+    path: "/product-management/variants/",
     getParentRoute: () => AuthorizeRoute,
   } as any)
 
 const AuthorizeProductManagementProductsIndexRoute =
   AuthorizeProductManagementProductsIndexImport.update({
-    id: '/product-management/products/',
-    path: '/product-management/products/',
+    id: "/product-management/products/",
+    path: "/product-management/products/",
     getParentRoute: () => AuthorizeRoute,
   } as any)
 
 const AuthorizeProductManagementPrintsIndexRoute =
   AuthorizeProductManagementPrintsIndexImport.update({
-    id: '/',
-    path: '/',
+    id: "/",
+    path: "/",
     getParentRoute: () => AuthorizeProductManagementPrintsRouteRoute,
   } as any)
 
 const AuthorizeProductManagementOptionsIndexRoute =
   AuthorizeProductManagementOptionsIndexImport.update({
-    id: '/product-management/options/',
-    path: '/product-management/options/',
+    id: "/product-management/options/",
+    path: "/product-management/options/",
     getParentRoute: () => AuthorizeRoute,
   } as any)
 
 const AuthorizeProductManagementCategoriesIndexRoute =
   AuthorizeProductManagementCategoriesIndexImport.update({
-    id: '/product-management/categories/',
-    path: '/product-management/categories/',
+    id: "/product-management/categories/",
+    path: "/product-management/categories/",
     getParentRoute: () => AuthorizeRoute,
   } as any)
 
 const AuthorizeProductManagementAttributesIndexRoute =
   AuthorizeProductManagementAttributesIndexImport.update({
-    id: '/',
-    path: '/',
+    id: "/",
+    path: "/",
     getParentRoute: () => AuthorizeProductManagementAttributesRouteRoute,
   } as any)
 
 const AuthorizeOrderSaleOrdersIndexRoute =
   AuthorizeOrderSaleOrdersIndexImport.update({
-    id: '/order/sale-orders/',
-    path: '/order/sale-orders/',
+    id: "/order/sale-orders/",
+    path: "/order/sale-orders/",
     getParentRoute: () => AuthorizeRoute,
   } as any)
 
 const AuthorizeOrderErrorOrdersIndexRoute =
   AuthorizeOrderErrorOrdersIndexImport.update({
-    id: '/order/error-orders/',
-    path: '/order/error-orders/',
+    id: "/order/error-orders/",
+    path: "/order/error-orders/",
     getParentRoute: () => AuthorizeRoute,
   } as any)
 
 const AuthorizeOrderDraftOrdersIndexRoute =
   AuthorizeOrderDraftOrdersIndexImport.update({
-    id: '/order/draft-orders/',
-    path: '/order/draft-orders/',
+    id: "/order/draft-orders/",
+    path: "/order/draft-orders/",
     getParentRoute: () => AuthorizeRoute,
   } as any)
 
 const AuthorizeOrderAllOrdersIndexRoute =
   AuthorizeOrderAllOrdersIndexImport.update({
-    id: '/order/all-orders/',
-    path: '/order/all-orders/',
+    id: "/order/all-orders/",
+    path: "/order/all-orders/",
     getParentRoute: () => AuthorizeRoute,
   } as any)
 
 const AuthorizeOrderOrderIdIndexRoute = AuthorizeOrderOrderIdIndexImport.update(
   {
-    id: '/order/$orderId/',
-    path: '/order/$orderId/',
+    id: "/order/$orderId/",
+    path: "/order/$orderId/",
     getParentRoute: () => AuthorizeRoute,
   } as any,
 )
 
 const AuthorizeLogsPaymentLogsIndexRoute =
   AuthorizeLogsPaymentLogsIndexImport.update({
-    id: '/logs/payment-logs/',
-    path: '/logs/payment-logs/',
+    id: "/logs/payment-logs/",
+    path: "/logs/payment-logs/",
     getParentRoute: () => AuthorizeRoute,
   } as any)
 
 const AuthorizeLogsExportTransactionsIndexRoute =
   AuthorizeLogsExportTransactionsIndexImport.update({
-    id: '/',
-    path: '/',
+    id: "/",
+    path: "/",
     getParentRoute: () => AuthorizeLogsExportTransactionsRoute,
   } as any)
 
 const AuthorizeLogsCallLogsIndexRoute = AuthorizeLogsCallLogsIndexImport.update(
   {
-    id: '/logs/call-logs/',
-    path: '/logs/call-logs/',
+    id: "/logs/call-logs/",
+    path: "/logs/call-logs/",
     getParentRoute: () => AuthorizeRoute,
   } as any,
 )
 
 const AuthorizeGlobalConfigurationTierManagementIndexRoute =
   AuthorizeGlobalConfigurationTierManagementIndexImport.update({
-    id: '/global-configuration/tier-management/',
-    path: '/global-configuration/tier-management/',
+    id: "/global-configuration/tier-management/",
+    path: "/global-configuration/tier-management/",
+    getParentRoute: () => AuthorizeRoute,
+  } as any)
+
+const AuthorizeGlobalConfigurationSellerPricingEngineIndexRoute =
+  AuthorizeGlobalConfigurationSellerPricingEngineIndexImport.update({
+    id: "/global-configuration/seller-pricing-engine/",
+    path: "/global-configuration/seller-pricing-engine/",
     getParentRoute: () => AuthorizeRoute,
   } as any)
 
 const AuthorizeGlobalConfigurationRushOrderIndexRoute =
   AuthorizeGlobalConfigurationRushOrderIndexImport.update({
-    id: '/global-configuration/rush-order/',
-    path: '/global-configuration/rush-order/',
+    id: "/global-configuration/rush-order/",
+    path: "/global-configuration/rush-order/",
     getParentRoute: () => AuthorizeRoute,
   } as any)
 
 const AuthorizeGlobalConfigurationPricingManagementIndexRoute =
   AuthorizeGlobalConfigurationPricingManagementIndexImport.update({
-    id: '/global-configuration/pricing-management/',
-    path: '/global-configuration/pricing-management/',
+    id: "/global-configuration/pricing-management/",
+    path: "/global-configuration/pricing-management/",
     getParentRoute: () => AuthorizeRoute,
   } as any)
 
 const AuthorizeGlobalConfigurationFinanceIndexRoute =
   AuthorizeGlobalConfigurationFinanceIndexImport.update({
-    id: '/global-configuration/finance/',
-    path: '/global-configuration/finance/',
+    id: "/global-configuration/finance/",
+    path: "/global-configuration/finance/",
     getParentRoute: () => AuthorizeRoute,
   } as any)
 
 const AuthorizeFulfillmentTransactionsIndexRoute =
   AuthorizeFulfillmentTransactionsIndexImport.update({
-    id: '/fulfillment/transactions/',
-    path: '/fulfillment/transactions/',
+    id: "/fulfillment/transactions/",
+    path: "/fulfillment/transactions/",
     getParentRoute: () => AuthorizeRoute,
   } as any)
 
 const AuthorizeFulfillmentShippingPlansIndexRoute =
   AuthorizeFulfillmentShippingPlansIndexImport.update({
-    id: '/fulfillment/shipping-plans/',
-    path: '/fulfillment/shipping-plans/',
+    id: "/fulfillment/shipping-plans/",
+    path: "/fulfillment/shipping-plans/",
     getParentRoute: () => AuthorizeRoute,
   } as any)
 
 const AuthorizeFinanceTransactionsIndexRoute =
   AuthorizeFinanceTransactionsIndexImport.update({
-    id: '/finance/transactions/',
-    path: '/finance/transactions/',
+    id: "/finance/transactions/",
+    path: "/finance/transactions/",
     getParentRoute: () => AuthorizeRoute,
   } as any)
 
 const AuthorizeFinancePaymentRequestIndexRoute =
   AuthorizeFinancePaymentRequestIndexImport.update({
-    id: '/finance/payment-request/',
-    path: '/finance/payment-request/',
+    id: "/finance/payment-request/",
+    path: "/finance/payment-request/",
     getParentRoute: () => AuthorizeRoute,
   } as any)
 
 const AuthorizeFinanceDepositIndexRoute =
   AuthorizeFinanceDepositIndexImport.update({
-    id: '/finance/deposit/',
-    path: '/finance/deposit/',
+    id: "/finance/deposit/",
+    path: "/finance/deposit/",
     getParentRoute: () => AuthorizeRoute,
   } as any)
 
 const AuthorizeDevSyncIndexRoute = AuthorizeDevSyncIndexImport.update({
-  id: '/sync/',
-  path: '/sync/',
+  id: "/sync/",
+  path: "/sync/",
   getParentRoute: () => AuthorizeDevRoute,
 } as any)
 
 const AuthorizeDevOpenFeaturesIndexRoute =
   AuthorizeDevOpenFeaturesIndexImport.update({
-    id: '/open-features/',
-    path: '/open-features/',
+    id: "/open-features/",
+    path: "/open-features/",
     getParentRoute: () => AuthorizeDevRoute,
   } as any)
 
 const AuthorizeDevMigrationIndexRoute = AuthorizeDevMigrationIndexImport.update(
   {
-    id: '/migration/',
-    path: '/migration/',
+    id: "/migration/",
+    path: "/migration/",
     getParentRoute: () => AuthorizeDevRoute,
   } as any,
 )
 
 const AuthorizeClientListingClientIdIndexRoute =
   AuthorizeClientListingClientIdIndexImport.update({
-    id: '/client-listing/$clientId/',
-    path: '/client-listing/$clientId/',
+    id: "/client-listing/$clientId/",
+    path: "/client-listing/$clientId/",
     getParentRoute: () => AuthorizeRoute,
   } as any)
 
 const AuthorizeSystemMembersPermissionRoute =
   AuthorizeSystemMembersPermissionImport.update({
-    id: '/system/members/permission',
-    path: '/system/members/permission',
+    id: "/system/members/permission",
+    path: "/system/members/permission",
     getParentRoute: () => AuthorizeRoute,
   } as any)
 
 const AuthorizeSystemMembersNewUserRoute =
   AuthorizeSystemMembersNewUserImport.update({
-    id: '/system/members/new-user',
-    path: '/system/members/new-user',
+    id: "/system/members/new-user",
+    path: "/system/members/new-user",
     getParentRoute: () => AuthorizeRoute,
   } as any)
 
 const AuthorizeGlobalConfigurationTierManagementUpdateTeamTierRoute =
   AuthorizeGlobalConfigurationTierManagementUpdateTeamTierImport.update({
-    id: '/global-configuration/tier-management/update-team-tier',
-    path: '/global-configuration/tier-management/update-team-tier',
+    id: "/global-configuration/tier-management/update-team-tier",
+    path: "/global-configuration/tier-management/update-team-tier",
     getParentRoute: () => AuthorizeRoute,
   } as any)
 
 const AuthorizeGlobalConfigurationTierManagementTierUpdateLogsRoute =
   AuthorizeGlobalConfigurationTierManagementTierUpdateLogsImport.update({
-    id: '/global-configuration/tier-management/tier-update-logs',
-    path: '/global-configuration/tier-management/tier-update-logs',
+    id: "/global-configuration/tier-management/tier-update-logs",
+    path: "/global-configuration/tier-management/tier-update-logs",
     getParentRoute: () => AuthorizeRoute,
   } as any)
 
 const AuthorizeGlobalConfigurationPricingManagementCreatePricingRuleRoute =
   AuthorizeGlobalConfigurationPricingManagementCreatePricingRuleImport.update({
-    id: '/global-configuration/pricing-management/create-pricing-rule',
-    path: '/global-configuration/pricing-management/create-pricing-rule',
+    id: "/global-configuration/pricing-management/create-pricing-rule",
+    path: "/global-configuration/pricing-management/create-pricing-rule",
     getParentRoute: () => AuthorizeRoute,
   } as any)
 
 const AuthorizeSystemTeamsTeamIdIndexRoute =
   AuthorizeSystemTeamsTeamIdIndexImport.update({
-    id: '/system/teams/$teamId/',
-    path: '/system/teams/$teamId/',
+    id: "/system/teams/$teamId/",
+    path: "/system/teams/$teamId/",
+    getParentRoute: () => AuthorizeRoute,
+  } as any)
+
+const AuthorizePrototyperPrototypeIdPreviewIndexRoute =
+  AuthorizePrototyperPrototypeIdPreviewIndexImport.update({
+    id: "/prototyper/$prototypeId/preview/",
+    path: "/prototyper/$prototypeId/preview/",
     getParentRoute: () => AuthorizeRoute,
   } as any)
 
 const AuthorizeProductManagementProductsProductIdIndexRoute =
   AuthorizeProductManagementProductsProductIdIndexImport.update({
-    id: '/product-management/products/$productId/',
-    path: '/product-management/products/$productId/',
+    id: "/product-management/products/$productId/",
+    path: "/product-management/products/$productId/",
     getParentRoute: () => AuthorizeRoute,
   } as any)
 
 const AuthorizeProductManagementPrintsTypeIndexRoute =
   AuthorizeProductManagementPrintsTypeIndexImport.update({
-    id: '/type/',
-    path: '/type/',
+    id: "/type/",
+    path: "/type/",
     getParentRoute: () => AuthorizeProductManagementPrintsRouteRoute,
   } as any)
 
 const AuthorizeProductManagementPrintsLocationIndexRoute =
   AuthorizeProductManagementPrintsLocationIndexImport.update({
-    id: '/location/',
-    path: '/location/',
+    id: "/location/",
+    path: "/location/",
     getParentRoute: () => AuthorizeProductManagementPrintsRouteRoute,
   } as any)
 
 const AuthorizeProductManagementCategoriesCategoryIdIndexRoute =
   AuthorizeProductManagementCategoriesCategoryIdIndexImport.update({
-    id: '/product-management/categories/$categoryId/',
-    path: '/product-management/categories/$categoryId/',
+    id: "/product-management/categories/$categoryId/",
+    path: "/product-management/categories/$categoryId/",
     getParentRoute: () => AuthorizeRoute,
   } as any)
 
 const AuthorizeProductManagementAttributesLibraryIndexRoute =
   AuthorizeProductManagementAttributesLibraryIndexImport.update({
-    id: '/library/',
-    path: '/library/',
+    id: "/library/",
+    path: "/library/",
     getParentRoute: () => AuthorizeProductManagementAttributesRouteRoute,
   } as any)
 
 const AuthorizeProductManagementAttributesGroupIndexRoute =
   AuthorizeProductManagementAttributesGroupIndexImport.update({
-    id: '/group/',
-    path: '/group/',
+    id: "/group/",
+    path: "/group/",
     getParentRoute: () => AuthorizeProductManagementAttributesRouteRoute,
   } as any)
 
 const AuthorizeOrderDraftOrdersOrderIdIndexRoute =
   AuthorizeOrderDraftOrdersOrderIdIndexImport.update({
-    id: '/order/draft-orders/$orderId/',
-    path: '/order/draft-orders/$orderId/',
+    id: "/order/draft-orders/$orderId/",
+    path: "/order/draft-orders/$orderId/",
     getParentRoute: () => AuthorizeRoute,
   } as any)
 
 const AuthorizeGlobalConfigurationPricingManagementCustomIdIndexRoute =
   AuthorizeGlobalConfigurationPricingManagementCustomIdIndexImport.update({
-    id: '/global-configuration/pricing-management/$customId/',
-    path: '/global-configuration/pricing-management/$customId/',
+    id: "/global-configuration/pricing-management/$customId/",
+    path: "/global-configuration/pricing-management/$customId/",
     getParentRoute: () => AuthorizeRoute,
   } as any)
 
 const AuthorizeFinanceTransactionsTransactionIdIndexRoute =
   AuthorizeFinanceTransactionsTransactionIdIndexImport.update({
-    id: '/finance/transactions/$transactionId/',
-    path: '/finance/transactions/$transactionId/',
+    id: "/finance/transactions/$transactionId/",
+    path: "/finance/transactions/$transactionId/",
     getParentRoute: () => AuthorizeRoute,
   } as any)
 
 const AuthorizeSystemTeamsTeamIdTransactionsIndexRoute =
   AuthorizeSystemTeamsTeamIdTransactionsIndexImport.update({
-    id: '/system/teams/$teamId/transactions/',
-    path: '/system/teams/$teamId/transactions/',
+    id: "/system/teams/$teamId/transactions/",
+    path: "/system/teams/$teamId/transactions/",
     getParentRoute: () => AuthorizeRoute,
   } as any)
 
 const AuthorizeSystemTeamsTeamIdStoreIndexRoute =
   AuthorizeSystemTeamsTeamIdStoreIndexImport.update({
-    id: '/system/teams/$teamId/store/',
-    path: '/system/teams/$teamId/store/',
+    id: "/system/teams/$teamId/store/",
+    path: "/system/teams/$teamId/store/",
     getParentRoute: () => AuthorizeRoute,
   } as any)
 
 const AuthorizeSystemTeamsTeamIdPaymentMethodsIndexRoute =
   AuthorizeSystemTeamsTeamIdPaymentMethodsIndexImport.update({
-    id: '/system/teams/$teamId/payment-methods/',
-    path: '/system/teams/$teamId/payment-methods/',
+    id: "/system/teams/$teamId/payment-methods/",
+    path: "/system/teams/$teamId/payment-methods/",
     getParentRoute: () => AuthorizeRoute,
   } as any)
 
 const AuthorizeSystemTeamsTeamIdGCreditsIndexRoute =
   AuthorizeSystemTeamsTeamIdGCreditsIndexImport.update({
-    id: '/system/teams/$teamId/g-credits/',
-    path: '/system/teams/$teamId/g-credits/',
+    id: "/system/teams/$teamId/g-credits/",
+    path: "/system/teams/$teamId/g-credits/",
     getParentRoute: () => AuthorizeRoute,
   } as any)
 
 const AuthorizeSystemTeamsTeamIdDetailsIndexRoute =
   AuthorizeSystemTeamsTeamIdDetailsIndexImport.update({
-    id: '/system/teams/$teamId/details/',
-    path: '/system/teams/$teamId/details/',
+    id: "/system/teams/$teamId/details/",
+    path: "/system/teams/$teamId/details/",
     getParentRoute: () => AuthorizeRoute,
   } as any)
 
 const AuthorizeProductManagementPrintsTypeTypeIdIndexRoute =
   AuthorizeProductManagementPrintsTypeTypeIdIndexImport.update({
-    id: '/type/$typeId/',
-    path: '/type/$typeId/',
+    id: "/type/$typeId/",
+    path: "/type/$typeId/",
     getParentRoute: () => AuthorizeProductManagementPrintsRouteRoute,
   } as any)
 
 const AuthorizeProductManagementPrintsLocationLocationIdIndexRoute =
   AuthorizeProductManagementPrintsLocationLocationIdIndexImport.update({
-    id: '/location/$locationId/',
-    path: '/location/$locationId/',
+    id: "/location/$locationId/",
+    path: "/location/$locationId/",
     getParentRoute: () => AuthorizeProductManagementPrintsRouteRoute,
   } as any)
 
 const AuthorizeProductManagementAttributesLibraryLibraryIdIndexRoute =
   AuthorizeProductManagementAttributesLibraryLibraryIdIndexImport.update({
-    id: '/library/$libraryId/',
-    path: '/library/$libraryId/',
+    id: "/library/$libraryId/",
+    path: "/library/$libraryId/",
     getParentRoute: () => AuthorizeProductManagementAttributesRouteRoute,
   } as any)
 
 const AuthorizeProductManagementAttributesGroupGroupIdIndexRoute =
   AuthorizeProductManagementAttributesGroupGroupIdIndexImport.update({
-    id: '/group/$groupId/',
-    path: '/group/$groupId/',
+    id: "/group/$groupId/",
+    path: "/group/$groupId/",
     getParentRoute: () => AuthorizeProductManagementAttributesRouteRoute,
   } as any)
 
 const AuthorizeFulfillmentShippingPlansshippingDetailShippingIdIndexRoute =
   AuthorizeFulfillmentShippingPlansshippingDetailShippingIdIndexImport.update({
-    id: '/fulfillment/shipping-plans/(shipping-detail)/$shippingId/',
-    path: '/fulfillment/shipping-plans/$shippingId/',
+    id: "/fulfillment/shipping-plans/(shipping-detail)/$shippingId/",
+    path: "/fulfillment/shipping-plans/$shippingId/",
     getParentRoute: () => AuthorizeRoute,
   } as any)
 
 const AuthorizeFinanceTransactionsTransactionIdInvoiceIndexRoute =
   AuthorizeFinanceTransactionsTransactionIdInvoiceIndexImport.update({
-    id: '/finance/transactions/$transactionId/invoice/',
-    path: '/finance/transactions/$transactionId/invoice/',
+    id: "/finance/transactions/$transactionId/invoice/",
+    path: "/finance/transactions/$transactionId/invoice/",
     getParentRoute: () => AuthorizeRoute,
   } as any)
 
 const AuthorizeSystemTeamsTeamIdGCreditsEnableRoute =
   AuthorizeSystemTeamsTeamIdGCreditsEnableImport.update({
-    id: '/system/teams/$teamId/g-credits/enable',
-    path: '/system/teams/$teamId/g-credits/enable',
+    id: "/system/teams/$teamId/g-credits/enable",
+    path: "/system/teams/$teamId/g-credits/enable",
     getParentRoute: () => AuthorizeRoute,
   } as any)
 
 const AuthorizeSystemTeamsTeamIdTransactionsTxnIdIndexRoute =
   AuthorizeSystemTeamsTeamIdTransactionsTxnIdIndexImport.update({
-    id: '/system/teams/$teamId/transactions/$txnId/',
-    path: '/system/teams/$teamId/transactions/$txnId/',
+    id: "/system/teams/$teamId/transactions/$txnId/",
+    path: "/system/teams/$teamId/transactions/$txnId/",
     getParentRoute: () => AuthorizeRoute,
   } as any)
 
 const AuthorizeSystemTeamsTeamIdStoreStoreIdIndexRoute =
   AuthorizeSystemTeamsTeamIdStoreStoreIdIndexImport.update({
-    id: '/system/teams/$teamId/store/$storeId/',
-    path: '/system/teams/$teamId/store/$storeId/',
+    id: "/system/teams/$teamId/store/$storeId/",
+    path: "/system/teams/$teamId/store/$storeId/",
     getParentRoute: () => AuthorizeRoute,
   } as any)
 
 const AuthorizeSystemTeamsTeamIdLogsImportOrdersIndexRoute =
   AuthorizeSystemTeamsTeamIdLogsImportOrdersIndexImport.update({
-    id: '/system/teams/$teamId/logs/import-orders/',
-    path: '/system/teams/$teamId/logs/import-orders/',
+    id: "/system/teams/$teamId/logs/import-orders/",
+    path: "/system/teams/$teamId/logs/import-orders/",
     getParentRoute: () => AuthorizeRoute,
   } as any)
 
 const AuthorizeSystemTeamsTeamIdconfigPrintTypeIndexRoute =
   AuthorizeSystemTeamsTeamIdconfigPrintTypeIndexImport.update({
-    id: '/system/teams/$teamId/(config)/print-type/',
-    path: '/system/teams/$teamId/print-type/',
+    id: "/system/teams/$teamId/(config)/print-type/",
+    path: "/system/teams/$teamId/print-type/",
     getParentRoute: () => AuthorizeRoute,
   } as any)
 
 const AuthorizeSystemTeamsTeamIdconfigGeneralIndexRoute =
   AuthorizeSystemTeamsTeamIdconfigGeneralIndexImport.update({
-    id: '/system/teams/$teamId/(config)/general/',
-    path: '/system/teams/$teamId/general/',
+    id: "/system/teams/$teamId/(config)/general/",
+    path: "/system/teams/$teamId/general/",
     getParentRoute: () => AuthorizeRoute,
   } as any)
 
 // Populate the FileRoutesByPath interface
 
-declare module '@tanstack/react-router' {
+declare module "@tanstack/react-router" {
   interface FileRoutesByPath {
-    '/_authorize': {
-      id: '/_authorize'
-      path: ''
-      fullPath: ''
+    "/_authorize": {
+      id: "/_authorize"
+      path: ""
+      fullPath: ""
       preLoaderRoute: typeof AuthorizeImport
       parentRoute: typeof rootRoute
     }
-    '/_unauthorize': {
-      id: '/_unauthorize'
-      path: ''
-      fullPath: ''
+    "/_unauthorize": {
+      id: "/_unauthorize"
+      path: ""
+      fullPath: ""
       preLoaderRoute: typeof UnauthorizeImport
       parentRoute: typeof rootRoute
     }
-    '/permission': {
-      id: '/permission'
-      path: '/permission'
-      fullPath: '/permission'
+    "/permission": {
+      id: "/permission"
+      path: "/permission"
+      fullPath: "/permission"
       preLoaderRoute: typeof PermissionImport
       parentRoute: typeof rootRoute
     }
-    '/_authorize/dev': {
-      id: '/_authorize/dev'
-      path: '/dev'
-      fullPath: '/dev'
+    "/_authorize/dev": {
+      id: "/_authorize/dev"
+      path: "/dev"
+      fullPath: "/dev"
       preLoaderRoute: typeof AuthorizeDevImport
       parentRoute: typeof AuthorizeImport
     }
-    '/_authorize/': {
-      id: '/_authorize/'
-      path: '/'
-      fullPath: '/'
+    "/_authorize/": {
+      id: "/_authorize/"
+      path: "/"
+      fullPath: "/"
       preLoaderRoute: typeof AuthorizeIndexImport
       parentRoute: typeof AuthorizeImport
     }
-    '/_authorize/product-management/attributes': {
-      id: '/_authorize/product-management/attributes'
-      path: '/product-management/attributes'
-      fullPath: '/product-management/attributes'
+    "/_authorize/product-management/attributes": {
+      id: "/_authorize/product-management/attributes"
+      path: "/product-management/attributes"
+      fullPath: "/product-management/attributes"
       preLoaderRoute: typeof AuthorizeProductManagementAttributesRouteImport
       parentRoute: typeof AuthorizeImport
     }
-    '/_authorize/product-management/prints': {
-      id: '/_authorize/product-management/prints'
-      path: '/product-management/prints'
-      fullPath: '/product-management/prints'
+    "/_authorize/product-management/prints": {
+      id: "/_authorize/product-management/prints"
+      path: "/product-management/prints"
+      fullPath: "/product-management/prints"
       preLoaderRoute: typeof AuthorizeProductManagementPrintsRouteImport
       parentRoute: typeof AuthorizeImport
     }
-    '/_authorize/logs/export-transactions': {
-      id: '/_authorize/logs/export-transactions'
-      path: '/logs/export-transactions'
-      fullPath: '/logs/export-transactions'
+    "/_authorize/logs/export-transactions": {
+      id: "/_authorize/logs/export-transactions"
+      path: "/logs/export-transactions"
+      fullPath: "/logs/export-transactions"
       preLoaderRoute: typeof AuthorizeLogsExportTransactionsImport
       parentRoute: typeof AuthorizeImport
     }
-    '/_authorize/users/create': {
-      id: '/_authorize/users/create'
-      path: '/users/create'
-      fullPath: '/users/create'
+    "/_authorize/users/create": {
+      id: "/_authorize/users/create"
+      path: "/users/create"
+      fullPath: "/users/create"
       preLoaderRoute: typeof AuthorizeUsersCreateImport
       parentRoute: typeof AuthorizeImport
     }
-    '/_authorize/client/': {
-      id: '/_authorize/client/'
-      path: '/client'
-      fullPath: '/client'
+    "/_authorize/client/": {
+      id: "/_authorize/client/"
+      path: "/client"
+      fullPath: "/client"
       preLoaderRoute: typeof AuthorizeClientIndexImport
       parentRoute: typeof AuthorizeImport
     }
-    '/_authorize/dashboard/': {
-      id: '/_authorize/dashboard/'
-      path: '/dashboard'
-      fullPath: '/dashboard'
+    "/_authorize/dashboard/": {
+      id: "/_authorize/dashboard/"
+      path: "/dashboard"
+      fullPath: "/dashboard"
       preLoaderRoute: typeof AuthorizeDashboardIndexImport
       parentRoute: typeof AuthorizeImport
     }
-    '/_authorize/product-listing/': {
-      id: '/_authorize/product-listing/'
-      path: '/product-listing'
-      fullPath: '/product-listing'
+    "/_authorize/product-listing/": {
+      id: "/_authorize/product-listing/"
+      path: "/product-listing"
+      fullPath: "/product-listing"
       preLoaderRoute: typeof AuthorizeProductListingIndexImport
       parentRoute: typeof AuthorizeImport
     }
-    '/_authorize/product-management/': {
-      id: '/_authorize/product-management/'
-      path: '/product-management'
-      fullPath: '/product-management'
+    "/_authorize/product-management/": {
+      id: "/_authorize/product-management/"
+      path: "/product-management"
+      fullPath: "/product-management"
       preLoaderRoute: typeof AuthorizeProductManagementIndexImport
       parentRoute: typeof AuthorizeImport
     }
-    '/_authorize/prototyper/': {
-      id: '/_authorize/prototyper/'
-      path: '/prototyper'
-      fullPath: '/prototyper'
+    "/_authorize/prototyper/": {
+      id: "/_authorize/prototyper/"
+      path: "/prototyper"
+      fullPath: "/prototyper"
       preLoaderRoute: typeof AuthorizePrototyperIndexImport
       parentRoute: typeof AuthorizeImport
     }
-    '/_authorize/users/': {
-      id: '/_authorize/users/'
-      path: '/users'
-      fullPath: '/users'
+    "/_authorize/users/": {
+      id: "/_authorize/users/"
+      path: "/users"
+      fullPath: "/users"
       preLoaderRoute: typeof AuthorizeUsersIndexImport
       parentRoute: typeof AuthorizeImport
     }
-    '/_unauthorize/login/': {
-      id: '/_unauthorize/login/'
-      path: '/login'
-      fullPath: '/login'
+    "/_unauthorize/login/": {
+      id: "/_unauthorize/login/"
+      path: "/login"
+      fullPath: "/login"
       preLoaderRoute: typeof UnauthorizeLoginIndexImport
       parentRoute: typeof UnauthorizeImport
     }
-    '/_authorize/global-configuration/pricing-management/create-pricing-rule': {
-      id: '/_authorize/global-configuration/pricing-management/create-pricing-rule'
-      path: '/global-configuration/pricing-management/create-pricing-rule'
-      fullPath: '/global-configuration/pricing-management/create-pricing-rule'
+    "/_authorize/global-configuration/pricing-management/create-pricing-rule": {
+      id: "/_authorize/global-configuration/pricing-management/create-pricing-rule"
+      path: "/global-configuration/pricing-management/create-pricing-rule"
+      fullPath: "/global-configuration/pricing-management/create-pricing-rule"
       preLoaderRoute: typeof AuthorizeGlobalConfigurationPricingManagementCreatePricingRuleImport
       parentRoute: typeof AuthorizeImport
     }
-    '/_authorize/global-configuration/tier-management/tier-update-logs': {
-      id: '/_authorize/global-configuration/tier-management/tier-update-logs'
-      path: '/global-configuration/tier-management/tier-update-logs'
-      fullPath: '/global-configuration/tier-management/tier-update-logs'
+    "/_authorize/global-configuration/tier-management/tier-update-logs": {
+      id: "/_authorize/global-configuration/tier-management/tier-update-logs"
+      path: "/global-configuration/tier-management/tier-update-logs"
+      fullPath: "/global-configuration/tier-management/tier-update-logs"
       preLoaderRoute: typeof AuthorizeGlobalConfigurationTierManagementTierUpdateLogsImport
       parentRoute: typeof AuthorizeImport
     }
-    '/_authorize/global-configuration/tier-management/update-team-tier': {
-      id: '/_authorize/global-configuration/tier-management/update-team-tier'
-      path: '/global-configuration/tier-management/update-team-tier'
-      fullPath: '/global-configuration/tier-management/update-team-tier'
+    "/_authorize/global-configuration/tier-management/update-team-tier": {
+      id: "/_authorize/global-configuration/tier-management/update-team-tier"
+      path: "/global-configuration/tier-management/update-team-tier"
+      fullPath: "/global-configuration/tier-management/update-team-tier"
       preLoaderRoute: typeof AuthorizeGlobalConfigurationTierManagementUpdateTeamTierImport
       parentRoute: typeof AuthorizeImport
     }
-    '/_authorize/system/members/new-user': {
-      id: '/_authorize/system/members/new-user'
-      path: '/system/members/new-user'
-      fullPath: '/system/members/new-user'
+    "/_authorize/system/members/new-user": {
+      id: "/_authorize/system/members/new-user"
+      path: "/system/members/new-user"
+      fullPath: "/system/members/new-user"
       preLoaderRoute: typeof AuthorizeSystemMembersNewUserImport
       parentRoute: typeof AuthorizeImport
     }
-    '/_authorize/system/members/permission': {
-      id: '/_authorize/system/members/permission'
-      path: '/system/members/permission'
-      fullPath: '/system/members/permission'
+    "/_authorize/system/members/permission": {
+      id: "/_authorize/system/members/permission"
+      path: "/system/members/permission"
+      fullPath: "/system/members/permission"
       preLoaderRoute: typeof AuthorizeSystemMembersPermissionImport
       parentRoute: typeof AuthorizeImport
     }
-    '/_authorize/client-listing/$clientId/': {
-      id: '/_authorize/client-listing/$clientId/'
-      path: '/client-listing/$clientId'
-      fullPath: '/client-listing/$clientId'
+    "/_authorize/client-listing/$clientId/": {
+      id: "/_authorize/client-listing/$clientId/"
+      path: "/client-listing/$clientId"
+      fullPath: "/client-listing/$clientId"
       preLoaderRoute: typeof AuthorizeClientListingClientIdIndexImport
       parentRoute: typeof AuthorizeImport
     }
-    '/_authorize/dev/migration/': {
-      id: '/_authorize/dev/migration/'
-      path: '/migration'
-      fullPath: '/dev/migration'
+    "/_authorize/dev/migration/": {
+      id: "/_authorize/dev/migration/"
+      path: "/migration"
+      fullPath: "/dev/migration"
       preLoaderRoute: typeof AuthorizeDevMigrationIndexImport
       parentRoute: typeof AuthorizeDevImport
     }
-    '/_authorize/dev/open-features/': {
-      id: '/_authorize/dev/open-features/'
-      path: '/open-features'
-      fullPath: '/dev/open-features'
+    "/_authorize/dev/open-features/": {
+      id: "/_authorize/dev/open-features/"
+      path: "/open-features"
+      fullPath: "/dev/open-features"
       preLoaderRoute: typeof AuthorizeDevOpenFeaturesIndexImport
       parentRoute: typeof AuthorizeDevImport
     }
-    '/_authorize/dev/sync/': {
-      id: '/_authorize/dev/sync/'
-      path: '/sync'
-      fullPath: '/dev/sync'
+    "/_authorize/dev/sync/": {
+      id: "/_authorize/dev/sync/"
+      path: "/sync"
+      fullPath: "/dev/sync"
       preLoaderRoute: typeof AuthorizeDevSyncIndexImport
       parentRoute: typeof AuthorizeDevImport
     }
-    '/_authorize/finance/deposit/': {
-      id: '/_authorize/finance/deposit/'
-      path: '/finance/deposit'
-      fullPath: '/finance/deposit'
+    "/_authorize/finance/deposit/": {
+      id: "/_authorize/finance/deposit/"
+      path: "/finance/deposit"
+      fullPath: "/finance/deposit"
       preLoaderRoute: typeof AuthorizeFinanceDepositIndexImport
       parentRoute: typeof AuthorizeImport
     }
-    '/_authorize/finance/payment-request/': {
-      id: '/_authorize/finance/payment-request/'
-      path: '/finance/payment-request'
-      fullPath: '/finance/payment-request'
+    "/_authorize/finance/payment-request/": {
+      id: "/_authorize/finance/payment-request/"
+      path: "/finance/payment-request"
+      fullPath: "/finance/payment-request"
       preLoaderRoute: typeof AuthorizeFinancePaymentRequestIndexImport
       parentRoute: typeof AuthorizeImport
     }
-    '/_authorize/finance/transactions/': {
-      id: '/_authorize/finance/transactions/'
-      path: '/finance/transactions'
-      fullPath: '/finance/transactions'
+    "/_authorize/finance/transactions/": {
+      id: "/_authorize/finance/transactions/"
+      path: "/finance/transactions"
+      fullPath: "/finance/transactions"
       preLoaderRoute: typeof AuthorizeFinanceTransactionsIndexImport
       parentRoute: typeof AuthorizeImport
     }
-    '/_authorize/fulfillment/shipping-plans/': {
-      id: '/_authorize/fulfillment/shipping-plans/'
-      path: '/fulfillment/shipping-plans'
-      fullPath: '/fulfillment/shipping-plans'
+    "/_authorize/fulfillment/shipping-plans/": {
+      id: "/_authorize/fulfillment/shipping-plans/"
+      path: "/fulfillment/shipping-plans"
+      fullPath: "/fulfillment/shipping-plans"
       preLoaderRoute: typeof AuthorizeFulfillmentShippingPlansIndexImport
       parentRoute: typeof AuthorizeImport
     }
-    '/_authorize/fulfillment/transactions/': {
-      id: '/_authorize/fulfillment/transactions/'
-      path: '/fulfillment/transactions'
-      fullPath: '/fulfillment/transactions'
+    "/_authorize/fulfillment/transactions/": {
+      id: "/_authorize/fulfillment/transactions/"
+      path: "/fulfillment/transactions"
+      fullPath: "/fulfillment/transactions"
       preLoaderRoute: typeof AuthorizeFulfillmentTransactionsIndexImport
       parentRoute: typeof AuthorizeImport
     }
-    '/_authorize/global-configuration/finance/': {
-      id: '/_authorize/global-configuration/finance/'
-      path: '/global-configuration/finance'
-      fullPath: '/global-configuration/finance'
+    "/_authorize/global-configuration/finance/": {
+      id: "/_authorize/global-configuration/finance/"
+      path: "/global-configuration/finance"
+      fullPath: "/global-configuration/finance"
       preLoaderRoute: typeof AuthorizeGlobalConfigurationFinanceIndexImport
       parentRoute: typeof AuthorizeImport
     }
-    '/_authorize/global-configuration/pricing-management/': {
-      id: '/_authorize/global-configuration/pricing-management/'
-      path: '/global-configuration/pricing-management'
-      fullPath: '/global-configuration/pricing-management'
+    "/_authorize/global-configuration/pricing-management/": {
+      id: "/_authorize/global-configuration/pricing-management/"
+      path: "/global-configuration/pricing-management"
+      fullPath: "/global-configuration/pricing-management"
       preLoaderRoute: typeof AuthorizeGlobalConfigurationPricingManagementIndexImport
       parentRoute: typeof AuthorizeImport
     }
-    '/_authorize/global-configuration/rush-order/': {
-      id: '/_authorize/global-configuration/rush-order/'
-      path: '/global-configuration/rush-order'
-      fullPath: '/global-configuration/rush-order'
+    "/_authorize/global-configuration/rush-order/": {
+      id: "/_authorize/global-configuration/rush-order/"
+      path: "/global-configuration/rush-order"
+      fullPath: "/global-configuration/rush-order"
       preLoaderRoute: typeof AuthorizeGlobalConfigurationRushOrderIndexImport
       parentRoute: typeof AuthorizeImport
     }
-    '/_authorize/global-configuration/tier-management/': {
-      id: '/_authorize/global-configuration/tier-management/'
-      path: '/global-configuration/tier-management'
-      fullPath: '/global-configuration/tier-management'
+    "/_authorize/global-configuration/seller-pricing-engine/": {
+      id: "/_authorize/global-configuration/seller-pricing-engine/"
+      path: "/global-configuration/seller-pricing-engine"
+      fullPath: "/global-configuration/seller-pricing-engine"
+      preLoaderRoute: typeof AuthorizeGlobalConfigurationSellerPricingEngineIndexImport
+      parentRoute: typeof AuthorizeImport
+    }
+    "/_authorize/global-configuration/tier-management/": {
+      id: "/_authorize/global-configuration/tier-management/"
+      path: "/global-configuration/tier-management"
+      fullPath: "/global-configuration/tier-management"
       preLoaderRoute: typeof AuthorizeGlobalConfigurationTierManagementIndexImport
       parentRoute: typeof AuthorizeImport
     }
-    '/_authorize/logs/call-logs/': {
-      id: '/_authorize/logs/call-logs/'
-      path: '/logs/call-logs'
-      fullPath: '/logs/call-logs'
+    "/_authorize/logs/call-logs/": {
+      id: "/_authorize/logs/call-logs/"
+      path: "/logs/call-logs"
+      fullPath: "/logs/call-logs"
       preLoaderRoute: typeof AuthorizeLogsCallLogsIndexImport
       parentRoute: typeof AuthorizeImport
     }
-    '/_authorize/logs/export-transactions/': {
-      id: '/_authorize/logs/export-transactions/'
-      path: '/'
-      fullPath: '/logs/export-transactions/'
+    "/_authorize/logs/export-transactions/": {
+      id: "/_authorize/logs/export-transactions/"
+      path: "/"
+      fullPath: "/logs/export-transactions/"
       preLoaderRoute: typeof AuthorizeLogsExportTransactionsIndexImport
       parentRoute: typeof AuthorizeLogsExportTransactionsImport
     }
-    '/_authorize/logs/payment-logs/': {
-      id: '/_authorize/logs/payment-logs/'
-      path: '/logs/payment-logs'
-      fullPath: '/logs/payment-logs'
+    "/_authorize/logs/payment-logs/": {
+      id: "/_authorize/logs/payment-logs/"
+      path: "/logs/payment-logs"
+      fullPath: "/logs/payment-logs"
       preLoaderRoute: typeof AuthorizeLogsPaymentLogsIndexImport
       parentRoute: typeof AuthorizeImport
     }
-    '/_authorize/order/$orderId/': {
-      id: '/_authorize/order/$orderId/'
-      path: '/order/$orderId'
-      fullPath: '/order/$orderId'
+    "/_authorize/order/$orderId/": {
+      id: "/_authorize/order/$orderId/"
+      path: "/order/$orderId"
+      fullPath: "/order/$orderId"
       preLoaderRoute: typeof AuthorizeOrderOrderIdIndexImport
       parentRoute: typeof AuthorizeImport
     }
-    '/_authorize/order/all-orders/': {
-      id: '/_authorize/order/all-orders/'
-      path: '/order/all-orders'
-      fullPath: '/order/all-orders'
+    "/_authorize/order/all-orders/": {
+      id: "/_authorize/order/all-orders/"
+      path: "/order/all-orders"
+      fullPath: "/order/all-orders"
       preLoaderRoute: typeof AuthorizeOrderAllOrdersIndexImport
       parentRoute: typeof AuthorizeImport
     }
-    '/_authorize/order/draft-orders/': {
-      id: '/_authorize/order/draft-orders/'
-      path: '/order/draft-orders'
-      fullPath: '/order/draft-orders'
+    "/_authorize/order/draft-orders/": {
+      id: "/_authorize/order/draft-orders/"
+      path: "/order/draft-orders"
+      fullPath: "/order/draft-orders"
       preLoaderRoute: typeof AuthorizeOrderDraftOrdersIndexImport
       parentRoute: typeof AuthorizeImport
     }
-    '/_authorize/order/error-orders/': {
-      id: '/_authorize/order/error-orders/'
-      path: '/order/error-orders'
-      fullPath: '/order/error-orders'
+    "/_authorize/order/error-orders/": {
+      id: "/_authorize/order/error-orders/"
+      path: "/order/error-orders"
+      fullPath: "/order/error-orders"
       preLoaderRoute: typeof AuthorizeOrderErrorOrdersIndexImport
       parentRoute: typeof AuthorizeImport
     }
-    '/_authorize/order/sale-orders/': {
-      id: '/_authorize/order/sale-orders/'
-      path: '/order/sale-orders'
-      fullPath: '/order/sale-orders'
+    "/_authorize/order/sale-orders/": {
+      id: "/_authorize/order/sale-orders/"
+      path: "/order/sale-orders"
+      fullPath: "/order/sale-orders"
       preLoaderRoute: typeof AuthorizeOrderSaleOrdersIndexImport
       parentRoute: typeof AuthorizeImport
     }
-    '/_authorize/product-management/attributes/': {
-      id: '/_authorize/product-management/attributes/'
-      path: '/'
-      fullPath: '/product-management/attributes/'
+    "/_authorize/product-management/attributes/": {
+      id: "/_authorize/product-management/attributes/"
+      path: "/"
+      fullPath: "/product-management/attributes/"
       preLoaderRoute: typeof AuthorizeProductManagementAttributesIndexImport
       parentRoute: typeof AuthorizeProductManagementAttributesRouteImport
     }
-    '/_authorize/product-management/categories/': {
-      id: '/_authorize/product-management/categories/'
-      path: '/product-management/categories'
-      fullPath: '/product-management/categories'
+    "/_authorize/product-management/categories/": {
+      id: "/_authorize/product-management/categories/"
+      path: "/product-management/categories"
+      fullPath: "/product-management/categories"
       preLoaderRoute: typeof AuthorizeProductManagementCategoriesIndexImport
       parentRoute: typeof AuthorizeImport
     }
-    '/_authorize/product-management/options/': {
-      id: '/_authorize/product-management/options/'
-      path: '/product-management/options'
-      fullPath: '/product-management/options'
+    "/_authorize/product-management/options/": {
+      id: "/_authorize/product-management/options/"
+      path: "/product-management/options"
+      fullPath: "/product-management/options"
       preLoaderRoute: typeof AuthorizeProductManagementOptionsIndexImport
       parentRoute: typeof AuthorizeImport
     }
-    '/_authorize/product-management/prints/': {
-      id: '/_authorize/product-management/prints/'
-      path: '/'
-      fullPath: '/product-management/prints/'
+    "/_authorize/product-management/prints/": {
+      id: "/_authorize/product-management/prints/"
+      path: "/"
+      fullPath: "/product-management/prints/"
       preLoaderRoute: typeof AuthorizeProductManagementPrintsIndexImport
       parentRoute: typeof AuthorizeProductManagementPrintsRouteImport
     }
-    '/_authorize/product-management/products/': {
-      id: '/_authorize/product-management/products/'
-      path: '/product-management/products'
-      fullPath: '/product-management/products'
+    "/_authorize/product-management/products/": {
+      id: "/_authorize/product-management/products/"
+      path: "/product-management/products"
+      fullPath: "/product-management/products"
       preLoaderRoute: typeof AuthorizeProductManagementProductsIndexImport
       parentRoute: typeof AuthorizeImport
     }
-    '/_authorize/product-management/variants/': {
-      id: '/_authorize/product-management/variants/'
-      path: '/product-management/variants'
-      fullPath: '/product-management/variants'
+    "/_authorize/product-management/variants/": {
+      id: "/_authorize/product-management/variants/"
+      path: "/product-management/variants"
+      fullPath: "/product-management/variants"
       preLoaderRoute: typeof AuthorizeProductManagementVariantsIndexImport
       parentRoute: typeof AuthorizeImport
     }
-    '/_authorize/system/members/': {
-      id: '/_authorize/system/members/'
-      path: '/system/members'
-      fullPath: '/system/members'
+    "/_authorize/prototyper/$prototypeId/": {
+      id: "/_authorize/prototyper/$prototypeId/"
+      path: "/prototyper/$prototypeId"
+      fullPath: "/prototyper/$prototypeId"
+      preLoaderRoute: typeof AuthorizePrototyperPrototypeIdIndexImport
+      parentRoute: typeof AuthorizeImport
+    }
+    "/_authorize/system/members/": {
+      id: "/_authorize/system/members/"
+      path: "/system/members"
+      fullPath: "/system/members"
       preLoaderRoute: typeof AuthorizeSystemMembersIndexImport
       parentRoute: typeof AuthorizeImport
     }
-    '/_authorize/system/permissions/': {
-      id: '/_authorize/system/permissions/'
-      path: '/system/permissions'
-      fullPath: '/system/permissions'
+    "/_authorize/system/permissions/": {
+      id: "/_authorize/system/permissions/"
+      path: "/system/permissions"
+      fullPath: "/system/permissions"
       preLoaderRoute: typeof AuthorizeSystemPermissionsIndexImport
       parentRoute: typeof AuthorizeImport
     }
-    '/_authorize/system/teams/': {
-      id: '/_authorize/system/teams/'
-      path: '/system/teams'
-      fullPath: '/system/teams'
+    "/_authorize/system/teams/": {
+      id: "/_authorize/system/teams/"
+      path: "/system/teams"
+      fullPath: "/system/teams"
       preLoaderRoute: typeof AuthorizeSystemTeamsIndexImport
       parentRoute: typeof AuthorizeImport
     }
-    '/_authorize/finance/transactions/$transactionId/': {
-      id: '/_authorize/finance/transactions/$transactionId/'
-      path: '/finance/transactions/$transactionId'
-      fullPath: '/finance/transactions/$transactionId'
+    "/_authorize/finance/transactions/$transactionId/": {
+      id: "/_authorize/finance/transactions/$transactionId/"
+      path: "/finance/transactions/$transactionId"
+      fullPath: "/finance/transactions/$transactionId"
       preLoaderRoute: typeof AuthorizeFinanceTransactionsTransactionIdIndexImport
       parentRoute: typeof AuthorizeImport
     }
-    '/_authorize/global-configuration/pricing-management/$customId/': {
-      id: '/_authorize/global-configuration/pricing-management/$customId/'
-      path: '/global-configuration/pricing-management/$customId'
-      fullPath: '/global-configuration/pricing-management/$customId'
+    "/_authorize/global-configuration/pricing-management/$customId/": {
+      id: "/_authorize/global-configuration/pricing-management/$customId/"
+      path: "/global-configuration/pricing-management/$customId"
+      fullPath: "/global-configuration/pricing-management/$customId"
       preLoaderRoute: typeof AuthorizeGlobalConfigurationPricingManagementCustomIdIndexImport
       parentRoute: typeof AuthorizeImport
     }
-    '/_authorize/order/draft-orders/$orderId/': {
-      id: '/_authorize/order/draft-orders/$orderId/'
-      path: '/order/draft-orders/$orderId'
-      fullPath: '/order/draft-orders/$orderId'
+    "/_authorize/order/draft-orders/$orderId/": {
+      id: "/_authorize/order/draft-orders/$orderId/"
+      path: "/order/draft-orders/$orderId"
+      fullPath: "/order/draft-orders/$orderId"
       preLoaderRoute: typeof AuthorizeOrderDraftOrdersOrderIdIndexImport
       parentRoute: typeof AuthorizeImport
     }
-    '/_authorize/product-management/attributes/group/': {
-      id: '/_authorize/product-management/attributes/group/'
-      path: '/group'
-      fullPath: '/product-management/attributes/group'
+    "/_authorize/product-management/attributes/group/": {
+      id: "/_authorize/product-management/attributes/group/"
+      path: "/group"
+      fullPath: "/product-management/attributes/group"
       preLoaderRoute: typeof AuthorizeProductManagementAttributesGroupIndexImport
       parentRoute: typeof AuthorizeProductManagementAttributesRouteImport
     }
-    '/_authorize/product-management/attributes/library/': {
-      id: '/_authorize/product-management/attributes/library/'
-      path: '/library'
-      fullPath: '/product-management/attributes/library'
+    "/_authorize/product-management/attributes/library/": {
+      id: "/_authorize/product-management/attributes/library/"
+      path: "/library"
+      fullPath: "/product-management/attributes/library"
       preLoaderRoute: typeof AuthorizeProductManagementAttributesLibraryIndexImport
       parentRoute: typeof AuthorizeProductManagementAttributesRouteImport
     }
-    '/_authorize/product-management/categories/$categoryId/': {
-      id: '/_authorize/product-management/categories/$categoryId/'
-      path: '/product-management/categories/$categoryId'
-      fullPath: '/product-management/categories/$categoryId'
+    "/_authorize/product-management/categories/$categoryId/": {
+      id: "/_authorize/product-management/categories/$categoryId/"
+      path: "/product-management/categories/$categoryId"
+      fullPath: "/product-management/categories/$categoryId"
       preLoaderRoute: typeof AuthorizeProductManagementCategoriesCategoryIdIndexImport
       parentRoute: typeof AuthorizeImport
     }
-    '/_authorize/product-management/prints/location/': {
-      id: '/_authorize/product-management/prints/location/'
-      path: '/location'
-      fullPath: '/product-management/prints/location'
+    "/_authorize/product-management/prints/location/": {
+      id: "/_authorize/product-management/prints/location/"
+      path: "/location"
+      fullPath: "/product-management/prints/location"
       preLoaderRoute: typeof AuthorizeProductManagementPrintsLocationIndexImport
       parentRoute: typeof AuthorizeProductManagementPrintsRouteImport
     }
-    '/_authorize/product-management/prints/type/': {
-      id: '/_authorize/product-management/prints/type/'
-      path: '/type'
-      fullPath: '/product-management/prints/type'
+    "/_authorize/product-management/prints/type/": {
+      id: "/_authorize/product-management/prints/type/"
+      path: "/type"
+      fullPath: "/product-management/prints/type"
       preLoaderRoute: typeof AuthorizeProductManagementPrintsTypeIndexImport
       parentRoute: typeof AuthorizeProductManagementPrintsRouteImport
     }
-    '/_authorize/product-management/products/$productId/': {
-      id: '/_authorize/product-management/products/$productId/'
-      path: '/product-management/products/$productId'
-      fullPath: '/product-management/products/$productId'
+    "/_authorize/product-management/products/$productId/": {
+      id: "/_authorize/product-management/products/$productId/"
+      path: "/product-management/products/$productId"
+      fullPath: "/product-management/products/$productId"
       preLoaderRoute: typeof AuthorizeProductManagementProductsProductIdIndexImport
       parentRoute: typeof AuthorizeImport
     }
-    '/_authorize/system/teams/$teamId/': {
-      id: '/_authorize/system/teams/$teamId/'
-      path: '/system/teams/$teamId'
-      fullPath: '/system/teams/$teamId'
+    "/_authorize/prototyper/$prototypeId/preview/": {
+      id: "/_authorize/prototyper/$prototypeId/preview/"
+      path: "/prototyper/$prototypeId/preview"
+      fullPath: "/prototyper/$prototypeId/preview"
+      preLoaderRoute: typeof AuthorizePrototyperPrototypeIdPreviewIndexImport
+      parentRoute: typeof AuthorizeImport
+    }
+    "/_authorize/system/teams/$teamId/": {
+      id: "/_authorize/system/teams/$teamId/"
+      path: "/system/teams/$teamId"
+      fullPath: "/system/teams/$teamId"
       preLoaderRoute: typeof AuthorizeSystemTeamsTeamIdIndexImport
       parentRoute: typeof AuthorizeImport
     }
-    '/_authorize/system/teams/$teamId/g-credits/enable': {
-      id: '/_authorize/system/teams/$teamId/g-credits/enable'
-      path: '/system/teams/$teamId/g-credits/enable'
-      fullPath: '/system/teams/$teamId/g-credits/enable'
+    "/_authorize/system/teams/$teamId/g-credits/enable": {
+      id: "/_authorize/system/teams/$teamId/g-credits/enable"
+      path: "/system/teams/$teamId/g-credits/enable"
+      fullPath: "/system/teams/$teamId/g-credits/enable"
       preLoaderRoute: typeof AuthorizeSystemTeamsTeamIdGCreditsEnableImport
       parentRoute: typeof AuthorizeImport
     }
-    '/_authorize/finance/transactions/$transactionId/invoice/': {
-      id: '/_authorize/finance/transactions/$transactionId/invoice/'
-      path: '/finance/transactions/$transactionId/invoice'
-      fullPath: '/finance/transactions/$transactionId/invoice'
+    "/_authorize/finance/transactions/$transactionId/invoice/": {
+      id: "/_authorize/finance/transactions/$transactionId/invoice/"
+      path: "/finance/transactions/$transactionId/invoice"
+      fullPath: "/finance/transactions/$transactionId/invoice"
       preLoaderRoute: typeof AuthorizeFinanceTransactionsTransactionIdInvoiceIndexImport
       parentRoute: typeof AuthorizeImport
     }
-    '/_authorize/fulfillment/shipping-plans/(shipping-detail)/$shippingId/': {
-      id: '/_authorize/fulfillment/shipping-plans/(shipping-detail)/$shippingId/'
-      path: '/fulfillment/shipping-plans/$shippingId'
-      fullPath: '/fulfillment/shipping-plans/$shippingId'
+    "/_authorize/fulfillment/shipping-plans/(shipping-detail)/$shippingId/": {
+      id: "/_authorize/fulfillment/shipping-plans/(shipping-detail)/$shippingId/"
+      path: "/fulfillment/shipping-plans/$shippingId"
+      fullPath: "/fulfillment/shipping-plans/$shippingId"
       preLoaderRoute: typeof AuthorizeFulfillmentShippingPlansshippingDetailShippingIdIndexImport
       parentRoute: typeof AuthorizeImport
     }
-    '/_authorize/product-management/attributes/group/$groupId/': {
-      id: '/_authorize/product-management/attributes/group/$groupId/'
-      path: '/group/$groupId'
-      fullPath: '/product-management/attributes/group/$groupId'
+    "/_authorize/product-management/attributes/group/$groupId/": {
+      id: "/_authorize/product-management/attributes/group/$groupId/"
+      path: "/group/$groupId"
+      fullPath: "/product-management/attributes/group/$groupId"
       preLoaderRoute: typeof AuthorizeProductManagementAttributesGroupGroupIdIndexImport
       parentRoute: typeof AuthorizeProductManagementAttributesRouteImport
     }
-    '/_authorize/product-management/attributes/library/$libraryId/': {
-      id: '/_authorize/product-management/attributes/library/$libraryId/'
-      path: '/library/$libraryId'
-      fullPath: '/product-management/attributes/library/$libraryId'
+    "/_authorize/product-management/attributes/library/$libraryId/": {
+      id: "/_authorize/product-management/attributes/library/$libraryId/"
+      path: "/library/$libraryId"
+      fullPath: "/product-management/attributes/library/$libraryId"
       preLoaderRoute: typeof AuthorizeProductManagementAttributesLibraryLibraryIdIndexImport
       parentRoute: typeof AuthorizeProductManagementAttributesRouteImport
     }
-    '/_authorize/product-management/prints/location/$locationId/': {
-      id: '/_authorize/product-management/prints/location/$locationId/'
-      path: '/location/$locationId'
-      fullPath: '/product-management/prints/location/$locationId'
+    "/_authorize/product-management/prints/location/$locationId/": {
+      id: "/_authorize/product-management/prints/location/$locationId/"
+      path: "/location/$locationId"
+      fullPath: "/product-management/prints/location/$locationId"
       preLoaderRoute: typeof AuthorizeProductManagementPrintsLocationLocationIdIndexImport
       parentRoute: typeof AuthorizeProductManagementPrintsRouteImport
     }
-    '/_authorize/product-management/prints/type/$typeId/': {
-      id: '/_authorize/product-management/prints/type/$typeId/'
-      path: '/type/$typeId'
-      fullPath: '/product-management/prints/type/$typeId'
+    "/_authorize/product-management/prints/type/$typeId/": {
+      id: "/_authorize/product-management/prints/type/$typeId/"
+      path: "/type/$typeId"
+      fullPath: "/product-management/prints/type/$typeId"
       preLoaderRoute: typeof AuthorizeProductManagementPrintsTypeTypeIdIndexImport
       parentRoute: typeof AuthorizeProductManagementPrintsRouteImport
     }
-    '/_authorize/system/teams/$teamId/details/': {
-      id: '/_authorize/system/teams/$teamId/details/'
-      path: '/system/teams/$teamId/details'
-      fullPath: '/system/teams/$teamId/details'
+    "/_authorize/system/teams/$teamId/details/": {
+      id: "/_authorize/system/teams/$teamId/details/"
+      path: "/system/teams/$teamId/details"
+      fullPath: "/system/teams/$teamId/details"
       preLoaderRoute: typeof AuthorizeSystemTeamsTeamIdDetailsIndexImport
       parentRoute: typeof AuthorizeImport
     }
-    '/_authorize/system/teams/$teamId/g-credits/': {
-      id: '/_authorize/system/teams/$teamId/g-credits/'
-      path: '/system/teams/$teamId/g-credits'
-      fullPath: '/system/teams/$teamId/g-credits'
+    "/_authorize/system/teams/$teamId/g-credits/": {
+      id: "/_authorize/system/teams/$teamId/g-credits/"
+      path: "/system/teams/$teamId/g-credits"
+      fullPath: "/system/teams/$teamId/g-credits"
       preLoaderRoute: typeof AuthorizeSystemTeamsTeamIdGCreditsIndexImport
       parentRoute: typeof AuthorizeImport
     }
-    '/_authorize/system/teams/$teamId/payment-methods/': {
-      id: '/_authorize/system/teams/$teamId/payment-methods/'
-      path: '/system/teams/$teamId/payment-methods'
-      fullPath: '/system/teams/$teamId/payment-methods'
+    "/_authorize/system/teams/$teamId/payment-methods/": {
+      id: "/_authorize/system/teams/$teamId/payment-methods/"
+      path: "/system/teams/$teamId/payment-methods"
+      fullPath: "/system/teams/$teamId/payment-methods"
       preLoaderRoute: typeof AuthorizeSystemTeamsTeamIdPaymentMethodsIndexImport
       parentRoute: typeof AuthorizeImport
     }
-    '/_authorize/system/teams/$teamId/store/': {
-      id: '/_authorize/system/teams/$teamId/store/'
-      path: '/system/teams/$teamId/store'
-      fullPath: '/system/teams/$teamId/store'
+    "/_authorize/system/teams/$teamId/store/": {
+      id: "/_authorize/system/teams/$teamId/store/"
+      path: "/system/teams/$teamId/store"
+      fullPath: "/system/teams/$teamId/store"
       preLoaderRoute: typeof AuthorizeSystemTeamsTeamIdStoreIndexImport
       parentRoute: typeof AuthorizeImport
     }
-    '/_authorize/system/teams/$teamId/transactions/': {
-      id: '/_authorize/system/teams/$teamId/transactions/'
-      path: '/system/teams/$teamId/transactions'
-      fullPath: '/system/teams/$teamId/transactions'
+    "/_authorize/system/teams/$teamId/transactions/": {
+      id: "/_authorize/system/teams/$teamId/transactions/"
+      path: "/system/teams/$teamId/transactions"
+      fullPath: "/system/teams/$teamId/transactions"
       preLoaderRoute: typeof AuthorizeSystemTeamsTeamIdTransactionsIndexImport
       parentRoute: typeof AuthorizeImport
     }
-    '/_authorize/system/teams/$teamId/(config)/general/': {
-      id: '/_authorize/system/teams/$teamId/(config)/general/'
-      path: '/system/teams/$teamId/general'
-      fullPath: '/system/teams/$teamId/general'
+    "/_authorize/system/teams/$teamId/(config)/general/": {
+      id: "/_authorize/system/teams/$teamId/(config)/general/"
+      path: "/system/teams/$teamId/general"
+      fullPath: "/system/teams/$teamId/general"
       preLoaderRoute: typeof AuthorizeSystemTeamsTeamIdconfigGeneralIndexImport
       parentRoute: typeof AuthorizeImport
     }
-    '/_authorize/system/teams/$teamId/(config)/print-type/': {
-      id: '/_authorize/system/teams/$teamId/(config)/print-type/'
-      path: '/system/teams/$teamId/print-type'
-      fullPath: '/system/teams/$teamId/print-type'
+    "/_authorize/system/teams/$teamId/(config)/print-type/": {
+      id: "/_authorize/system/teams/$teamId/(config)/print-type/"
+      path: "/system/teams/$teamId/print-type"
+      fullPath: "/system/teams/$teamId/print-type"
       preLoaderRoute: typeof AuthorizeSystemTeamsTeamIdconfigPrintTypeIndexImport
       parentRoute: typeof AuthorizeImport
     }
-    '/_authorize/system/teams/$teamId/logs/import-orders/': {
-      id: '/_authorize/system/teams/$teamId/logs/import-orders/'
-      path: '/system/teams/$teamId/logs/import-orders'
-      fullPath: '/system/teams/$teamId/logs/import-orders'
+    "/_authorize/system/teams/$teamId/logs/import-orders/": {
+      id: "/_authorize/system/teams/$teamId/logs/import-orders/"
+      path: "/system/teams/$teamId/logs/import-orders"
+      fullPath: "/system/teams/$teamId/logs/import-orders"
       preLoaderRoute: typeof AuthorizeSystemTeamsTeamIdLogsImportOrdersIndexImport
       parentRoute: typeof AuthorizeImport
     }
-    '/_authorize/system/teams/$teamId/store/$storeId/': {
-      id: '/_authorize/system/teams/$teamId/store/$storeId/'
-      path: '/system/teams/$teamId/store/$storeId'
-      fullPath: '/system/teams/$teamId/store/$storeId'
+    "/_authorize/system/teams/$teamId/store/$storeId/": {
+      id: "/_authorize/system/teams/$teamId/store/$storeId/"
+      path: "/system/teams/$teamId/store/$storeId"
+      fullPath: "/system/teams/$teamId/store/$storeId"
       preLoaderRoute: typeof AuthorizeSystemTeamsTeamIdStoreStoreIdIndexImport
       parentRoute: typeof AuthorizeImport
     }
-    '/_authorize/system/teams/$teamId/transactions/$txnId/': {
-      id: '/_authorize/system/teams/$teamId/transactions/$txnId/'
-      path: '/system/teams/$teamId/transactions/$txnId'
-      fullPath: '/system/teams/$teamId/transactions/$txnId'
+    "/_authorize/system/teams/$teamId/transactions/$txnId/": {
+      id: "/_authorize/system/teams/$teamId/transactions/$txnId/"
+      path: "/system/teams/$teamId/transactions/$txnId"
+      fullPath: "/system/teams/$teamId/transactions/$txnId"
       preLoaderRoute: typeof AuthorizeSystemTeamsTeamIdTransactionsTxnIdIndexImport
       parentRoute: typeof AuthorizeImport
     }
@@ -1293,6 +1338,7 @@ interface AuthorizeRouteChildren {
   AuthorizeGlobalConfigurationFinanceIndexRoute: typeof AuthorizeGlobalConfigurationFinanceIndexRoute
   AuthorizeGlobalConfigurationPricingManagementIndexRoute: typeof AuthorizeGlobalConfigurationPricingManagementIndexRoute
   AuthorizeGlobalConfigurationRushOrderIndexRoute: typeof AuthorizeGlobalConfigurationRushOrderIndexRoute
+  AuthorizeGlobalConfigurationSellerPricingEngineIndexRoute: typeof AuthorizeGlobalConfigurationSellerPricingEngineIndexRoute
   AuthorizeGlobalConfigurationTierManagementIndexRoute: typeof AuthorizeGlobalConfigurationTierManagementIndexRoute
   AuthorizeLogsCallLogsIndexRoute: typeof AuthorizeLogsCallLogsIndexRoute
   AuthorizeLogsPaymentLogsIndexRoute: typeof AuthorizeLogsPaymentLogsIndexRoute
@@ -1305,6 +1351,7 @@ interface AuthorizeRouteChildren {
   AuthorizeProductManagementOptionsIndexRoute: typeof AuthorizeProductManagementOptionsIndexRoute
   AuthorizeProductManagementProductsIndexRoute: typeof AuthorizeProductManagementProductsIndexRoute
   AuthorizeProductManagementVariantsIndexRoute: typeof AuthorizeProductManagementVariantsIndexRoute
+  AuthorizePrototyperPrototypeIdIndexRoute: typeof AuthorizePrototyperPrototypeIdIndexRoute
   AuthorizeSystemMembersIndexRoute: typeof AuthorizeSystemMembersIndexRoute
   AuthorizeSystemPermissionsIndexRoute: typeof AuthorizeSystemPermissionsIndexRoute
   AuthorizeSystemTeamsIndexRoute: typeof AuthorizeSystemTeamsIndexRoute
@@ -1313,6 +1360,7 @@ interface AuthorizeRouteChildren {
   AuthorizeOrderDraftOrdersOrderIdIndexRoute: typeof AuthorizeOrderDraftOrdersOrderIdIndexRoute
   AuthorizeProductManagementCategoriesCategoryIdIndexRoute: typeof AuthorizeProductManagementCategoriesCategoryIdIndexRoute
   AuthorizeProductManagementProductsProductIdIndexRoute: typeof AuthorizeProductManagementProductsProductIdIndexRoute
+  AuthorizePrototyperPrototypeIdPreviewIndexRoute: typeof AuthorizePrototyperPrototypeIdPreviewIndexRoute
   AuthorizeSystemTeamsTeamIdIndexRoute: typeof AuthorizeSystemTeamsTeamIdIndexRoute
   AuthorizeSystemTeamsTeamIdGCreditsEnableRoute: typeof AuthorizeSystemTeamsTeamIdGCreditsEnableRoute
   AuthorizeFinanceTransactionsTransactionIdInvoiceIndexRoute: typeof AuthorizeFinanceTransactionsTransactionIdInvoiceIndexRoute
@@ -1370,6 +1418,8 @@ const AuthorizeRouteChildren: AuthorizeRouteChildren = {
     AuthorizeGlobalConfigurationPricingManagementIndexRoute,
   AuthorizeGlobalConfigurationRushOrderIndexRoute:
     AuthorizeGlobalConfigurationRushOrderIndexRoute,
+  AuthorizeGlobalConfigurationSellerPricingEngineIndexRoute:
+    AuthorizeGlobalConfigurationSellerPricingEngineIndexRoute,
   AuthorizeGlobalConfigurationTierManagementIndexRoute:
     AuthorizeGlobalConfigurationTierManagementIndexRoute,
   AuthorizeLogsCallLogsIndexRoute: AuthorizeLogsCallLogsIndexRoute,
@@ -1387,6 +1437,8 @@ const AuthorizeRouteChildren: AuthorizeRouteChildren = {
     AuthorizeProductManagementProductsIndexRoute,
   AuthorizeProductManagementVariantsIndexRoute:
     AuthorizeProductManagementVariantsIndexRoute,
+  AuthorizePrototyperPrototypeIdIndexRoute:
+    AuthorizePrototyperPrototypeIdIndexRoute,
   AuthorizeSystemMembersIndexRoute: AuthorizeSystemMembersIndexRoute,
   AuthorizeSystemPermissionsIndexRoute: AuthorizeSystemPermissionsIndexRoute,
   AuthorizeSystemTeamsIndexRoute: AuthorizeSystemTeamsIndexRoute,
@@ -1400,6 +1452,8 @@ const AuthorizeRouteChildren: AuthorizeRouteChildren = {
     AuthorizeProductManagementCategoriesCategoryIdIndexRoute,
   AuthorizeProductManagementProductsProductIdIndexRoute:
     AuthorizeProductManagementProductsProductIdIndexRoute,
+  AuthorizePrototyperPrototypeIdPreviewIndexRoute:
+    AuthorizePrototyperPrototypeIdPreviewIndexRoute,
   AuthorizeSystemTeamsTeamIdIndexRoute: AuthorizeSystemTeamsTeamIdIndexRoute,
   AuthorizeSystemTeamsTeamIdGCreditsEnableRoute:
     AuthorizeSystemTeamsTeamIdGCreditsEnableRoute,
@@ -1446,480 +1500,498 @@ const UnauthorizeRouteWithChildren = UnauthorizeRoute._addFileChildren(
 )
 
 export interface FileRoutesByFullPath {
-  '': typeof UnauthorizeRouteWithChildren
-  '/permission': typeof PermissionRoute
-  '/dev': typeof AuthorizeDevRouteWithChildren
-  '/': typeof AuthorizeIndexRoute
-  '/product-management/attributes': typeof AuthorizeProductManagementAttributesRouteRouteWithChildren
-  '/product-management/prints': typeof AuthorizeProductManagementPrintsRouteRouteWithChildren
-  '/logs/export-transactions': typeof AuthorizeLogsExportTransactionsRouteWithChildren
-  '/users/create': typeof AuthorizeUsersCreateRoute
-  '/client': typeof AuthorizeClientIndexRoute
-  '/dashboard': typeof AuthorizeDashboardIndexRoute
-  '/product-listing': typeof AuthorizeProductListingIndexRoute
-  '/product-management': typeof AuthorizeProductManagementIndexRoute
-  '/prototyper': typeof AuthorizePrototyperIndexRoute
-  '/users': typeof AuthorizeUsersIndexRoute
-  '/login': typeof UnauthorizeLoginIndexRoute
-  '/global-configuration/pricing-management/create-pricing-rule': typeof AuthorizeGlobalConfigurationPricingManagementCreatePricingRuleRoute
-  '/global-configuration/tier-management/tier-update-logs': typeof AuthorizeGlobalConfigurationTierManagementTierUpdateLogsRoute
-  '/global-configuration/tier-management/update-team-tier': typeof AuthorizeGlobalConfigurationTierManagementUpdateTeamTierRoute
-  '/system/members/new-user': typeof AuthorizeSystemMembersNewUserRoute
-  '/system/members/permission': typeof AuthorizeSystemMembersPermissionRoute
-  '/client-listing/$clientId': typeof AuthorizeClientListingClientIdIndexRoute
-  '/dev/migration': typeof AuthorizeDevMigrationIndexRoute
-  '/dev/open-features': typeof AuthorizeDevOpenFeaturesIndexRoute
-  '/dev/sync': typeof AuthorizeDevSyncIndexRoute
-  '/finance/deposit': typeof AuthorizeFinanceDepositIndexRoute
-  '/finance/payment-request': typeof AuthorizeFinancePaymentRequestIndexRoute
-  '/finance/transactions': typeof AuthorizeFinanceTransactionsIndexRoute
-  '/fulfillment/shipping-plans': typeof AuthorizeFulfillmentShippingPlansIndexRoute
-  '/fulfillment/transactions': typeof AuthorizeFulfillmentTransactionsIndexRoute
-  '/global-configuration/finance': typeof AuthorizeGlobalConfigurationFinanceIndexRoute
-  '/global-configuration/pricing-management': typeof AuthorizeGlobalConfigurationPricingManagementIndexRoute
-  '/global-configuration/rush-order': typeof AuthorizeGlobalConfigurationRushOrderIndexRoute
-  '/global-configuration/tier-management': typeof AuthorizeGlobalConfigurationTierManagementIndexRoute
-  '/logs/call-logs': typeof AuthorizeLogsCallLogsIndexRoute
-  '/logs/export-transactions/': typeof AuthorizeLogsExportTransactionsIndexRoute
-  '/logs/payment-logs': typeof AuthorizeLogsPaymentLogsIndexRoute
-  '/order/$orderId': typeof AuthorizeOrderOrderIdIndexRoute
-  '/order/all-orders': typeof AuthorizeOrderAllOrdersIndexRoute
-  '/order/draft-orders': typeof AuthorizeOrderDraftOrdersIndexRoute
-  '/order/error-orders': typeof AuthorizeOrderErrorOrdersIndexRoute
-  '/order/sale-orders': typeof AuthorizeOrderSaleOrdersIndexRoute
-  '/product-management/attributes/': typeof AuthorizeProductManagementAttributesIndexRoute
-  '/product-management/categories': typeof AuthorizeProductManagementCategoriesIndexRoute
-  '/product-management/options': typeof AuthorizeProductManagementOptionsIndexRoute
-  '/product-management/prints/': typeof AuthorizeProductManagementPrintsIndexRoute
-  '/product-management/products': typeof AuthorizeProductManagementProductsIndexRoute
-  '/product-management/variants': typeof AuthorizeProductManagementVariantsIndexRoute
-  '/system/members': typeof AuthorizeSystemMembersIndexRoute
-  '/system/permissions': typeof AuthorizeSystemPermissionsIndexRoute
-  '/system/teams': typeof AuthorizeSystemTeamsIndexRoute
-  '/finance/transactions/$transactionId': typeof AuthorizeFinanceTransactionsTransactionIdIndexRoute
-  '/global-configuration/pricing-management/$customId': typeof AuthorizeGlobalConfigurationPricingManagementCustomIdIndexRoute
-  '/order/draft-orders/$orderId': typeof AuthorizeOrderDraftOrdersOrderIdIndexRoute
-  '/product-management/attributes/group': typeof AuthorizeProductManagementAttributesGroupIndexRoute
-  '/product-management/attributes/library': typeof AuthorizeProductManagementAttributesLibraryIndexRoute
-  '/product-management/categories/$categoryId': typeof AuthorizeProductManagementCategoriesCategoryIdIndexRoute
-  '/product-management/prints/location': typeof AuthorizeProductManagementPrintsLocationIndexRoute
-  '/product-management/prints/type': typeof AuthorizeProductManagementPrintsTypeIndexRoute
-  '/product-management/products/$productId': typeof AuthorizeProductManagementProductsProductIdIndexRoute
-  '/system/teams/$teamId': typeof AuthorizeSystemTeamsTeamIdIndexRoute
-  '/system/teams/$teamId/g-credits/enable': typeof AuthorizeSystemTeamsTeamIdGCreditsEnableRoute
-  '/finance/transactions/$transactionId/invoice': typeof AuthorizeFinanceTransactionsTransactionIdInvoiceIndexRoute
-  '/fulfillment/shipping-plans/$shippingId': typeof AuthorizeFulfillmentShippingPlansshippingDetailShippingIdIndexRoute
-  '/product-management/attributes/group/$groupId': typeof AuthorizeProductManagementAttributesGroupGroupIdIndexRoute
-  '/product-management/attributes/library/$libraryId': typeof AuthorizeProductManagementAttributesLibraryLibraryIdIndexRoute
-  '/product-management/prints/location/$locationId': typeof AuthorizeProductManagementPrintsLocationLocationIdIndexRoute
-  '/product-management/prints/type/$typeId': typeof AuthorizeProductManagementPrintsTypeTypeIdIndexRoute
-  '/system/teams/$teamId/details': typeof AuthorizeSystemTeamsTeamIdDetailsIndexRoute
-  '/system/teams/$teamId/g-credits': typeof AuthorizeSystemTeamsTeamIdGCreditsIndexRoute
-  '/system/teams/$teamId/payment-methods': typeof AuthorizeSystemTeamsTeamIdPaymentMethodsIndexRoute
-  '/system/teams/$teamId/store': typeof AuthorizeSystemTeamsTeamIdStoreIndexRoute
-  '/system/teams/$teamId/transactions': typeof AuthorizeSystemTeamsTeamIdTransactionsIndexRoute
-  '/system/teams/$teamId/general': typeof AuthorizeSystemTeamsTeamIdconfigGeneralIndexRoute
-  '/system/teams/$teamId/print-type': typeof AuthorizeSystemTeamsTeamIdconfigPrintTypeIndexRoute
-  '/system/teams/$teamId/logs/import-orders': typeof AuthorizeSystemTeamsTeamIdLogsImportOrdersIndexRoute
-  '/system/teams/$teamId/store/$storeId': typeof AuthorizeSystemTeamsTeamIdStoreStoreIdIndexRoute
-  '/system/teams/$teamId/transactions/$txnId': typeof AuthorizeSystemTeamsTeamIdTransactionsTxnIdIndexRoute
+  "": typeof UnauthorizeRouteWithChildren
+  "/permission": typeof PermissionRoute
+  "/dev": typeof AuthorizeDevRouteWithChildren
+  "/": typeof AuthorizeIndexRoute
+  "/product-management/attributes": typeof AuthorizeProductManagementAttributesRouteRouteWithChildren
+  "/product-management/prints": typeof AuthorizeProductManagementPrintsRouteRouteWithChildren
+  "/logs/export-transactions": typeof AuthorizeLogsExportTransactionsRouteWithChildren
+  "/users/create": typeof AuthorizeUsersCreateRoute
+  "/client": typeof AuthorizeClientIndexRoute
+  "/dashboard": typeof AuthorizeDashboardIndexRoute
+  "/product-listing": typeof AuthorizeProductListingIndexRoute
+  "/product-management": typeof AuthorizeProductManagementIndexRoute
+  "/prototyper": typeof AuthorizePrototyperIndexRoute
+  "/users": typeof AuthorizeUsersIndexRoute
+  "/login": typeof UnauthorizeLoginIndexRoute
+  "/global-configuration/pricing-management/create-pricing-rule": typeof AuthorizeGlobalConfigurationPricingManagementCreatePricingRuleRoute
+  "/global-configuration/tier-management/tier-update-logs": typeof AuthorizeGlobalConfigurationTierManagementTierUpdateLogsRoute
+  "/global-configuration/tier-management/update-team-tier": typeof AuthorizeGlobalConfigurationTierManagementUpdateTeamTierRoute
+  "/system/members/new-user": typeof AuthorizeSystemMembersNewUserRoute
+  "/system/members/permission": typeof AuthorizeSystemMembersPermissionRoute
+  "/client-listing/$clientId": typeof AuthorizeClientListingClientIdIndexRoute
+  "/dev/migration": typeof AuthorizeDevMigrationIndexRoute
+  "/dev/open-features": typeof AuthorizeDevOpenFeaturesIndexRoute
+  "/dev/sync": typeof AuthorizeDevSyncIndexRoute
+  "/finance/deposit": typeof AuthorizeFinanceDepositIndexRoute
+  "/finance/payment-request": typeof AuthorizeFinancePaymentRequestIndexRoute
+  "/finance/transactions": typeof AuthorizeFinanceTransactionsIndexRoute
+  "/fulfillment/shipping-plans": typeof AuthorizeFulfillmentShippingPlansIndexRoute
+  "/fulfillment/transactions": typeof AuthorizeFulfillmentTransactionsIndexRoute
+  "/global-configuration/finance": typeof AuthorizeGlobalConfigurationFinanceIndexRoute
+  "/global-configuration/pricing-management": typeof AuthorizeGlobalConfigurationPricingManagementIndexRoute
+  "/global-configuration/rush-order": typeof AuthorizeGlobalConfigurationRushOrderIndexRoute
+  "/global-configuration/seller-pricing-engine": typeof AuthorizeGlobalConfigurationSellerPricingEngineIndexRoute
+  "/global-configuration/tier-management": typeof AuthorizeGlobalConfigurationTierManagementIndexRoute
+  "/logs/call-logs": typeof AuthorizeLogsCallLogsIndexRoute
+  "/logs/export-transactions/": typeof AuthorizeLogsExportTransactionsIndexRoute
+  "/logs/payment-logs": typeof AuthorizeLogsPaymentLogsIndexRoute
+  "/order/$orderId": typeof AuthorizeOrderOrderIdIndexRoute
+  "/order/all-orders": typeof AuthorizeOrderAllOrdersIndexRoute
+  "/order/draft-orders": typeof AuthorizeOrderDraftOrdersIndexRoute
+  "/order/error-orders": typeof AuthorizeOrderErrorOrdersIndexRoute
+  "/order/sale-orders": typeof AuthorizeOrderSaleOrdersIndexRoute
+  "/product-management/attributes/": typeof AuthorizeProductManagementAttributesIndexRoute
+  "/product-management/categories": typeof AuthorizeProductManagementCategoriesIndexRoute
+  "/product-management/options": typeof AuthorizeProductManagementOptionsIndexRoute
+  "/product-management/prints/": typeof AuthorizeProductManagementPrintsIndexRoute
+  "/product-management/products": typeof AuthorizeProductManagementProductsIndexRoute
+  "/product-management/variants": typeof AuthorizeProductManagementVariantsIndexRoute
+  "/prototyper/$prototypeId": typeof AuthorizePrototyperPrototypeIdIndexRoute
+  "/system/members": typeof AuthorizeSystemMembersIndexRoute
+  "/system/permissions": typeof AuthorizeSystemPermissionsIndexRoute
+  "/system/teams": typeof AuthorizeSystemTeamsIndexRoute
+  "/finance/transactions/$transactionId": typeof AuthorizeFinanceTransactionsTransactionIdIndexRoute
+  "/global-configuration/pricing-management/$customId": typeof AuthorizeGlobalConfigurationPricingManagementCustomIdIndexRoute
+  "/order/draft-orders/$orderId": typeof AuthorizeOrderDraftOrdersOrderIdIndexRoute
+  "/product-management/attributes/group": typeof AuthorizeProductManagementAttributesGroupIndexRoute
+  "/product-management/attributes/library": typeof AuthorizeProductManagementAttributesLibraryIndexRoute
+  "/product-management/categories/$categoryId": typeof AuthorizeProductManagementCategoriesCategoryIdIndexRoute
+  "/product-management/prints/location": typeof AuthorizeProductManagementPrintsLocationIndexRoute
+  "/product-management/prints/type": typeof AuthorizeProductManagementPrintsTypeIndexRoute
+  "/product-management/products/$productId": typeof AuthorizeProductManagementProductsProductIdIndexRoute
+  "/prototyper/$prototypeId/preview": typeof AuthorizePrototyperPrototypeIdPreviewIndexRoute
+  "/system/teams/$teamId": typeof AuthorizeSystemTeamsTeamIdIndexRoute
+  "/system/teams/$teamId/g-credits/enable": typeof AuthorizeSystemTeamsTeamIdGCreditsEnableRoute
+  "/finance/transactions/$transactionId/invoice": typeof AuthorizeFinanceTransactionsTransactionIdInvoiceIndexRoute
+  "/fulfillment/shipping-plans/$shippingId": typeof AuthorizeFulfillmentShippingPlansshippingDetailShippingIdIndexRoute
+  "/product-management/attributes/group/$groupId": typeof AuthorizeProductManagementAttributesGroupGroupIdIndexRoute
+  "/product-management/attributes/library/$libraryId": typeof AuthorizeProductManagementAttributesLibraryLibraryIdIndexRoute
+  "/product-management/prints/location/$locationId": typeof AuthorizeProductManagementPrintsLocationLocationIdIndexRoute
+  "/product-management/prints/type/$typeId": typeof AuthorizeProductManagementPrintsTypeTypeIdIndexRoute
+  "/system/teams/$teamId/details": typeof AuthorizeSystemTeamsTeamIdDetailsIndexRoute
+  "/system/teams/$teamId/g-credits": typeof AuthorizeSystemTeamsTeamIdGCreditsIndexRoute
+  "/system/teams/$teamId/payment-methods": typeof AuthorizeSystemTeamsTeamIdPaymentMethodsIndexRoute
+  "/system/teams/$teamId/store": typeof AuthorizeSystemTeamsTeamIdStoreIndexRoute
+  "/system/teams/$teamId/transactions": typeof AuthorizeSystemTeamsTeamIdTransactionsIndexRoute
+  "/system/teams/$teamId/general": typeof AuthorizeSystemTeamsTeamIdconfigGeneralIndexRoute
+  "/system/teams/$teamId/print-type": typeof AuthorizeSystemTeamsTeamIdconfigPrintTypeIndexRoute
+  "/system/teams/$teamId/logs/import-orders": typeof AuthorizeSystemTeamsTeamIdLogsImportOrdersIndexRoute
+  "/system/teams/$teamId/store/$storeId": typeof AuthorizeSystemTeamsTeamIdStoreStoreIdIndexRoute
+  "/system/teams/$teamId/transactions/$txnId": typeof AuthorizeSystemTeamsTeamIdTransactionsTxnIdIndexRoute
 }
 
 export interface FileRoutesByTo {
-  '': typeof UnauthorizeRouteWithChildren
-  '/permission': typeof PermissionRoute
-  '/dev': typeof AuthorizeDevRouteWithChildren
-  '/': typeof AuthorizeIndexRoute
-  '/users/create': typeof AuthorizeUsersCreateRoute
-  '/client': typeof AuthorizeClientIndexRoute
-  '/dashboard': typeof AuthorizeDashboardIndexRoute
-  '/product-listing': typeof AuthorizeProductListingIndexRoute
-  '/product-management': typeof AuthorizeProductManagementIndexRoute
-  '/prototyper': typeof AuthorizePrototyperIndexRoute
-  '/users': typeof AuthorizeUsersIndexRoute
-  '/login': typeof UnauthorizeLoginIndexRoute
-  '/global-configuration/pricing-management/create-pricing-rule': typeof AuthorizeGlobalConfigurationPricingManagementCreatePricingRuleRoute
-  '/global-configuration/tier-management/tier-update-logs': typeof AuthorizeGlobalConfigurationTierManagementTierUpdateLogsRoute
-  '/global-configuration/tier-management/update-team-tier': typeof AuthorizeGlobalConfigurationTierManagementUpdateTeamTierRoute
-  '/system/members/new-user': typeof AuthorizeSystemMembersNewUserRoute
-  '/system/members/permission': typeof AuthorizeSystemMembersPermissionRoute
-  '/client-listing/$clientId': typeof AuthorizeClientListingClientIdIndexRoute
-  '/dev/migration': typeof AuthorizeDevMigrationIndexRoute
-  '/dev/open-features': typeof AuthorizeDevOpenFeaturesIndexRoute
-  '/dev/sync': typeof AuthorizeDevSyncIndexRoute
-  '/finance/deposit': typeof AuthorizeFinanceDepositIndexRoute
-  '/finance/payment-request': typeof AuthorizeFinancePaymentRequestIndexRoute
-  '/finance/transactions': typeof AuthorizeFinanceTransactionsIndexRoute
-  '/fulfillment/shipping-plans': typeof AuthorizeFulfillmentShippingPlansIndexRoute
-  '/fulfillment/transactions': typeof AuthorizeFulfillmentTransactionsIndexRoute
-  '/global-configuration/finance': typeof AuthorizeGlobalConfigurationFinanceIndexRoute
-  '/global-configuration/pricing-management': typeof AuthorizeGlobalConfigurationPricingManagementIndexRoute
-  '/global-configuration/rush-order': typeof AuthorizeGlobalConfigurationRushOrderIndexRoute
-  '/global-configuration/tier-management': typeof AuthorizeGlobalConfigurationTierManagementIndexRoute
-  '/logs/call-logs': typeof AuthorizeLogsCallLogsIndexRoute
-  '/logs/export-transactions': typeof AuthorizeLogsExportTransactionsIndexRoute
-  '/logs/payment-logs': typeof AuthorizeLogsPaymentLogsIndexRoute
-  '/order/$orderId': typeof AuthorizeOrderOrderIdIndexRoute
-  '/order/all-orders': typeof AuthorizeOrderAllOrdersIndexRoute
-  '/order/draft-orders': typeof AuthorizeOrderDraftOrdersIndexRoute
-  '/order/error-orders': typeof AuthorizeOrderErrorOrdersIndexRoute
-  '/order/sale-orders': typeof AuthorizeOrderSaleOrdersIndexRoute
-  '/product-management/attributes': typeof AuthorizeProductManagementAttributesIndexRoute
-  '/product-management/categories': typeof AuthorizeProductManagementCategoriesIndexRoute
-  '/product-management/options': typeof AuthorizeProductManagementOptionsIndexRoute
-  '/product-management/prints': typeof AuthorizeProductManagementPrintsIndexRoute
-  '/product-management/products': typeof AuthorizeProductManagementProductsIndexRoute
-  '/product-management/variants': typeof AuthorizeProductManagementVariantsIndexRoute
-  '/system/members': typeof AuthorizeSystemMembersIndexRoute
-  '/system/permissions': typeof AuthorizeSystemPermissionsIndexRoute
-  '/system/teams': typeof AuthorizeSystemTeamsIndexRoute
-  '/finance/transactions/$transactionId': typeof AuthorizeFinanceTransactionsTransactionIdIndexRoute
-  '/global-configuration/pricing-management/$customId': typeof AuthorizeGlobalConfigurationPricingManagementCustomIdIndexRoute
-  '/order/draft-orders/$orderId': typeof AuthorizeOrderDraftOrdersOrderIdIndexRoute
-  '/product-management/attributes/group': typeof AuthorizeProductManagementAttributesGroupIndexRoute
-  '/product-management/attributes/library': typeof AuthorizeProductManagementAttributesLibraryIndexRoute
-  '/product-management/categories/$categoryId': typeof AuthorizeProductManagementCategoriesCategoryIdIndexRoute
-  '/product-management/prints/location': typeof AuthorizeProductManagementPrintsLocationIndexRoute
-  '/product-management/prints/type': typeof AuthorizeProductManagementPrintsTypeIndexRoute
-  '/product-management/products/$productId': typeof AuthorizeProductManagementProductsProductIdIndexRoute
-  '/system/teams/$teamId': typeof AuthorizeSystemTeamsTeamIdIndexRoute
-  '/system/teams/$teamId/g-credits/enable': typeof AuthorizeSystemTeamsTeamIdGCreditsEnableRoute
-  '/finance/transactions/$transactionId/invoice': typeof AuthorizeFinanceTransactionsTransactionIdInvoiceIndexRoute
-  '/fulfillment/shipping-plans/$shippingId': typeof AuthorizeFulfillmentShippingPlansshippingDetailShippingIdIndexRoute
-  '/product-management/attributes/group/$groupId': typeof AuthorizeProductManagementAttributesGroupGroupIdIndexRoute
-  '/product-management/attributes/library/$libraryId': typeof AuthorizeProductManagementAttributesLibraryLibraryIdIndexRoute
-  '/product-management/prints/location/$locationId': typeof AuthorizeProductManagementPrintsLocationLocationIdIndexRoute
-  '/product-management/prints/type/$typeId': typeof AuthorizeProductManagementPrintsTypeTypeIdIndexRoute
-  '/system/teams/$teamId/details': typeof AuthorizeSystemTeamsTeamIdDetailsIndexRoute
-  '/system/teams/$teamId/g-credits': typeof AuthorizeSystemTeamsTeamIdGCreditsIndexRoute
-  '/system/teams/$teamId/payment-methods': typeof AuthorizeSystemTeamsTeamIdPaymentMethodsIndexRoute
-  '/system/teams/$teamId/store': typeof AuthorizeSystemTeamsTeamIdStoreIndexRoute
-  '/system/teams/$teamId/transactions': typeof AuthorizeSystemTeamsTeamIdTransactionsIndexRoute
-  '/system/teams/$teamId/general': typeof AuthorizeSystemTeamsTeamIdconfigGeneralIndexRoute
-  '/system/teams/$teamId/print-type': typeof AuthorizeSystemTeamsTeamIdconfigPrintTypeIndexRoute
-  '/system/teams/$teamId/logs/import-orders': typeof AuthorizeSystemTeamsTeamIdLogsImportOrdersIndexRoute
-  '/system/teams/$teamId/store/$storeId': typeof AuthorizeSystemTeamsTeamIdStoreStoreIdIndexRoute
-  '/system/teams/$teamId/transactions/$txnId': typeof AuthorizeSystemTeamsTeamIdTransactionsTxnIdIndexRoute
+  "": typeof UnauthorizeRouteWithChildren
+  "/permission": typeof PermissionRoute
+  "/dev": typeof AuthorizeDevRouteWithChildren
+  "/": typeof AuthorizeIndexRoute
+  "/users/create": typeof AuthorizeUsersCreateRoute
+  "/client": typeof AuthorizeClientIndexRoute
+  "/dashboard": typeof AuthorizeDashboardIndexRoute
+  "/product-listing": typeof AuthorizeProductListingIndexRoute
+  "/product-management": typeof AuthorizeProductManagementIndexRoute
+  "/prototyper": typeof AuthorizePrototyperIndexRoute
+  "/users": typeof AuthorizeUsersIndexRoute
+  "/login": typeof UnauthorizeLoginIndexRoute
+  "/global-configuration/pricing-management/create-pricing-rule": typeof AuthorizeGlobalConfigurationPricingManagementCreatePricingRuleRoute
+  "/global-configuration/tier-management/tier-update-logs": typeof AuthorizeGlobalConfigurationTierManagementTierUpdateLogsRoute
+  "/global-configuration/tier-management/update-team-tier": typeof AuthorizeGlobalConfigurationTierManagementUpdateTeamTierRoute
+  "/system/members/new-user": typeof AuthorizeSystemMembersNewUserRoute
+  "/system/members/permission": typeof AuthorizeSystemMembersPermissionRoute
+  "/client-listing/$clientId": typeof AuthorizeClientListingClientIdIndexRoute
+  "/dev/migration": typeof AuthorizeDevMigrationIndexRoute
+  "/dev/open-features": typeof AuthorizeDevOpenFeaturesIndexRoute
+  "/dev/sync": typeof AuthorizeDevSyncIndexRoute
+  "/finance/deposit": typeof AuthorizeFinanceDepositIndexRoute
+  "/finance/payment-request": typeof AuthorizeFinancePaymentRequestIndexRoute
+  "/finance/transactions": typeof AuthorizeFinanceTransactionsIndexRoute
+  "/fulfillment/shipping-plans": typeof AuthorizeFulfillmentShippingPlansIndexRoute
+  "/fulfillment/transactions": typeof AuthorizeFulfillmentTransactionsIndexRoute
+  "/global-configuration/finance": typeof AuthorizeGlobalConfigurationFinanceIndexRoute
+  "/global-configuration/pricing-management": typeof AuthorizeGlobalConfigurationPricingManagementIndexRoute
+  "/global-configuration/rush-order": typeof AuthorizeGlobalConfigurationRushOrderIndexRoute
+  "/global-configuration/seller-pricing-engine": typeof AuthorizeGlobalConfigurationSellerPricingEngineIndexRoute
+  "/global-configuration/tier-management": typeof AuthorizeGlobalConfigurationTierManagementIndexRoute
+  "/logs/call-logs": typeof AuthorizeLogsCallLogsIndexRoute
+  "/logs/export-transactions": typeof AuthorizeLogsExportTransactionsIndexRoute
+  "/logs/payment-logs": typeof AuthorizeLogsPaymentLogsIndexRoute
+  "/order/$orderId": typeof AuthorizeOrderOrderIdIndexRoute
+  "/order/all-orders": typeof AuthorizeOrderAllOrdersIndexRoute
+  "/order/draft-orders": typeof AuthorizeOrderDraftOrdersIndexRoute
+  "/order/error-orders": typeof AuthorizeOrderErrorOrdersIndexRoute
+  "/order/sale-orders": typeof AuthorizeOrderSaleOrdersIndexRoute
+  "/product-management/attributes": typeof AuthorizeProductManagementAttributesIndexRoute
+  "/product-management/categories": typeof AuthorizeProductManagementCategoriesIndexRoute
+  "/product-management/options": typeof AuthorizeProductManagementOptionsIndexRoute
+  "/product-management/prints": typeof AuthorizeProductManagementPrintsIndexRoute
+  "/product-management/products": typeof AuthorizeProductManagementProductsIndexRoute
+  "/product-management/variants": typeof AuthorizeProductManagementVariantsIndexRoute
+  "/prototyper/$prototypeId": typeof AuthorizePrototyperPrototypeIdIndexRoute
+  "/system/members": typeof AuthorizeSystemMembersIndexRoute
+  "/system/permissions": typeof AuthorizeSystemPermissionsIndexRoute
+  "/system/teams": typeof AuthorizeSystemTeamsIndexRoute
+  "/finance/transactions/$transactionId": typeof AuthorizeFinanceTransactionsTransactionIdIndexRoute
+  "/global-configuration/pricing-management/$customId": typeof AuthorizeGlobalConfigurationPricingManagementCustomIdIndexRoute
+  "/order/draft-orders/$orderId": typeof AuthorizeOrderDraftOrdersOrderIdIndexRoute
+  "/product-management/attributes/group": typeof AuthorizeProductManagementAttributesGroupIndexRoute
+  "/product-management/attributes/library": typeof AuthorizeProductManagementAttributesLibraryIndexRoute
+  "/product-management/categories/$categoryId": typeof AuthorizeProductManagementCategoriesCategoryIdIndexRoute
+  "/product-management/prints/location": typeof AuthorizeProductManagementPrintsLocationIndexRoute
+  "/product-management/prints/type": typeof AuthorizeProductManagementPrintsTypeIndexRoute
+  "/product-management/products/$productId": typeof AuthorizeProductManagementProductsProductIdIndexRoute
+  "/prototyper/$prototypeId/preview": typeof AuthorizePrototyperPrototypeIdPreviewIndexRoute
+  "/system/teams/$teamId": typeof AuthorizeSystemTeamsTeamIdIndexRoute
+  "/system/teams/$teamId/g-credits/enable": typeof AuthorizeSystemTeamsTeamIdGCreditsEnableRoute
+  "/finance/transactions/$transactionId/invoice": typeof AuthorizeFinanceTransactionsTransactionIdInvoiceIndexRoute
+  "/fulfillment/shipping-plans/$shippingId": typeof AuthorizeFulfillmentShippingPlansshippingDetailShippingIdIndexRoute
+  "/product-management/attributes/group/$groupId": typeof AuthorizeProductManagementAttributesGroupGroupIdIndexRoute
+  "/product-management/attributes/library/$libraryId": typeof AuthorizeProductManagementAttributesLibraryLibraryIdIndexRoute
+  "/product-management/prints/location/$locationId": typeof AuthorizeProductManagementPrintsLocationLocationIdIndexRoute
+  "/product-management/prints/type/$typeId": typeof AuthorizeProductManagementPrintsTypeTypeIdIndexRoute
+  "/system/teams/$teamId/details": typeof AuthorizeSystemTeamsTeamIdDetailsIndexRoute
+  "/system/teams/$teamId/g-credits": typeof AuthorizeSystemTeamsTeamIdGCreditsIndexRoute
+  "/system/teams/$teamId/payment-methods": typeof AuthorizeSystemTeamsTeamIdPaymentMethodsIndexRoute
+  "/system/teams/$teamId/store": typeof AuthorizeSystemTeamsTeamIdStoreIndexRoute
+  "/system/teams/$teamId/transactions": typeof AuthorizeSystemTeamsTeamIdTransactionsIndexRoute
+  "/system/teams/$teamId/general": typeof AuthorizeSystemTeamsTeamIdconfigGeneralIndexRoute
+  "/system/teams/$teamId/print-type": typeof AuthorizeSystemTeamsTeamIdconfigPrintTypeIndexRoute
+  "/system/teams/$teamId/logs/import-orders": typeof AuthorizeSystemTeamsTeamIdLogsImportOrdersIndexRoute
+  "/system/teams/$teamId/store/$storeId": typeof AuthorizeSystemTeamsTeamIdStoreStoreIdIndexRoute
+  "/system/teams/$teamId/transactions/$txnId": typeof AuthorizeSystemTeamsTeamIdTransactionsTxnIdIndexRoute
 }
 
 export interface FileRoutesById {
   __root__: typeof rootRoute
-  '/_authorize': typeof AuthorizeRouteWithChildren
-  '/_unauthorize': typeof UnauthorizeRouteWithChildren
-  '/permission': typeof PermissionRoute
-  '/_authorize/dev': typeof AuthorizeDevRouteWithChildren
-  '/_authorize/': typeof AuthorizeIndexRoute
-  '/_authorize/product-management/attributes': typeof AuthorizeProductManagementAttributesRouteRouteWithChildren
-  '/_authorize/product-management/prints': typeof AuthorizeProductManagementPrintsRouteRouteWithChildren
-  '/_authorize/logs/export-transactions': typeof AuthorizeLogsExportTransactionsRouteWithChildren
-  '/_authorize/users/create': typeof AuthorizeUsersCreateRoute
-  '/_authorize/client/': typeof AuthorizeClientIndexRoute
-  '/_authorize/dashboard/': typeof AuthorizeDashboardIndexRoute
-  '/_authorize/product-listing/': typeof AuthorizeProductListingIndexRoute
-  '/_authorize/product-management/': typeof AuthorizeProductManagementIndexRoute
-  '/_authorize/prototyper/': typeof AuthorizePrototyperIndexRoute
-  '/_authorize/users/': typeof AuthorizeUsersIndexRoute
-  '/_unauthorize/login/': typeof UnauthorizeLoginIndexRoute
-  '/_authorize/global-configuration/pricing-management/create-pricing-rule': typeof AuthorizeGlobalConfigurationPricingManagementCreatePricingRuleRoute
-  '/_authorize/global-configuration/tier-management/tier-update-logs': typeof AuthorizeGlobalConfigurationTierManagementTierUpdateLogsRoute
-  '/_authorize/global-configuration/tier-management/update-team-tier': typeof AuthorizeGlobalConfigurationTierManagementUpdateTeamTierRoute
-  '/_authorize/system/members/new-user': typeof AuthorizeSystemMembersNewUserRoute
-  '/_authorize/system/members/permission': typeof AuthorizeSystemMembersPermissionRoute
-  '/_authorize/client-listing/$clientId/': typeof AuthorizeClientListingClientIdIndexRoute
-  '/_authorize/dev/migration/': typeof AuthorizeDevMigrationIndexRoute
-  '/_authorize/dev/open-features/': typeof AuthorizeDevOpenFeaturesIndexRoute
-  '/_authorize/dev/sync/': typeof AuthorizeDevSyncIndexRoute
-  '/_authorize/finance/deposit/': typeof AuthorizeFinanceDepositIndexRoute
-  '/_authorize/finance/payment-request/': typeof AuthorizeFinancePaymentRequestIndexRoute
-  '/_authorize/finance/transactions/': typeof AuthorizeFinanceTransactionsIndexRoute
-  '/_authorize/fulfillment/shipping-plans/': typeof AuthorizeFulfillmentShippingPlansIndexRoute
-  '/_authorize/fulfillment/transactions/': typeof AuthorizeFulfillmentTransactionsIndexRoute
-  '/_authorize/global-configuration/finance/': typeof AuthorizeGlobalConfigurationFinanceIndexRoute
-  '/_authorize/global-configuration/pricing-management/': typeof AuthorizeGlobalConfigurationPricingManagementIndexRoute
-  '/_authorize/global-configuration/rush-order/': typeof AuthorizeGlobalConfigurationRushOrderIndexRoute
-  '/_authorize/global-configuration/tier-management/': typeof AuthorizeGlobalConfigurationTierManagementIndexRoute
-  '/_authorize/logs/call-logs/': typeof AuthorizeLogsCallLogsIndexRoute
-  '/_authorize/logs/export-transactions/': typeof AuthorizeLogsExportTransactionsIndexRoute
-  '/_authorize/logs/payment-logs/': typeof AuthorizeLogsPaymentLogsIndexRoute
-  '/_authorize/order/$orderId/': typeof AuthorizeOrderOrderIdIndexRoute
-  '/_authorize/order/all-orders/': typeof AuthorizeOrderAllOrdersIndexRoute
-  '/_authorize/order/draft-orders/': typeof AuthorizeOrderDraftOrdersIndexRoute
-  '/_authorize/order/error-orders/': typeof AuthorizeOrderErrorOrdersIndexRoute
-  '/_authorize/order/sale-orders/': typeof AuthorizeOrderSaleOrdersIndexRoute
-  '/_authorize/product-management/attributes/': typeof AuthorizeProductManagementAttributesIndexRoute
-  '/_authorize/product-management/categories/': typeof AuthorizeProductManagementCategoriesIndexRoute
-  '/_authorize/product-management/options/': typeof AuthorizeProductManagementOptionsIndexRoute
-  '/_authorize/product-management/prints/': typeof AuthorizeProductManagementPrintsIndexRoute
-  '/_authorize/product-management/products/': typeof AuthorizeProductManagementProductsIndexRoute
-  '/_authorize/product-management/variants/': typeof AuthorizeProductManagementVariantsIndexRoute
-  '/_authorize/system/members/': typeof AuthorizeSystemMembersIndexRoute
-  '/_authorize/system/permissions/': typeof AuthorizeSystemPermissionsIndexRoute
-  '/_authorize/system/teams/': typeof AuthorizeSystemTeamsIndexRoute
-  '/_authorize/finance/transactions/$transactionId/': typeof AuthorizeFinanceTransactionsTransactionIdIndexRoute
-  '/_authorize/global-configuration/pricing-management/$customId/': typeof AuthorizeGlobalConfigurationPricingManagementCustomIdIndexRoute
-  '/_authorize/order/draft-orders/$orderId/': typeof AuthorizeOrderDraftOrdersOrderIdIndexRoute
-  '/_authorize/product-management/attributes/group/': typeof AuthorizeProductManagementAttributesGroupIndexRoute
-  '/_authorize/product-management/attributes/library/': typeof AuthorizeProductManagementAttributesLibraryIndexRoute
-  '/_authorize/product-management/categories/$categoryId/': typeof AuthorizeProductManagementCategoriesCategoryIdIndexRoute
-  '/_authorize/product-management/prints/location/': typeof AuthorizeProductManagementPrintsLocationIndexRoute
-  '/_authorize/product-management/prints/type/': typeof AuthorizeProductManagementPrintsTypeIndexRoute
-  '/_authorize/product-management/products/$productId/': typeof AuthorizeProductManagementProductsProductIdIndexRoute
-  '/_authorize/system/teams/$teamId/': typeof AuthorizeSystemTeamsTeamIdIndexRoute
-  '/_authorize/system/teams/$teamId/g-credits/enable': typeof AuthorizeSystemTeamsTeamIdGCreditsEnableRoute
-  '/_authorize/finance/transactions/$transactionId/invoice/': typeof AuthorizeFinanceTransactionsTransactionIdInvoiceIndexRoute
-  '/_authorize/fulfillment/shipping-plans/(shipping-detail)/$shippingId/': typeof AuthorizeFulfillmentShippingPlansshippingDetailShippingIdIndexRoute
-  '/_authorize/product-management/attributes/group/$groupId/': typeof AuthorizeProductManagementAttributesGroupGroupIdIndexRoute
-  '/_authorize/product-management/attributes/library/$libraryId/': typeof AuthorizeProductManagementAttributesLibraryLibraryIdIndexRoute
-  '/_authorize/product-management/prints/location/$locationId/': typeof AuthorizeProductManagementPrintsLocationLocationIdIndexRoute
-  '/_authorize/product-management/prints/type/$typeId/': typeof AuthorizeProductManagementPrintsTypeTypeIdIndexRoute
-  '/_authorize/system/teams/$teamId/details/': typeof AuthorizeSystemTeamsTeamIdDetailsIndexRoute
-  '/_authorize/system/teams/$teamId/g-credits/': typeof AuthorizeSystemTeamsTeamIdGCreditsIndexRoute
-  '/_authorize/system/teams/$teamId/payment-methods/': typeof AuthorizeSystemTeamsTeamIdPaymentMethodsIndexRoute
-  '/_authorize/system/teams/$teamId/store/': typeof AuthorizeSystemTeamsTeamIdStoreIndexRoute
-  '/_authorize/system/teams/$teamId/transactions/': typeof AuthorizeSystemTeamsTeamIdTransactionsIndexRoute
-  '/_authorize/system/teams/$teamId/(config)/general/': typeof AuthorizeSystemTeamsTeamIdconfigGeneralIndexRoute
-  '/_authorize/system/teams/$teamId/(config)/print-type/': typeof AuthorizeSystemTeamsTeamIdconfigPrintTypeIndexRoute
-  '/_authorize/system/teams/$teamId/logs/import-orders/': typeof AuthorizeSystemTeamsTeamIdLogsImportOrdersIndexRoute
-  '/_authorize/system/teams/$teamId/store/$storeId/': typeof AuthorizeSystemTeamsTeamIdStoreStoreIdIndexRoute
-  '/_authorize/system/teams/$teamId/transactions/$txnId/': typeof AuthorizeSystemTeamsTeamIdTransactionsTxnIdIndexRoute
+  "/_authorize": typeof AuthorizeRouteWithChildren
+  "/_unauthorize": typeof UnauthorizeRouteWithChildren
+  "/permission": typeof PermissionRoute
+  "/_authorize/dev": typeof AuthorizeDevRouteWithChildren
+  "/_authorize/": typeof AuthorizeIndexRoute
+  "/_authorize/product-management/attributes": typeof AuthorizeProductManagementAttributesRouteRouteWithChildren
+  "/_authorize/product-management/prints": typeof AuthorizeProductManagementPrintsRouteRouteWithChildren
+  "/_authorize/logs/export-transactions": typeof AuthorizeLogsExportTransactionsRouteWithChildren
+  "/_authorize/users/create": typeof AuthorizeUsersCreateRoute
+  "/_authorize/client/": typeof AuthorizeClientIndexRoute
+  "/_authorize/dashboard/": typeof AuthorizeDashboardIndexRoute
+  "/_authorize/product-listing/": typeof AuthorizeProductListingIndexRoute
+  "/_authorize/product-management/": typeof AuthorizeProductManagementIndexRoute
+  "/_authorize/prototyper/": typeof AuthorizePrototyperIndexRoute
+  "/_authorize/users/": typeof AuthorizeUsersIndexRoute
+  "/_unauthorize/login/": typeof UnauthorizeLoginIndexRoute
+  "/_authorize/global-configuration/pricing-management/create-pricing-rule": typeof AuthorizeGlobalConfigurationPricingManagementCreatePricingRuleRoute
+  "/_authorize/global-configuration/tier-management/tier-update-logs": typeof AuthorizeGlobalConfigurationTierManagementTierUpdateLogsRoute
+  "/_authorize/global-configuration/tier-management/update-team-tier": typeof AuthorizeGlobalConfigurationTierManagementUpdateTeamTierRoute
+  "/_authorize/system/members/new-user": typeof AuthorizeSystemMembersNewUserRoute
+  "/_authorize/system/members/permission": typeof AuthorizeSystemMembersPermissionRoute
+  "/_authorize/client-listing/$clientId/": typeof AuthorizeClientListingClientIdIndexRoute
+  "/_authorize/dev/migration/": typeof AuthorizeDevMigrationIndexRoute
+  "/_authorize/dev/open-features/": typeof AuthorizeDevOpenFeaturesIndexRoute
+  "/_authorize/dev/sync/": typeof AuthorizeDevSyncIndexRoute
+  "/_authorize/finance/deposit/": typeof AuthorizeFinanceDepositIndexRoute
+  "/_authorize/finance/payment-request/": typeof AuthorizeFinancePaymentRequestIndexRoute
+  "/_authorize/finance/transactions/": typeof AuthorizeFinanceTransactionsIndexRoute
+  "/_authorize/fulfillment/shipping-plans/": typeof AuthorizeFulfillmentShippingPlansIndexRoute
+  "/_authorize/fulfillment/transactions/": typeof AuthorizeFulfillmentTransactionsIndexRoute
+  "/_authorize/global-configuration/finance/": typeof AuthorizeGlobalConfigurationFinanceIndexRoute
+  "/_authorize/global-configuration/pricing-management/": typeof AuthorizeGlobalConfigurationPricingManagementIndexRoute
+  "/_authorize/global-configuration/rush-order/": typeof AuthorizeGlobalConfigurationRushOrderIndexRoute
+  "/_authorize/global-configuration/seller-pricing-engine/": typeof AuthorizeGlobalConfigurationSellerPricingEngineIndexRoute
+  "/_authorize/global-configuration/tier-management/": typeof AuthorizeGlobalConfigurationTierManagementIndexRoute
+  "/_authorize/logs/call-logs/": typeof AuthorizeLogsCallLogsIndexRoute
+  "/_authorize/logs/export-transactions/": typeof AuthorizeLogsExportTransactionsIndexRoute
+  "/_authorize/logs/payment-logs/": typeof AuthorizeLogsPaymentLogsIndexRoute
+  "/_authorize/order/$orderId/": typeof AuthorizeOrderOrderIdIndexRoute
+  "/_authorize/order/all-orders/": typeof AuthorizeOrderAllOrdersIndexRoute
+  "/_authorize/order/draft-orders/": typeof AuthorizeOrderDraftOrdersIndexRoute
+  "/_authorize/order/error-orders/": typeof AuthorizeOrderErrorOrdersIndexRoute
+  "/_authorize/order/sale-orders/": typeof AuthorizeOrderSaleOrdersIndexRoute
+  "/_authorize/product-management/attributes/": typeof AuthorizeProductManagementAttributesIndexRoute
+  "/_authorize/product-management/categories/": typeof AuthorizeProductManagementCategoriesIndexRoute
+  "/_authorize/product-management/options/": typeof AuthorizeProductManagementOptionsIndexRoute
+  "/_authorize/product-management/prints/": typeof AuthorizeProductManagementPrintsIndexRoute
+  "/_authorize/product-management/products/": typeof AuthorizeProductManagementProductsIndexRoute
+  "/_authorize/product-management/variants/": typeof AuthorizeProductManagementVariantsIndexRoute
+  "/_authorize/prototyper/$prototypeId/": typeof AuthorizePrototyperPrototypeIdIndexRoute
+  "/_authorize/system/members/": typeof AuthorizeSystemMembersIndexRoute
+  "/_authorize/system/permissions/": typeof AuthorizeSystemPermissionsIndexRoute
+  "/_authorize/system/teams/": typeof AuthorizeSystemTeamsIndexRoute
+  "/_authorize/finance/transactions/$transactionId/": typeof AuthorizeFinanceTransactionsTransactionIdIndexRoute
+  "/_authorize/global-configuration/pricing-management/$customId/": typeof AuthorizeGlobalConfigurationPricingManagementCustomIdIndexRoute
+  "/_authorize/order/draft-orders/$orderId/": typeof AuthorizeOrderDraftOrdersOrderIdIndexRoute
+  "/_authorize/product-management/attributes/group/": typeof AuthorizeProductManagementAttributesGroupIndexRoute
+  "/_authorize/product-management/attributes/library/": typeof AuthorizeProductManagementAttributesLibraryIndexRoute
+  "/_authorize/product-management/categories/$categoryId/": typeof AuthorizeProductManagementCategoriesCategoryIdIndexRoute
+  "/_authorize/product-management/prints/location/": typeof AuthorizeProductManagementPrintsLocationIndexRoute
+  "/_authorize/product-management/prints/type/": typeof AuthorizeProductManagementPrintsTypeIndexRoute
+  "/_authorize/product-management/products/$productId/": typeof AuthorizeProductManagementProductsProductIdIndexRoute
+  "/_authorize/prototyper/$prototypeId/preview/": typeof AuthorizePrototyperPrototypeIdPreviewIndexRoute
+  "/_authorize/system/teams/$teamId/": typeof AuthorizeSystemTeamsTeamIdIndexRoute
+  "/_authorize/system/teams/$teamId/g-credits/enable": typeof AuthorizeSystemTeamsTeamIdGCreditsEnableRoute
+  "/_authorize/finance/transactions/$transactionId/invoice/": typeof AuthorizeFinanceTransactionsTransactionIdInvoiceIndexRoute
+  "/_authorize/fulfillment/shipping-plans/(shipping-detail)/$shippingId/": typeof AuthorizeFulfillmentShippingPlansshippingDetailShippingIdIndexRoute
+  "/_authorize/product-management/attributes/group/$groupId/": typeof AuthorizeProductManagementAttributesGroupGroupIdIndexRoute
+  "/_authorize/product-management/attributes/library/$libraryId/": typeof AuthorizeProductManagementAttributesLibraryLibraryIdIndexRoute
+  "/_authorize/product-management/prints/location/$locationId/": typeof AuthorizeProductManagementPrintsLocationLocationIdIndexRoute
+  "/_authorize/product-management/prints/type/$typeId/": typeof AuthorizeProductManagementPrintsTypeTypeIdIndexRoute
+  "/_authorize/system/teams/$teamId/details/": typeof AuthorizeSystemTeamsTeamIdDetailsIndexRoute
+  "/_authorize/system/teams/$teamId/g-credits/": typeof AuthorizeSystemTeamsTeamIdGCreditsIndexRoute
+  "/_authorize/system/teams/$teamId/payment-methods/": typeof AuthorizeSystemTeamsTeamIdPaymentMethodsIndexRoute
+  "/_authorize/system/teams/$teamId/store/": typeof AuthorizeSystemTeamsTeamIdStoreIndexRoute
+  "/_authorize/system/teams/$teamId/transactions/": typeof AuthorizeSystemTeamsTeamIdTransactionsIndexRoute
+  "/_authorize/system/teams/$teamId/(config)/general/": typeof AuthorizeSystemTeamsTeamIdconfigGeneralIndexRoute
+  "/_authorize/system/teams/$teamId/(config)/print-type/": typeof AuthorizeSystemTeamsTeamIdconfigPrintTypeIndexRoute
+  "/_authorize/system/teams/$teamId/logs/import-orders/": typeof AuthorizeSystemTeamsTeamIdLogsImportOrdersIndexRoute
+  "/_authorize/system/teams/$teamId/store/$storeId/": typeof AuthorizeSystemTeamsTeamIdStoreStoreIdIndexRoute
+  "/_authorize/system/teams/$teamId/transactions/$txnId/": typeof AuthorizeSystemTeamsTeamIdTransactionsTxnIdIndexRoute
 }
 
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
-    | ''
-    | '/permission'
-    | '/dev'
-    | '/'
-    | '/product-management/attributes'
-    | '/product-management/prints'
-    | '/logs/export-transactions'
-    | '/users/create'
-    | '/client'
-    | '/dashboard'
-    | '/product-listing'
-    | '/product-management'
-    | '/prototyper'
-    | '/users'
-    | '/login'
-    | '/global-configuration/pricing-management/create-pricing-rule'
-    | '/global-configuration/tier-management/tier-update-logs'
-    | '/global-configuration/tier-management/update-team-tier'
-    | '/system/members/new-user'
-    | '/system/members/permission'
-    | '/client-listing/$clientId'
-    | '/dev/migration'
-    | '/dev/open-features'
-    | '/dev/sync'
-    | '/finance/deposit'
-    | '/finance/payment-request'
-    | '/finance/transactions'
-    | '/fulfillment/shipping-plans'
-    | '/fulfillment/transactions'
-    | '/global-configuration/finance'
-    | '/global-configuration/pricing-management'
-    | '/global-configuration/rush-order'
-    | '/global-configuration/tier-management'
-    | '/logs/call-logs'
-    | '/logs/export-transactions/'
-    | '/logs/payment-logs'
-    | '/order/$orderId'
-    | '/order/all-orders'
-    | '/order/draft-orders'
-    | '/order/error-orders'
-    | '/order/sale-orders'
-    | '/product-management/attributes/'
-    | '/product-management/categories'
-    | '/product-management/options'
-    | '/product-management/prints/'
-    | '/product-management/products'
-    | '/product-management/variants'
-    | '/system/members'
-    | '/system/permissions'
-    | '/system/teams'
-    | '/finance/transactions/$transactionId'
-    | '/global-configuration/pricing-management/$customId'
-    | '/order/draft-orders/$orderId'
-    | '/product-management/attributes/group'
-    | '/product-management/attributes/library'
-    | '/product-management/categories/$categoryId'
-    | '/product-management/prints/location'
-    | '/product-management/prints/type'
-    | '/product-management/products/$productId'
-    | '/system/teams/$teamId'
-    | '/system/teams/$teamId/g-credits/enable'
-    | '/finance/transactions/$transactionId/invoice'
-    | '/fulfillment/shipping-plans/$shippingId'
-    | '/product-management/attributes/group/$groupId'
-    | '/product-management/attributes/library/$libraryId'
-    | '/product-management/prints/location/$locationId'
-    | '/product-management/prints/type/$typeId'
-    | '/system/teams/$teamId/details'
-    | '/system/teams/$teamId/g-credits'
-    | '/system/teams/$teamId/payment-methods'
-    | '/system/teams/$teamId/store'
-    | '/system/teams/$teamId/transactions'
-    | '/system/teams/$teamId/general'
-    | '/system/teams/$teamId/print-type'
-    | '/system/teams/$teamId/logs/import-orders'
-    | '/system/teams/$teamId/store/$storeId'
-    | '/system/teams/$teamId/transactions/$txnId'
+    | ""
+    | "/permission"
+    | "/dev"
+    | "/"
+    | "/product-management/attributes"
+    | "/product-management/prints"
+    | "/logs/export-transactions"
+    | "/users/create"
+    | "/client"
+    | "/dashboard"
+    | "/product-listing"
+    | "/product-management"
+    | "/prototyper"
+    | "/users"
+    | "/login"
+    | "/global-configuration/pricing-management/create-pricing-rule"
+    | "/global-configuration/tier-management/tier-update-logs"
+    | "/global-configuration/tier-management/update-team-tier"
+    | "/system/members/new-user"
+    | "/system/members/permission"
+    | "/client-listing/$clientId"
+    | "/dev/migration"
+    | "/dev/open-features"
+    | "/dev/sync"
+    | "/finance/deposit"
+    | "/finance/payment-request"
+    | "/finance/transactions"
+    | "/fulfillment/shipping-plans"
+    | "/fulfillment/transactions"
+    | "/global-configuration/finance"
+    | "/global-configuration/pricing-management"
+    | "/global-configuration/rush-order"
+    | "/global-configuration/seller-pricing-engine"
+    | "/global-configuration/tier-management"
+    | "/logs/call-logs"
+    | "/logs/export-transactions/"
+    | "/logs/payment-logs"
+    | "/order/$orderId"
+    | "/order/all-orders"
+    | "/order/draft-orders"
+    | "/order/error-orders"
+    | "/order/sale-orders"
+    | "/product-management/attributes/"
+    | "/product-management/categories"
+    | "/product-management/options"
+    | "/product-management/prints/"
+    | "/product-management/products"
+    | "/product-management/variants"
+    | "/prototyper/$prototypeId"
+    | "/system/members"
+    | "/system/permissions"
+    | "/system/teams"
+    | "/finance/transactions/$transactionId"
+    | "/global-configuration/pricing-management/$customId"
+    | "/order/draft-orders/$orderId"
+    | "/product-management/attributes/group"
+    | "/product-management/attributes/library"
+    | "/product-management/categories/$categoryId"
+    | "/product-management/prints/location"
+    | "/product-management/prints/type"
+    | "/product-management/products/$productId"
+    | "/prototyper/$prototypeId/preview"
+    | "/system/teams/$teamId"
+    | "/system/teams/$teamId/g-credits/enable"
+    | "/finance/transactions/$transactionId/invoice"
+    | "/fulfillment/shipping-plans/$shippingId"
+    | "/product-management/attributes/group/$groupId"
+    | "/product-management/attributes/library/$libraryId"
+    | "/product-management/prints/location/$locationId"
+    | "/product-management/prints/type/$typeId"
+    | "/system/teams/$teamId/details"
+    | "/system/teams/$teamId/g-credits"
+    | "/system/teams/$teamId/payment-methods"
+    | "/system/teams/$teamId/store"
+    | "/system/teams/$teamId/transactions"
+    | "/system/teams/$teamId/general"
+    | "/system/teams/$teamId/print-type"
+    | "/system/teams/$teamId/logs/import-orders"
+    | "/system/teams/$teamId/store/$storeId"
+    | "/system/teams/$teamId/transactions/$txnId"
   fileRoutesByTo: FileRoutesByTo
   to:
-    | ''
-    | '/permission'
-    | '/dev'
-    | '/'
-    | '/users/create'
-    | '/client'
-    | '/dashboard'
-    | '/product-listing'
-    | '/product-management'
-    | '/prototyper'
-    | '/users'
-    | '/login'
-    | '/global-configuration/pricing-management/create-pricing-rule'
-    | '/global-configuration/tier-management/tier-update-logs'
-    | '/global-configuration/tier-management/update-team-tier'
-    | '/system/members/new-user'
-    | '/system/members/permission'
-    | '/client-listing/$clientId'
-    | '/dev/migration'
-    | '/dev/open-features'
-    | '/dev/sync'
-    | '/finance/deposit'
-    | '/finance/payment-request'
-    | '/finance/transactions'
-    | '/fulfillment/shipping-plans'
-    | '/fulfillment/transactions'
-    | '/global-configuration/finance'
-    | '/global-configuration/pricing-management'
-    | '/global-configuration/rush-order'
-    | '/global-configuration/tier-management'
-    | '/logs/call-logs'
-    | '/logs/export-transactions'
-    | '/logs/payment-logs'
-    | '/order/$orderId'
-    | '/order/all-orders'
-    | '/order/draft-orders'
-    | '/order/error-orders'
-    | '/order/sale-orders'
-    | '/product-management/attributes'
-    | '/product-management/categories'
-    | '/product-management/options'
-    | '/product-management/prints'
-    | '/product-management/products'
-    | '/product-management/variants'
-    | '/system/members'
-    | '/system/permissions'
-    | '/system/teams'
-    | '/finance/transactions/$transactionId'
-    | '/global-configuration/pricing-management/$customId'
-    | '/order/draft-orders/$orderId'
-    | '/product-management/attributes/group'
-    | '/product-management/attributes/library'
-    | '/product-management/categories/$categoryId'
-    | '/product-management/prints/location'
-    | '/product-management/prints/type'
-    | '/product-management/products/$productId'
-    | '/system/teams/$teamId'
-    | '/system/teams/$teamId/g-credits/enable'
-    | '/finance/transactions/$transactionId/invoice'
-    | '/fulfillment/shipping-plans/$shippingId'
-    | '/product-management/attributes/group/$groupId'
-    | '/product-management/attributes/library/$libraryId'
-    | '/product-management/prints/location/$locationId'
-    | '/product-management/prints/type/$typeId'
-    | '/system/teams/$teamId/details'
-    | '/system/teams/$teamId/g-credits'
-    | '/system/teams/$teamId/payment-methods'
-    | '/system/teams/$teamId/store'
-    | '/system/teams/$teamId/transactions'
-    | '/system/teams/$teamId/general'
-    | '/system/teams/$teamId/print-type'
-    | '/system/teams/$teamId/logs/import-orders'
-    | '/system/teams/$teamId/store/$storeId'
-    | '/system/teams/$teamId/transactions/$txnId'
+    | ""
+    | "/permission"
+    | "/dev"
+    | "/"
+    | "/users/create"
+    | "/client"
+    | "/dashboard"
+    | "/product-listing"
+    | "/product-management"
+    | "/prototyper"
+    | "/users"
+    | "/login"
+    | "/global-configuration/pricing-management/create-pricing-rule"
+    | "/global-configuration/tier-management/tier-update-logs"
+    | "/global-configuration/tier-management/update-team-tier"
+    | "/system/members/new-user"
+    | "/system/members/permission"
+    | "/client-listing/$clientId"
+    | "/dev/migration"
+    | "/dev/open-features"
+    | "/dev/sync"
+    | "/finance/deposit"
+    | "/finance/payment-request"
+    | "/finance/transactions"
+    | "/fulfillment/shipping-plans"
+    | "/fulfillment/transactions"
+    | "/global-configuration/finance"
+    | "/global-configuration/pricing-management"
+    | "/global-configuration/rush-order"
+    | "/global-configuration/seller-pricing-engine"
+    | "/global-configuration/tier-management"
+    | "/logs/call-logs"
+    | "/logs/export-transactions"
+    | "/logs/payment-logs"
+    | "/order/$orderId"
+    | "/order/all-orders"
+    | "/order/draft-orders"
+    | "/order/error-orders"
+    | "/order/sale-orders"
+    | "/product-management/attributes"
+    | "/product-management/categories"
+    | "/product-management/options"
+    | "/product-management/prints"
+    | "/product-management/products"
+    | "/product-management/variants"
+    | "/prototyper/$prototypeId"
+    | "/system/members"
+    | "/system/permissions"
+    | "/system/teams"
+    | "/finance/transactions/$transactionId"
+    | "/global-configuration/pricing-management/$customId"
+    | "/order/draft-orders/$orderId"
+    | "/product-management/attributes/group"
+    | "/product-management/attributes/library"
+    | "/product-management/categories/$categoryId"
+    | "/product-management/prints/location"
+    | "/product-management/prints/type"
+    | "/product-management/products/$productId"
+    | "/prototyper/$prototypeId/preview"
+    | "/system/teams/$teamId"
+    | "/system/teams/$teamId/g-credits/enable"
+    | "/finance/transactions/$transactionId/invoice"
+    | "/fulfillment/shipping-plans/$shippingId"
+    | "/product-management/attributes/group/$groupId"
+    | "/product-management/attributes/library/$libraryId"
+    | "/product-management/prints/location/$locationId"
+    | "/product-management/prints/type/$typeId"
+    | "/system/teams/$teamId/details"
+    | "/system/teams/$teamId/g-credits"
+    | "/system/teams/$teamId/payment-methods"
+    | "/system/teams/$teamId/store"
+    | "/system/teams/$teamId/transactions"
+    | "/system/teams/$teamId/general"
+    | "/system/teams/$teamId/print-type"
+    | "/system/teams/$teamId/logs/import-orders"
+    | "/system/teams/$teamId/store/$storeId"
+    | "/system/teams/$teamId/transactions/$txnId"
   id:
-    | '__root__'
-    | '/_authorize'
-    | '/_unauthorize'
-    | '/permission'
-    | '/_authorize/dev'
-    | '/_authorize/'
-    | '/_authorize/product-management/attributes'
-    | '/_authorize/product-management/prints'
-    | '/_authorize/logs/export-transactions'
-    | '/_authorize/users/create'
-    | '/_authorize/client/'
-    | '/_authorize/dashboard/'
-    | '/_authorize/product-listing/'
-    | '/_authorize/product-management/'
-    | '/_authorize/prototyper/'
-    | '/_authorize/users/'
-    | '/_unauthorize/login/'
-    | '/_authorize/global-configuration/pricing-management/create-pricing-rule'
-    | '/_authorize/global-configuration/tier-management/tier-update-logs'
-    | '/_authorize/global-configuration/tier-management/update-team-tier'
-    | '/_authorize/system/members/new-user'
-    | '/_authorize/system/members/permission'
-    | '/_authorize/client-listing/$clientId/'
-    | '/_authorize/dev/migration/'
-    | '/_authorize/dev/open-features/'
-    | '/_authorize/dev/sync/'
-    | '/_authorize/finance/deposit/'
-    | '/_authorize/finance/payment-request/'
-    | '/_authorize/finance/transactions/'
-    | '/_authorize/fulfillment/shipping-plans/'
-    | '/_authorize/fulfillment/transactions/'
-    | '/_authorize/global-configuration/finance/'
-    | '/_authorize/global-configuration/pricing-management/'
-    | '/_authorize/global-configuration/rush-order/'
-    | '/_authorize/global-configuration/tier-management/'
-    | '/_authorize/logs/call-logs/'
-    | '/_authorize/logs/export-transactions/'
-    | '/_authorize/logs/payment-logs/'
-    | '/_authorize/order/$orderId/'
-    | '/_authorize/order/all-orders/'
-    | '/_authorize/order/draft-orders/'
-    | '/_authorize/order/error-orders/'
-    | '/_authorize/order/sale-orders/'
-    | '/_authorize/product-management/attributes/'
-    | '/_authorize/product-management/categories/'
-    | '/_authorize/product-management/options/'
-    | '/_authorize/product-management/prints/'
-    | '/_authorize/product-management/products/'
-    | '/_authorize/product-management/variants/'
-    | '/_authorize/system/members/'
-    | '/_authorize/system/permissions/'
-    | '/_authorize/system/teams/'
-    | '/_authorize/finance/transactions/$transactionId/'
-    | '/_authorize/global-configuration/pricing-management/$customId/'
-    | '/_authorize/order/draft-orders/$orderId/'
-    | '/_authorize/product-management/attributes/group/'
-    | '/_authorize/product-management/attributes/library/'
-    | '/_authorize/product-management/categories/$categoryId/'
-    | '/_authorize/product-management/prints/location/'
-    | '/_authorize/product-management/prints/type/'
-    | '/_authorize/product-management/products/$productId/'
-    | '/_authorize/system/teams/$teamId/'
-    | '/_authorize/system/teams/$teamId/g-credits/enable'
-    | '/_authorize/finance/transactions/$transactionId/invoice/'
-    | '/_authorize/fulfillment/shipping-plans/(shipping-detail)/$shippingId/'
-    | '/_authorize/product-management/attributes/group/$groupId/'
-    | '/_authorize/product-management/attributes/library/$libraryId/'
-    | '/_authorize/product-management/prints/location/$locationId/'
-    | '/_authorize/product-management/prints/type/$typeId/'
-    | '/_authorize/system/teams/$teamId/details/'
-    | '/_authorize/system/teams/$teamId/g-credits/'
-    | '/_authorize/system/teams/$teamId/payment-methods/'
-    | '/_authorize/system/teams/$teamId/store/'
-    | '/_authorize/system/teams/$teamId/transactions/'
-    | '/_authorize/system/teams/$teamId/(config)/general/'
-    | '/_authorize/system/teams/$teamId/(config)/print-type/'
-    | '/_authorize/system/teams/$teamId/logs/import-orders/'
-    | '/_authorize/system/teams/$teamId/store/$storeId/'
-    | '/_authorize/system/teams/$teamId/transactions/$txnId/'
+    | "__root__"
+    | "/_authorize"
+    | "/_unauthorize"
+    | "/permission"
+    | "/_authorize/dev"
+    | "/_authorize/"
+    | "/_authorize/product-management/attributes"
+    | "/_authorize/product-management/prints"
+    | "/_authorize/logs/export-transactions"
+    | "/_authorize/users/create"
+    | "/_authorize/client/"
+    | "/_authorize/dashboard/"
+    | "/_authorize/product-listing/"
+    | "/_authorize/product-management/"
+    | "/_authorize/prototyper/"
+    | "/_authorize/users/"
+    | "/_unauthorize/login/"
+    | "/_authorize/global-configuration/pricing-management/create-pricing-rule"
+    | "/_authorize/global-configuration/tier-management/tier-update-logs"
+    | "/_authorize/global-configuration/tier-management/update-team-tier"
+    | "/_authorize/system/members/new-user"
+    | "/_authorize/system/members/permission"
+    | "/_authorize/client-listing/$clientId/"
+    | "/_authorize/dev/migration/"
+    | "/_authorize/dev/open-features/"
+    | "/_authorize/dev/sync/"
+    | "/_authorize/finance/deposit/"
+    | "/_authorize/finance/payment-request/"
+    | "/_authorize/finance/transactions/"
+    | "/_authorize/fulfillment/shipping-plans/"
+    | "/_authorize/fulfillment/transactions/"
+    | "/_authorize/global-configuration/finance/"
+    | "/_authorize/global-configuration/pricing-management/"
+    | "/_authorize/global-configuration/rush-order/"
+    | "/_authorize/global-configuration/seller-pricing-engine/"
+    | "/_authorize/global-configuration/tier-management/"
+    | "/_authorize/logs/call-logs/"
+    | "/_authorize/logs/export-transactions/"
+    | "/_authorize/logs/payment-logs/"
+    | "/_authorize/order/$orderId/"
+    | "/_authorize/order/all-orders/"
+    | "/_authorize/order/draft-orders/"
+    | "/_authorize/order/error-orders/"
+    | "/_authorize/order/sale-orders/"
+    | "/_authorize/product-management/attributes/"
+    | "/_authorize/product-management/categories/"
+    | "/_authorize/product-management/options/"
+    | "/_authorize/product-management/prints/"
+    | "/_authorize/product-management/products/"
+    | "/_authorize/product-management/variants/"
+    | "/_authorize/prototyper/$prototypeId/"
+    | "/_authorize/system/members/"
+    | "/_authorize/system/permissions/"
+    | "/_authorize/system/teams/"
+    | "/_authorize/finance/transactions/$transactionId/"
+    | "/_authorize/global-configuration/pricing-management/$customId/"
+    | "/_authorize/order/draft-orders/$orderId/"
+    | "/_authorize/product-management/attributes/group/"
+    | "/_authorize/product-management/attributes/library/"
+    | "/_authorize/product-management/categories/$categoryId/"
+    | "/_authorize/product-management/prints/location/"
+    | "/_authorize/product-management/prints/type/"
+    | "/_authorize/product-management/products/$productId/"
+    | "/_authorize/prototyper/$prototypeId/preview/"
+    | "/_authorize/system/teams/$teamId/"
+    | "/_authorize/system/teams/$teamId/g-credits/enable"
+    | "/_authorize/finance/transactions/$transactionId/invoice/"
+    | "/_authorize/fulfillment/shipping-plans/(shipping-detail)/$shippingId/"
+    | "/_authorize/product-management/attributes/group/$groupId/"
+    | "/_authorize/product-management/attributes/library/$libraryId/"
+    | "/_authorize/product-management/prints/location/$locationId/"
+    | "/_authorize/product-management/prints/type/$typeId/"
+    | "/_authorize/system/teams/$teamId/details/"
+    | "/_authorize/system/teams/$teamId/g-credits/"
+    | "/_authorize/system/teams/$teamId/payment-methods/"
+    | "/_authorize/system/teams/$teamId/store/"
+    | "/_authorize/system/teams/$teamId/transactions/"
+    | "/_authorize/system/teams/$teamId/(config)/general/"
+    | "/_authorize/system/teams/$teamId/(config)/print-type/"
+    | "/_authorize/system/teams/$teamId/logs/import-orders/"
+    | "/_authorize/system/teams/$teamId/store/$storeId/"
+    | "/_authorize/system/teams/$teamId/transactions/$txnId/"
   fileRoutesById: FileRoutesById
 }
 
@@ -1979,6 +2051,7 @@ export const routeTree = rootRoute
         "/_authorize/global-configuration/finance/",
         "/_authorize/global-configuration/pricing-management/",
         "/_authorize/global-configuration/rush-order/",
+        "/_authorize/global-configuration/seller-pricing-engine/",
         "/_authorize/global-configuration/tier-management/",
         "/_authorize/logs/call-logs/",
         "/_authorize/logs/payment-logs/",
@@ -1991,6 +2064,7 @@ export const routeTree = rootRoute
         "/_authorize/product-management/options/",
         "/_authorize/product-management/products/",
         "/_authorize/product-management/variants/",
+        "/_authorize/prototyper/$prototypeId/",
         "/_authorize/system/members/",
         "/_authorize/system/permissions/",
         "/_authorize/system/teams/",
@@ -1999,6 +2073,7 @@ export const routeTree = rootRoute
         "/_authorize/order/draft-orders/$orderId/",
         "/_authorize/product-management/categories/$categoryId/",
         "/_authorize/product-management/products/$productId/",
+        "/_authorize/prototyper/$prototypeId/preview/",
         "/_authorize/system/teams/$teamId/",
         "/_authorize/system/teams/$teamId/g-credits/enable",
         "/_authorize/finance/transactions/$transactionId/invoice/",
@@ -2166,6 +2241,10 @@ export const routeTree = rootRoute
       "filePath": "_authorize/global-configuration/rush-order/index.tsx",
       "parent": "/_authorize"
     },
+    "/_authorize/global-configuration/seller-pricing-engine/": {
+      "filePath": "_authorize/global-configuration/seller-pricing-engine/index.tsx",
+      "parent": "/_authorize"
+    },
     "/_authorize/global-configuration/tier-management/": {
       "filePath": "_authorize/global-configuration/tier-management/index.tsx",
       "parent": "/_authorize"
@@ -2226,6 +2305,10 @@ export const routeTree = rootRoute
       "filePath": "_authorize/product-management/variants/index.tsx",
       "parent": "/_authorize"
     },
+    "/_authorize/prototyper/$prototypeId/": {
+      "filePath": "_authorize/prototyper/$prototypeId/index.tsx",
+      "parent": "/_authorize"
+    },
     "/_authorize/system/members/": {
       "filePath": "_authorize/system/members/index.tsx",
       "parent": "/_authorize"
@@ -2272,6 +2355,10 @@ export const routeTree = rootRoute
     },
     "/_authorize/product-management/products/$productId/": {
       "filePath": "_authorize/product-management/products/$productId/index.tsx",
+      "parent": "/_authorize"
+    },
+    "/_authorize/prototyper/$prototypeId/preview/": {
+      "filePath": "_authorize/prototyper/$prototypeId/preview/index.tsx",
       "parent": "/_authorize"
     },
     "/_authorize/system/teams/$teamId/": {

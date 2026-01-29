@@ -1,7 +1,10 @@
 import { Badge, DataTable, useTable } from "@gearment/ui3"
 import { type ColumnDef, createColumnHelper } from "@tanstack/react-table"
 import { format } from "date-fns"
-import { useClientDetailContext, type ClientOrder } from "../../-client-detail-context"
+import {
+  useClientDetailContext,
+  type ClientOrder,
+} from "../../-client-detail-context"
 
 const columnHelper = createColumnHelper<ClientOrder>()
 
@@ -25,7 +28,10 @@ const columns: ColumnDef<ClientOrder, unknown>[] = [
     header: "Status",
     cell: (info) => {
       const status = info.getValue()
-      const variants: Record<string, "default" | "secondary" | "destructive" | "outline"> = {
+      const variants: Record<
+        string,
+        "default" | "secondary" | "destructive" | "outline"
+      > = {
         completed: "default",
         processing: "secondary",
         pending: "outline",

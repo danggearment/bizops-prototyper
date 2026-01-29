@@ -1,0 +1,54 @@
+{
+  "permissions": {
+    "allow": ["Bash(*)"]
+  },
+  "projectDescription": "Đây là dự án nội bộ dành cho Product Owner dùng để sinh (generate) wireframe và prototype cho các tính năng mới trong hệ thống Gearment. Mục tiêu là giúp PO mô tả, visualize và validate tính năng trước khi đưa sang team dev.\n\nVì đối tượng sử dụng chính là PO (không rành kỹ thuật), nên mọi flow khởi tạo môi trường dev cần càng tự động càng tốt: khi Claude Code bắt đầu làm việc, nếu dự án chưa được start hoặc chưa cài dependency thì nên tự động chuẩn bị môi trường trước.",
+  "autoProjectSetup": {
+    "checks": [
+      {
+        "type": "path_missing",
+        "path": "node_modules",
+        "description": "Nếu chưa có node_modules thì coi như dự án chưa được setup."
+      }
+    ],
+    "steps": [
+      {
+        "name": "Install dependencies",
+        "command": "pnpm install",
+        "runInBackground": false
+      },
+      {
+        "name": "Start dev server",
+        "command": "pnpm dev",
+        "runInBackground": true
+      }
+    ]
+  },
+  "autoGitWorkflow": {
+    "enabled": true,
+    "description": "Sau mỗi lần Claude Code thực hiện xong một hành động cho PO (tạo/chỉnh sửa file theo yêu cầu), tự động commit và push lên origin.",
+    "steps": [
+      {
+        "name": "Git status (optional)",
+        "command": "git status",
+        "runInBackground": false
+      },
+      {
+        "name": "Stage all changes",
+        "command": "git add .",
+        "runInBackground": false
+      },
+      {
+        "name": "Commit with conventional message",
+        "command": "git commit -m \"chore(claude-code): auto-commit after PO action\" || echo \"No changes to commit\"",
+        "runInBackground": false
+      },
+      {
+        "name": "Push to origin current branch",
+        "command": "git push origin HEAD",
+        "runInBackground": false
+      }
+    ]
+  },
+  "codeFormatTemplate": "Bạn là một senior developer. Nhiệm vụ của bạn là implement feature \"${metadata.title}\" trong app \"${appId}\" của monorepo.\n\n## Context\n- App: ${appId}\n- Feature: ${metadata.title}\n- User Story: ${metadata.user_story}\n- Acceptance Criteria:\n${metadata.acceptance_criteria.map((c) => `- ${c}`).join(\"\\n\")}\n\n## Yêu cầu\n1. Tạo React component trong app ${appId} theo cấu trúc:\n   - Component file: `src/components/features/${metadata.id}/index.tsx`\n   - Style file (nếu cần): `src/components/features/${metadata.id}/styles.css`\n   - Types file (nếu cần): `src/components/features/${metadata.id}/types.ts`\n\n2. Component phải:\n   - Sử dụng React hooks (useState, useEffect nếu cần)\n   - Tuân thủ TypeScript strict mode\n   - Sử dụng Tailwind CSS cho styling\n   - Hỗ trợ mock data mode (query param ?mock=true)\n   - Responsive design\n   - Accessibility (ARIA labels, keyboard navigation)\n   - Sử dụng theme variables từ app\n\n3. Component structure:\n   - Convert HTML/CSS/JS wireframe thành React component\n   - Sử dụng React patterns (hooks, props, state)\n   - Type-safe với TypeScript\n   - Follow app's coding standards\n\n4. Mock data:\n   - Tạo mock data từ example_payloads\n   - Support ?mock=true query param\n   - Hiển thị badge \"Demo / Mock data\" khi mock active\n\n## Output Format\nTrả về JSON với format:\n```json\n{\n  \"files\": [\n    {\n      \"path\": \"apps/${appId}/src/components/features/${metadata.id}/index.tsx\",\n      \"content\": \"...\",\n      \"type\": \"create\"\n    }\n  ]\n}\n```"
+}

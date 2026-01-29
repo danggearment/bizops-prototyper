@@ -1,4 +1,11 @@
-import { Card, CardContent, CardHeader, CardTitle, Badge, Button } from "@gearment/ui3"
+import {
+  Card,
+  CardContent,
+  CardHeader,
+  CardTitle,
+  Badge,
+  Button,
+} from "@gearment/ui3"
 import { FileText, ExternalLink } from "lucide-react"
 import { format } from "date-fns"
 
@@ -20,7 +27,8 @@ const MOCK_CASE_STUDIES: CaseStudy[] = [
   {
     id: "case-001",
     title: "Basic CRUD Operations Test",
-    description: "Testing create, read, update, and delete operations for orders",
+    description:
+      "Testing create, read, update, and delete operations for orders",
     status: "success",
     createdAt: "2024-01-15T10:30:00Z",
     updatedAt: "2024-01-15T11:00:00Z",
@@ -96,14 +104,16 @@ export default function CaseStudies({ prototypeId }: Props) {
                       caseStudy.status === "success"
                         ? "default"
                         : caseStudy.status === "failed"
-                        ? "destructive"
-                        : "secondary"
+                          ? "destructive"
+                          : "secondary"
                     }
                   >
                     {caseStudy.status}
                   </Badge>
                 </div>
-                <p className="text-sm text-muted-foreground">{caseStudy.description}</p>
+                <p className="text-sm text-muted-foreground">
+                  {caseStudy.description}
+                </p>
               </div>
               <Button size="sm" variant="ghost">
                 <ExternalLink className="w-4 h-4" />
@@ -115,21 +125,33 @@ export default function CaseStudies({ prototypeId }: Props) {
               <div className="flex items-center gap-4 text-sm">
                 <div className="flex items-center gap-1">
                   <span className="text-muted-foreground">Total:</span>
-                  <span className="font-medium">{caseStudy.testResults.total}</span>
+                  <span className="font-medium">
+                    {caseStudy.testResults.total}
+                  </span>
                 </div>
                 <div className="flex items-center gap-1">
                   <span className="text-muted-foreground">Passed:</span>
-                  <span className="font-medium text-green-600">{caseStudy.testResults.passed}</span>
+                  <span className="font-medium text-green-600">
+                    {caseStudy.testResults.passed}
+                  </span>
                 </div>
                 <div className="flex items-center gap-1">
                   <span className="text-muted-foreground">Failed:</span>
-                  <span className="font-medium text-red-600">{caseStudy.testResults.failed}</span>
+                  <span className="font-medium text-red-600">
+                    {caseStudy.testResults.failed}
+                  </span>
                 </div>
               </div>
             )}
             <div className="flex items-center gap-4 text-xs text-muted-foreground">
-              <span>Created: {format(new Date(caseStudy.createdAt), "dd/MM/yyyy HH:mm")}</span>
-              <span>Updated: {format(new Date(caseStudy.updatedAt), "dd/MM/yyyy HH:mm")}</span>
+              <span>
+                Created:{" "}
+                {format(new Date(caseStudy.createdAt), "dd/MM/yyyy HH:mm")}
+              </span>
+              <span>
+                Updated:{" "}
+                {format(new Date(caseStudy.updatedAt), "dd/MM/yyyy HH:mm")}
+              </span>
             </div>
           </CardContent>
         </Card>

@@ -41,14 +41,20 @@ export default function ClientProvider({ children }: { children: ReactNode }) {
     // TODO: Replace with real API mutation
     setClients((prev) =>
       prev.map((client) =>
-        client.id === id ? { ...client, name: data.name } : client
-      )
+        client.id === id ? { ...client, name: data.name } : client,
+      ),
     )
   }
 
   return (
     <ClientContext.Provider
-      value={{ clients, loading, total: clients.length, createClient, updateClient }}
+      value={{
+        clients,
+        loading,
+        total: clients.length,
+        createClient,
+        updateClient,
+      }}
     >
       {children}
     </ClientContext.Provider>
@@ -57,6 +63,7 @@ export default function ClientProvider({ children }: { children: ReactNode }) {
 
 export function useClientContext() {
   const ctx = useContext(ClientContext)
-  if (!ctx) throw new Error("useClientContext must be used within ClientProvider")
+  if (!ctx)
+    throw new Error("useClientContext must be used within ClientProvider")
   return ctx
 }

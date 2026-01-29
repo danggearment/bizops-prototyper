@@ -106,7 +106,9 @@ export default function CaseStudyDialog({
               </SelectContent>
             </Select>
             {errors.prototypeId && (
-              <p className="text-sm text-destructive">{errors.prototypeId.message}</p>
+              <p className="text-sm text-destructive">
+                {errors.prototypeId.message}
+              </p>
             )}
           </div>
 
@@ -131,7 +133,9 @@ export default function CaseStudyDialog({
               rows={3}
             />
             {errors.description && (
-              <p className="text-sm text-destructive">{errors.description.message}</p>
+              <p className="text-sm text-destructive">
+                {errors.description.message}
+              </p>
             )}
           </div>
 
@@ -143,7 +147,9 @@ export default function CaseStudyDialog({
               placeholder="https://example.com/image.jpg"
             />
             {errors.thumbnail && (
-              <p className="text-sm text-destructive">{errors.thumbnail.message}</p>
+              <p className="text-sm text-destructive">
+                {errors.thumbnail.message}
+              </p>
             )}
           </div>
 
@@ -156,7 +162,9 @@ export default function CaseStudyDialog({
               rows={6}
             />
             {errors.content && (
-              <p className="text-sm text-destructive">{errors.content.message}</p>
+              <p className="text-sm text-destructive">
+                {errors.content.message}
+              </p>
             )}
           </div>
 

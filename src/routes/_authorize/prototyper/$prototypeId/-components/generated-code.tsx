@@ -1,4 +1,14 @@
-import { Card, CardContent, CardHeader, CardTitle, Tabs, TabsContent, TabsList, TabsTrigger, Button } from "@gearment/ui3"
+import {
+  Card,
+  CardContent,
+  CardHeader,
+  CardTitle,
+  Tabs,
+  TabsContent,
+  TabsList,
+  TabsTrigger,
+  Button,
+} from "@gearment/ui3"
 import { Copy, Check } from "lucide-react"
 import { useState } from "react"
 
@@ -40,16 +50,26 @@ export default function GeneratedCode({ files }: Props) {
         <Tabs defaultValue={files[0]?.path} className="space-y-4">
           <TabsList className="flex-wrap h-auto">
             {files.map((file, index) => (
-              <TabsTrigger key={file.path} value={file.path} className="text-xs">
+              <TabsTrigger
+                key={file.path}
+                value={file.path}
+                className="text-xs"
+              >
                 {file.path.split("/").pop()}
               </TabsTrigger>
             ))}
           </TabsList>
 
           {files.map((file) => (
-            <TabsContent key={file.path} value={file.path} className="space-y-2">
+            <TabsContent
+              key={file.path}
+              value={file.path}
+              className="space-y-2"
+            >
               <div className="flex items-center justify-between">
-                <div className="text-xs font-mono text-muted-foreground">{file.path}</div>
+                <div className="text-xs font-mono text-muted-foreground">
+                  {file.path}
+                </div>
                 <Button
                   size="sm"
                   variant="outline"

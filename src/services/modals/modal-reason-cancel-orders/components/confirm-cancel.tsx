@@ -239,8 +239,8 @@ export default function ConfirmCancel({
           value={
             reasonId === ReasonCancelOrdersType.ANOTHER_REASON
               ? customReason
-              : reasonList.find((reason) => reason.reasonId === reasonId)
-                  ?.displayName ?? ""
+              : (reasonList.find((reason) => reason.reasonId === reasonId)
+                  ?.displayName ?? "")
           }
         />
       )}

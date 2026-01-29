@@ -36,8 +36,9 @@ import { createFileRoute, Link, useRouterState } from "@tanstack/react-router"
 import { ArrowLeftIcon } from "lucide-react"
 import OrderDetails from "../../-component/order-detail/order-detail"
 
-export interface OrderGiftMessageType
-  extends Partial<Omit<Order_GiftMessage, "type">> {
+export interface OrderGiftMessageType extends Partial<
+  Omit<Order_GiftMessage, "type">
+> {
   draftId?: string
   giftMessageId: string
   type: AllGiftMessageType

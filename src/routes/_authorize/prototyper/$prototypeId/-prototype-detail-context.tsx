@@ -1,13 +1,13 @@
-import { createContext, useContext, type ReactNode } from "react"
 import { useParams } from "@tanstack/react-router"
+import { createContext, useContext, type ReactNode } from "react"
 import type { PrototypeType } from "../-components/table/columns"
-import type { GeneratedFileType } from "./-components/generated-code"
 
 const MOCK_PROTOTYPES: PrototypeType[] = [
   {
     id: "proto-001",
     moduleName: "Order Management",
-    description: "Complete order management module with filtering, search, and bulk actions",
+    description:
+      "Complete order management module with filtering, search, and bulk actions",
     status: "completed",
     createdAt: "2024-01-15T10:30:00Z",
     createdBy: "John Doe",
@@ -126,7 +126,8 @@ export function useOrderManagementContext() {
   </div>
 </body>
 </html>`,
-    explanation: "Complete order management prototype with table, filters, and mock data",
+    explanation:
+      "Complete order management prototype with table, filters, and mock data",
   },
 ]
 
@@ -135,13 +136,20 @@ interface PrototypeDetailContextType {
   loading: boolean
 }
 
-const PrototypeDetailContext = createContext<PrototypeDetailContextType | null>(null)
+const PrototypeDetailContext = createContext<PrototypeDetailContextType | null>(
+  null,
+)
 
-export default function PrototypeDetailProvider({ children }: { children: ReactNode }) {
+export default function PrototypeDetailProvider({
+  children,
+}: {
+  children: ReactNode
+}) {
   const params = useParams({ from: "/_authorize/prototyper/$prototypeId/" })
-  
+
   // TODO: Replace with real API hook from @gearment/nextapi
-  const prototype = MOCK_PROTOTYPES.find(p => p.id === params.prototypeId) || null
+  const prototype =
+    MOCK_PROTOTYPES.find((p) => p.id === params.prototypeId) || null
   const loading = false
 
   return (
@@ -153,6 +161,9 @@ export default function PrototypeDetailProvider({ children }: { children: ReactN
 
 export function usePrototypeDetail() {
   const ctx = useContext(PrototypeDetailContext)
-  if (!ctx) throw new Error("usePrototypeDetail must be used within PrototypeDetailProvider")
+  if (!ctx)
+    throw new Error(
+      "usePrototypeDetail must be used within PrototypeDetailProvider",
+    )
   return ctx
 }

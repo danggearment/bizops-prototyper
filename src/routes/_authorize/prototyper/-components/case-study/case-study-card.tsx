@@ -8,7 +8,11 @@ interface CaseStudyCardProps {
   onDelete: (id: string) => void
 }
 
-export default function CaseStudyCard({ caseStudy, onEdit, onDelete }: CaseStudyCardProps) {
+export default function CaseStudyCard({
+  caseStudy,
+  onEdit,
+  onDelete,
+}: CaseStudyCardProps) {
   return (
     <Card className="overflow-hidden hover:shadow-lg transition-shadow">
       <div className="aspect-video w-full overflow-hidden bg-muted">
@@ -19,7 +23,9 @@ export default function CaseStudyCard({ caseStudy, onEdit, onDelete }: CaseStudy
         />
       </div>
       <CardHeader>
-        <CardTitle className="text-lg line-clamp-2">{caseStudy.title}</CardTitle>
+        <CardTitle className="text-lg line-clamp-2">
+          {caseStudy.title}
+        </CardTitle>
       </CardHeader>
       <CardContent className="space-y-4">
         <p className="text-sm text-muted-foreground line-clamp-3">
@@ -30,11 +36,7 @@ export default function CaseStudyCard({ caseStudy, onEdit, onDelete }: CaseStudy
             <ExternalLink className="h-4 w-4 mr-2" />
             View Details
           </Button>
-          <Button
-            size="sm"
-            variant="outline"
-            onClick={() => onEdit(caseStudy)}
-          >
+          <Button size="sm" variant="outline" onClick={() => onEdit(caseStudy)}>
             <Pencil className="h-4 w-4" />
           </Button>
           <Button

@@ -27,7 +27,11 @@ export default function ProductFilter() {
               defaultValue={search.search}
               onChange={(e) => {
                 navigate({
-                  search: (prev) => ({ ...prev, search: e.target.value, page: 1 }),
+                  search: (prev) => ({
+                    ...prev,
+                    search: e.target.value,
+                    page: 1,
+                  }),
                 })
               }}
             />

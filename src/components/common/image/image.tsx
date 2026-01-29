@@ -14,7 +14,8 @@ const imageProductVariants = cva(
 )
 
 export interface ImageProps
-  extends React.HtmlHTMLAttributes<HTMLDivElement>,
+  extends
+    React.HtmlHTMLAttributes<HTMLDivElement>,
     VariantProps<typeof imageProductVariants> {
   url: string
   width?: number

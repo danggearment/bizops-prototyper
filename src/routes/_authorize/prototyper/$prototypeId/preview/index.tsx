@@ -3,7 +3,9 @@ import { createFileRoute, useParams, Link } from "@tanstack/react-router"
 import { ArrowLeft, Maximize2 } from "lucide-react"
 import { usePrototypeDetail } from "../-prototype-detail-context"
 
-export const Route = createFileRoute("/_authorize/prototyper/$prototypeId/preview/")({  
+export const Route = createFileRoute(
+  "/_authorize/prototyper/$prototypeId/preview/",
+)({
   component: () => <Preview />,
   beforeLoad: () => ({
     breadcrumb: [
@@ -15,7 +17,9 @@ export const Route = createFileRoute("/_authorize/prototyper/$prototypeId/previe
 })
 
 function Preview() {
-  const params = useParams({ from: "/_authorize/prototyper/$prototypeId/preview/" })
+  const params = useParams({
+    from: "/_authorize/prototyper/$prototypeId/preview/",
+  })
   const { prototype, loading } = usePrototypeDetail()
 
   if (loading || !prototype) {
@@ -30,14 +34,19 @@ function Preview() {
     <div className="h-[calc(100vh-80px)] flex flex-col">
       <div className="bg-background border-b p-4 flex items-center justify-between">
         <div className="flex items-center gap-3">
-          <Link to="/prototyper/$prototypeId" params={{ prototypeId: params.prototypeId }}>
+          <Link
+            to="/prototyper/$prototypeId"
+            params={{ prototypeId: params.prototypeId }}
+          >
             <Button variant="outline" size="icon">
               <ArrowLeft size={14} />
             </Button>
           </Link>
           <div>
             <div className="font-medium">{prototype.moduleName}</div>
-            <div className="text-sm text-muted-foreground">Full Screen Preview</div>
+            <div className="text-sm text-muted-foreground">
+              Full Screen Preview
+            </div>
           </div>
         </div>
         <Button size="sm" variant="outline">

@@ -287,14 +287,14 @@ export default function TableStaff() {
     })
   }
 
-  useEffect(() => {
+  ;(useEffect(() => {
     if (data?.data) {
       membersRef.current = data?.data.filter(
         (staff) => rowSelection[staff.staffId],
       )
     }
   }),
-    [rowSelection]
+    [rowSelection])
 
   const headerAction = useMemo(() => {
     const rowSelectedLength = Object.keys(rowSelection).filter(

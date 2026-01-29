@@ -99,15 +99,23 @@ interface ProductListingContextType {
   total: number
 }
 
-const ProductListingContext = createContext<ProductListingContextType | null>(null)
+const ProductListingContext = createContext<ProductListingContextType | null>(
+  null,
+)
 
-export default function ProductListingProvider({ children }: { children: ReactNode }) {
+export default function ProductListingProvider({
+  children,
+}: {
+  children: ReactNode
+}) {
   // TODO: Replace with real API hooks from @gearment/nextapi
   const products = MOCK_DATA
   const loading = false
 
   return (
-    <ProductListingContext.Provider value={{ products, loading, total: products.length }}>
+    <ProductListingContext.Provider
+      value={{ products, loading, total: products.length }}
+    >
       {children}
     </ProductListingContext.Provider>
   )
@@ -115,6 +123,9 @@ export default function ProductListingProvider({ children }: { children: ReactNo
 
 export function useProductListingContext() {
   const ctx = useContext(ProductListingContext)
-  if (!ctx) throw new Error("useProductListingContext must be used within ProductListingProvider")
+  if (!ctx)
+    throw new Error(
+      "useProductListingContext must be used within ProductListingProvider",
+    )
   return ctx
 }

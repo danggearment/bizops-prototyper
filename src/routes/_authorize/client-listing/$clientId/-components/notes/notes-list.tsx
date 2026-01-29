@@ -47,10 +47,15 @@ export default function NotesList() {
                   <div className="flex items-center justify-between">
                     <span className="font-medium text-sm">{note.author}</span>
                     <span className="text-xs text-muted-foreground">
-                      {format(new Date(note.createdAt), "MMM dd, yyyy 'at' HH:mm")}
+                      {format(
+                        new Date(note.createdAt),
+                        "MMM dd, yyyy 'at' HH:mm",
+                      )}
                     </span>
                   </div>
-                  <p className="text-sm text-muted-foreground mt-1">{note.content}</p>
+                  <p className="text-sm text-muted-foreground mt-1">
+                    {note.content}
+                  </p>
                 </div>
               </div>
             </CardContent>

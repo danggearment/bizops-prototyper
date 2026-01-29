@@ -20,8 +20,9 @@ import { useMemo, useState } from "react"
 import OrderInformation from "../../-component/order-detail/order-information"
 import ShippingInformation from "./shipping-information/shipping-information"
 
-export interface OrderGiftMessageType
-  extends Partial<Omit<Order_GiftMessage, "type">> {
+export interface OrderGiftMessageType extends Partial<
+  Omit<Order_GiftMessage, "type">
+> {
   draftId?: string
   giftMessageId: string
   type: AllGiftMessageType

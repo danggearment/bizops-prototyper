@@ -9,7 +9,10 @@ export const ClientSearchSchema = z.object({
 export type ClientSearchType = z.infer<typeof ClientSearchSchema>
 
 export const ClientFormSchema = z.object({
-  name: z.string().min(1, "Name is required").max(255, "Name must be less than 255 characters"),
+  name: z
+    .string()
+    .min(1, "Name is required")
+    .max(255, "Name must be less than 255 characters"),
 })
 
 export type ClientFormType = z.infer<typeof ClientFormSchema>

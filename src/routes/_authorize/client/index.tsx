@@ -10,7 +10,7 @@ import ClientDialog from "./-components/client-dialog"
 import type { ClientType } from "./-components/table/columns"
 import type { ClientFormType } from "@/schemas/schemas/client"
 
-export const Route = createFileRoute("/_authorize/client/")({ 
+export const Route = createFileRoute("/_authorize/client/")({
   validateSearch: zodValidator(ClientSearchSchema),
   search: {
     middlewares: [stripSearchParams(ClientSearchSchema.parse({}))],
@@ -48,7 +48,7 @@ function Index() {
         createClient(data)
       }
     },
-    [editingClient, createClient, updateClient]
+    [editingClient, createClient, updateClient],
   )
 
   return (

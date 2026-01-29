@@ -27,7 +27,9 @@ const columnHelper = createColumnHelper<PrototypeType>()
 export const columns: ColumnDef<PrototypeType, unknown>[] = [
   columnHelper.accessor("id", {
     header: "ID",
-    cell: (info) => <span className="font-mono text-sm">{info.getValue()}</span>,
+    cell: (info) => (
+      <span className="font-mono text-sm">{info.getValue()}</span>
+    ),
   }),
   columnHelper.accessor("moduleName", {
     header: "Module Name",
@@ -57,10 +59,10 @@ export const columns: ColumnDef<PrototypeType, unknown>[] = [
         status === "completed"
           ? "default"
           : status === "processing"
-          ? "secondary"
-          : status === "failed"
-          ? "destructive"
-          : "outline"
+            ? "secondary"
+            : status === "failed"
+              ? "destructive"
+              : "outline"
       return <Badge variant={variant}>{status}</Badge>
     },
   }),

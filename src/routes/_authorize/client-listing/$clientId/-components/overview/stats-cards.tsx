@@ -37,7 +37,9 @@ export default function StatsCards() {
             </div>
             <div>
               <p className="text-sm text-muted-foreground">Total Spent</p>
-              <p className="text-2xl font-bold">{formatCurrency(client.totalSpent)}</p>
+              <p className="text-2xl font-bold">
+                {formatCurrency(client.totalSpent)}
+              </p>
             </div>
           </div>
         </CardContent>
@@ -51,7 +53,9 @@ export default function StatsCards() {
             </div>
             <div>
               <p className="text-sm text-muted-foreground">Avg. Order Value</p>
-              <p className="text-2xl font-bold">{formatCurrency(client.averageOrderValue)}</p>
+              <p className="text-2xl font-bold">
+                {formatCurrency(client.averageOrderValue)}
+              </p>
             </div>
           </div>
         </CardContent>

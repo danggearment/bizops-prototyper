@@ -61,8 +61,8 @@ const MOCK_CLIENT: ClientDetail = {
   country: "United States",
   postalCode: "94102",
   totalOrders: 47,
-  totalSpent: 125750.00,
-  averageOrderValue: 2676.60,
+  totalSpent: 125750.0,
+  averageOrderValue: 2676.6,
   lastOrderDate: "2024-01-10T14:30:00Z",
   createdAt: "2023-03-15T09:00:00Z",
   updatedAt: "2024-01-10T14:30:00Z",
@@ -72,7 +72,7 @@ const MOCK_CLIENT: ClientDetail = {
       orderNumber: "ORD-2024-0147",
       status: "completed",
       items: 5,
-      total: 3250.00,
+      total: 3250.0,
       createdAt: "2024-01-10T14:30:00Z",
     },
     {
@@ -80,7 +80,7 @@ const MOCK_CLIENT: ClientDetail = {
       orderNumber: "ORD-2024-0098",
       status: "completed",
       items: 3,
-      total: 1875.50,
+      total: 1875.5,
       createdAt: "2024-01-05T11:20:00Z",
     },
     {
@@ -88,7 +88,7 @@ const MOCK_CLIENT: ClientDetail = {
       orderNumber: "ORD-2023-0892",
       status: "processing",
       items: 8,
-      total: 4520.00,
+      total: 4520.0,
       createdAt: "2023-12-28T16:45:00Z",
     },
     {
@@ -96,7 +96,7 @@ const MOCK_CLIENT: ClientDetail = {
       orderNumber: "ORD-2023-0756",
       status: "completed",
       items: 2,
-      total: 890.00,
+      total: 890.0,
       createdAt: "2023-12-15T09:30:00Z",
     },
     {
@@ -104,7 +104,7 @@ const MOCK_CLIENT: ClientDetail = {
       orderNumber: "ORD-2023-0621",
       status: "cancelled",
       items: 4,
-      total: 2100.00,
+      total: 2100.0,
       createdAt: "2023-12-01T13:00:00Z",
     },
   ],
@@ -113,7 +113,7 @@ const MOCK_CLIENT: ClientDetail = {
       id: "PAY-001",
       transactionId: "TXN-20240110-001",
       method: "credit_card",
-      amount: 3250.00,
+      amount: 3250.0,
       status: "completed",
       createdAt: "2024-01-10T14:35:00Z",
     },
@@ -121,7 +121,7 @@ const MOCK_CLIENT: ClientDetail = {
       id: "PAY-002",
       transactionId: "TXN-20240105-002",
       method: "bank_transfer",
-      amount: 1875.50,
+      amount: 1875.5,
       status: "completed",
       createdAt: "2024-01-05T11:25:00Z",
     },
@@ -129,7 +129,7 @@ const MOCK_CLIENT: ClientDetail = {
       id: "PAY-003",
       transactionId: "TXN-20231228-003",
       method: "credit_card",
-      amount: 4520.00,
+      amount: 4520.0,
       status: "pending",
       createdAt: "2023-12-28T16:50:00Z",
     },
@@ -137,7 +137,7 @@ const MOCK_CLIENT: ClientDetail = {
       id: "PAY-004",
       transactionId: "TXN-20231215-004",
       method: "paypal",
-      amount: 890.00,
+      amount: 890.0,
       status: "completed",
       createdAt: "2023-12-15T09:35:00Z",
     },
@@ -145,7 +145,7 @@ const MOCK_CLIENT: ClientDetail = {
       id: "PAY-005",
       transactionId: "TXN-20231201-005",
       method: "credit_card",
-      amount: 2100.00,
+      amount: 2100.0,
       status: "refunded",
       createdAt: "2023-12-01T13:05:00Z",
     },
@@ -154,19 +154,22 @@ const MOCK_CLIENT: ClientDetail = {
     {
       id: "NOTE-001",
       author: "John Smith",
-      content: "Client requested priority shipping for all future orders. Approved by management.",
+      content:
+        "Client requested priority shipping for all future orders. Approved by management.",
       createdAt: "2024-01-08T10:00:00Z",
     },
     {
       id: "NOTE-002",
       author: "Sarah Johnson",
-      content: "Discussed annual contract renewal. Client interested in volume discount for 2024.",
+      content:
+        "Discussed annual contract renewal. Client interested in volume discount for 2024.",
       createdAt: "2023-12-20T15:30:00Z",
     },
     {
       id: "NOTE-003",
       author: "Mike Davis",
-      content: "Resolved billing issue from November. Client confirmed satisfaction with resolution.",
+      content:
+        "Resolved billing issue from November. Client confirmed satisfaction with resolution.",
       createdAt: "2023-12-05T11:45:00Z",
     },
   ],
@@ -179,7 +182,11 @@ interface ClientDetailContextType {
 
 const ClientDetailContext = createContext<ClientDetailContextType | null>(null)
 
-export default function ClientDetailProvider({ children }: { children: ReactNode }) {
+export default function ClientDetailProvider({
+  children,
+}: {
+  children: ReactNode
+}) {
   // TODO: Replace with real API hook from @gearment/nextapi
   // const { data: client, isLoading } = useGetClient(clientId)
   const client = MOCK_CLIENT
@@ -194,6 +201,9 @@ export default function ClientDetailProvider({ children }: { children: ReactNode
 
 export function useClientDetailContext() {
   const ctx = useContext(ClientDetailContext)
-  if (!ctx) throw new Error("useClientDetailContext must be used within ClientDetailProvider")
+  if (!ctx)
+    throw new Error(
+      "useClientDetailContext must be used within ClientDetailProvider",
+    )
   return ctx
 }

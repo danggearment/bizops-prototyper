@@ -13,10 +13,14 @@ export interface ColumnsProps {
 
 const columnHelper = createColumnHelper<ClientType>()
 
-export const createColumns = ({ onEdit }: ColumnsProps): ColumnDef<ClientType, unknown>[] => [
+export const createColumns = ({
+  onEdit,
+}: ColumnsProps): ColumnDef<ClientType, unknown>[] => [
   columnHelper.accessor("id", {
     header: "ID",
-    cell: (info) => <span className="font-mono text-sm">{info.getValue()}</span>,
+    cell: (info) => (
+      <span className="font-mono text-sm">{info.getValue()}</span>
+    ),
   }),
   columnHelper.accessor("name", {
     header: "Name",
@@ -26,11 +30,7 @@ export const createColumns = ({ onEdit }: ColumnsProps): ColumnDef<ClientType, u
     id: "actions",
     header: "Actions",
     cell: ({ row }) => (
-      <Button
-        variant="ghost"
-        size="icon"
-        onClick={() => onEdit(row.original)}
-      >
+      <Button variant="ghost" size="icon" onClick={() => onEdit(row.original)}>
         <Pencil className="h-4 w-4" />
       </Button>
     ),

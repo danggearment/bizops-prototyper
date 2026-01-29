@@ -58,7 +58,9 @@ export const columns: ColumnDef<ProductType, unknown>[] = [
     cell: (info) => (
       <div className="flex flex-col">
         <span className="font-medium">{info.getValue()}</span>
-        <span className="text-xs text-muted-foreground">{info.row.original.sku}</span>
+        <span className="text-xs text-muted-foreground">
+          {info.row.original.sku}
+        </span>
       </div>
     ),
   }),
@@ -87,7 +89,10 @@ export const columns: ColumnDef<ProductType, unknown>[] = [
     header: "Status",
     cell: (info) => {
       const status = info.getValue()
-      const variantMap: Record<string, "default" | "secondary" | "destructive" | "outline"> = {
+      const variantMap: Record<
+        string,
+        "default" | "secondary" | "destructive" | "outline"
+      > = {
         active: "default",
         draft: "secondary",
         archived: "outline",
