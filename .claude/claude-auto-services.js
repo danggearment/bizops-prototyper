@@ -60,9 +60,14 @@ export async function ensureProjectSetup() {
     return false
   })
 
-  if (!needsSetup) return
+  // Nếu đã setup (ví dụ đã có node_modules), vẫn nên đảm bảo dev server được start.
+  // - Khi needsSetup = true: chạy tất cả steps (install + dev).
+  // - Khi needsSetup = false: chỉ chạy các step chạy nền (thường là dev server).
+  const stepsToRun = needsSetup
+    ? config.steps || []
+    : (config.steps || []).filter((step) => step.runInBackground)
 
-  for (const step of config.steps || []) {
+  for (const step of stepsToRun) {
     console.log(`[autoProjectSetup] Running: ${step.name} -> ${step.command}`)
     await runCommand(step.command, { runInBackground: !!step.runInBackground })
   }
@@ -80,6 +85,19 @@ export async function runAutoGitWorkflow() {
   }
 }
 
+export async function stopDevServers() {
+  // Thử kill theo command line pattern; không fail cứng nếu không có process nào.
+  try {
+    console.log("[autoProjectSetup] Stopping dev servers (pnpm dev / vite)...")
+    await runCommand('pkill -f "pnpm dev" || true', { runInBackground: false })
+    await runCommand('pkill -f "vite" || true', { runInBackground: false })
+    // Sau khi dừng dev server, tự động chạy git workflow nếu được bật
+    await runAutoGitWorkflow()
+  } catch (err) {
+    console.error("[autoProjectSetup] Error while stopping dev servers:", err)
+  }
+}
+
 // Allow running from CLI: `node .claude/claude-auto-services.js setup|git`
 if (process.argv[1] === __filename) {
   const mode = process.argv[2]
@@ -89,6 +107,8 @@ if (process.argv[1] === __filename) {
       await ensureProjectSetup()
     } else if (mode === "git") {
       await runAutoGitWorkflow()
+    } else if (mode === "stop") {
+      await stopDevServers()
     } else {
       console.log("Usage: node .claude/claude-auto-services.js [setup|git]")
     }
